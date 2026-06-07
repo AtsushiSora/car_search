@@ -1358,6 +1358,82 @@ pre {
   margin-top: auto;
 }
 
+.admin-preview-section {
+  padding-top: 0;
+}
+
+.admin-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.admin-preview-card {
+  min-width: 0;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 14px 36px rgba(20, 66, 116, 0.1);
+}
+
+.admin-preview-head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.admin-preview-head h3 {
+  margin: 10px 0 0;
+  color: var(--blue-dark);
+  font-size: 1.2rem;
+}
+
+.admin-preview-head strong {
+  min-width: max-content;
+  color: var(--orange);
+  font-size: 1rem;
+}
+
+.admin-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.admin-data-table {
+  width: 100%;
+  min-width: 620px;
+  border-collapse: collapse;
+  background: #fff;
+  font-size: 0.9rem;
+}
+
+.admin-data-table th,
+.admin-data-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #e9f1f8;
+  text-align: left;
+  vertical-align: top;
+}
+
+.admin-data-table th {
+  color: var(--blue-dark);
+  background: #f2f8ff;
+  font-weight: 900;
+}
+
+.admin-data-table td {
+  color: #33435a;
+  font-weight: 700;
+}
+
+.admin-data-table tr:last-child td {
+  border-bottom: 0;
+}
+
 .admin-steps-section {
   background: #fff;
 }
@@ -1462,6 +1538,7 @@ pre {
   .car-grid,
   .stock-grid,
   .admin-card-grid,
+  .admin-preview-grid,
   .admin-steps,
   .proposal-layout,
   .contact-layout {
@@ -1561,6 +1638,7 @@ pre {
   .car-grid,
   .stock-grid,
   .admin-card-grid,
+  .admin-preview-grid,
   .admin-steps,
   .proposal-layout,
   .contact-layout,
