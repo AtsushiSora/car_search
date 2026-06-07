@@ -427,7 +427,8 @@ h1 {
 }
 
 .step-card,
-.car-card {
+.car-card,
+.consult-card {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -525,6 +526,62 @@ h1 {
   border-bottom: 1px solid var(--line);
 }
 
+.consult-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.consult-card {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  min-height: 286px;
+  padding: 26px 24px;
+}
+
+.consult-icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  color: var(--blue);
+  background: var(--blue-soft);
+  border: 1px solid #cde7ff;
+  border-radius: 999px;
+  font-weight: 900;
+}
+
+.consult-icon.mail {
+  color: var(--orange);
+  background: #fff4e8;
+  border-color: #ffd8ad;
+}
+
+.consult-icon.line {
+  color: #fff;
+  background: var(--line-green);
+  border-color: var(--line-green);
+  font-size: 0.82rem;
+}
+
+.consult-card h3 {
+  margin: 0;
+  color: var(--blue-dark);
+  font-size: 1.2rem;
+}
+
+.consult-card p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.consult-card a {
+  width: 100%;
+  margin-top: auto;
+}
+
 .contact-section {
   background:
     radial-gradient(circle at 8% 18%, rgba(15, 103, 189, 0.09), transparent 28%),
@@ -611,6 +668,53 @@ legend {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
+}
+
+.method-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.method-option {
+  position: relative;
+  display: block;
+}
+
+.method-option input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.method-option span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 10px 12px;
+  color: var(--blue-dark);
+  background: #fbfdff;
+  border: 1px solid #ccd9e8;
+  border-radius: var(--radius);
+  font-weight: 900;
+  text-align: center;
+}
+
+.method-option input:checked + span {
+  color: #fff;
+  background: var(--blue);
+  border-color: var(--blue);
+  box-shadow: 0 8px 20px rgba(15, 103, 189, 0.2);
+}
+
+.method-option input:focus-visible + span {
+  box-shadow: 0 0 0 4px rgba(15, 103, 189, 0.13);
 }
 
 label {
@@ -849,6 +953,7 @@ pre {
   }
 
   .steps,
+  .consult-grid,
   .car-grid,
   .contact-layout {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -942,9 +1047,14 @@ pre {
 
   .intro-grid,
   .steps,
+  .consult-grid,
   .car-grid,
   .contact-layout,
   .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .method-options {
     grid-template-columns: 1fr;
   }
 

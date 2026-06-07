@@ -27,6 +27,7 @@
       <nav class="desktop-nav" aria-label="メインメニュー">
         <a href="#flow">サービスの流れ</a>
         <a href="#examples">ご提案例</a>
+        <a href="#consultation">相談方法</a>
         <a href="#faq">よくある質問</a>
         <a href="#contact">相談フォーム</a>
       </nav>
@@ -46,6 +47,7 @@
     <nav class="mobile-nav" id="mobileNav" aria-label="モバイルメニュー">
       <a href="#flow">サービスの流れ</a>
       <a href="#examples">ご提案例</a>
+      <a href="#consultation">相談方法</a>
       <a href="#faq">よくある質問</a>
       <a class="js-line-link" href="#" target="_blank" rel="noopener">ビジネスLINE</a>
       <a href="#contact">相談フォーム</a>
@@ -155,11 +157,11 @@
             </article>
             <article class="car-card">
               <img class="car-photo" src="assets/example-kei.png" alt="水色の軽ワゴンのご提案例" />
-              <h3>ホンダ N-BOX</h3>
+              <h3>ダイハツ タント</h3>
               <dl>
                 <div><dt>年式</dt><dd>2022年</dd></div>
                 <div><dt>走行距離</dt><dd>12,000km</dd></div>
-                <div><dt>価格目安</dt><dd>145万円</dd></div>
+                <div><dt>価格目安</dt><dd>100万円</dd></div>
               </dl>
             </article>
             <article class="car-card">
@@ -170,6 +172,35 @@
                 <div><dt>走行距離</dt><dd>42,000km</dd></div>
                 <div><dt>価格目安</dt><dd>298万円</dd></div>
               </dl>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="consultation">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="section-kicker">CONTACT OPTIONS</p>
+            <h2>相談方法は3パターン</h2>
+          </div>
+          <div class="consult-grid">
+            <article class="consult-card">
+              <span class="consult-icon phone">☎</span>
+              <h3>電話で相談</h3>
+              <p>急ぎの相談や、条件を話しながら整理したい方におすすめです。</p>
+              <a class="secondary-link" href="tel:0312345678">03-1234-5678</a>
+            </article>
+            <article class="consult-card">
+              <span class="consult-icon mail">✉</span>
+              <h3>メールで相談</h3>
+              <p>希望条件を文章でまとめて送りたい方におすすめです。</p>
+              <a class="primary-link js-email-link" href="mailto:owner@example.com">メールで相談する</a>
+            </article>
+            <article class="consult-card">
+              <span class="consult-icon line">LINE</span>
+              <h3>ビジネスLINEで相談</h3>
+              <p>写真の送付や追加条件のやり取りを気軽にしたい方におすすめです。</p>
+              <a class="line-link js-line-link" href="#" target="_blank" rel="noopener">LINEで相談する</a>
             </article>
           </div>
         </div>
@@ -201,6 +232,24 @@
           <form class="order-form" id="orderForm" method="post">
             <input type="hidden" name="formName" value="car-search-order" />
             <input type="hidden" name="subject" value="車探し無料相談フォーム" />
+            <fieldset>
+              <legend>希望の相談方法</legend>
+              <div class="method-options">
+                <label class="method-option">
+                  <input type="radio" name="contactMethod" value="電話" />
+                  <span>電話</span>
+                </label>
+                <label class="method-option">
+                  <input type="radio" name="contactMethod" value="メール" checked />
+                  <span>メール</span>
+                </label>
+                <label class="method-option">
+                  <input type="radio" name="contactMethod" value="ビジネスLINE" />
+                  <span>ビジネスLINE</span>
+                </label>
+              </div>
+            </fieldset>
+
             <fieldset>
               <legend>車の情報</legend>
               <div class="form-grid">
@@ -268,6 +317,10 @@
                   <span>メールアドレス</span>
                   <input name="email" type="email" placeholder="例）sample@example.com" required />
                 </label>
+                <label>
+                  <span>電話番号</span>
+                  <input name="phone" type="tel" placeholder="例）090-1234-5678" />
+                </label>
               </div>
             </fieldset>
 
@@ -313,6 +366,7 @@
         <p id="resultMessage">下記の内容で確認しました。</p>
         <pre id="summaryText"></pre>
         <div class="modal-actions">
+          <a class="secondary-link" href="tel:0312345678">電話する</a>
           <a class="primary-link" id="mailtoLink" href="#">メール下書きを作成</a>
           <a class="line-link" id="modalLineLink" href="#" target="_blank" rel="noopener">LINEで追加相談</a>
           <button class="secondary-button" id="copyButton" type="button">内容をコピー</button>
@@ -328,7 +382,8 @@
         </div>
         <div class="footer-links">
           <a class="js-line-link" href="#" target="_blank" rel="noopener">ビジネスLINE</a>
-          <a href="mailto:owner@example.com">メールで相談する</a>
+          <a class="js-email-link" href="mailto:owner@example.com">メールで相談する</a>
+          <a href="tel:0312345678">電話で相談する</a>
         </div>
       </div>
     </footer>

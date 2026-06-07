@@ -13,8 +13,10 @@ const mailtoLink = document.querySelector("#mailtoLink");
 const modalLineLink = document.querySelector("#modalLineLink");
 const copyButton = document.querySelector("#copyButton");
 const lineLinks = document.querySelectorAll(".js-line-link");
+const emailLinks = document.querySelectorAll(".js-email-link");
 
 const labels = {
+  contactMethod: "希望の相談方法",
   carModel: "車種",
   year: "年式",
   mileage: "走行距離",
@@ -24,6 +26,7 @@ const labels = {
   notes: "その他の希望",
   customerName: "お名前",
   email: "メールアドレス",
+  phone: "電話番号",
 };
 
 menuButton?.addEventListener("click", () => {
@@ -33,6 +36,10 @@ menuButton?.addEventListener("click", () => {
 
 lineLinks.forEach((link) => {
   link.href = lineUrl || "#contact";
+});
+
+emailLinks.forEach((link) => {
+  link.href = `mailto:${ownerEmail}`;
 });
 
 if (modalLineLink) {
