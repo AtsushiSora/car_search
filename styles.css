@@ -1443,6 +1443,49 @@ pre {
   background: linear-gradient(180deg, #f7fbff 0%, #fff 100%);
 }
 
+.related-pages {
+  background: #f7fbff;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.related-card {
+  display: grid;
+  gap: 10px;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 30px rgba(20, 66, 116, 0.08);
+}
+
+.related-card span {
+  color: var(--blue);
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.related-card strong {
+  color: var(--blue-dark);
+  font-size: 1.08rem;
+}
+
+.related-card p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.related-card:hover,
+.related-card:focus-visible {
+  border-color: #b8d8f2;
+  box-shadow: 0 16px 34px rgba(15, 103, 189, 0.14);
+}
+
 .admin-page {
   background: #f5f9fd;
 }
@@ -1712,6 +1755,7 @@ pre {
   .stock-grid,
   .detail-layout,
   .detail-grid,
+  .related-grid,
   .admin-card-grid,
   .admin-preview-grid,
   .admin-steps,
@@ -1818,6 +1862,7 @@ pre {
   .stock-grid,
   .detail-layout,
   .detail-grid,
+  .related-grid,
   .admin-card-grid,
   .admin-preview-grid,
   .admin-steps,
