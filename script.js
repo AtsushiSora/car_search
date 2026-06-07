@@ -14,6 +14,19 @@ const modalLineLink = document.querySelector("#modalLineLink");
 const copyButton = document.querySelector("#copyButton");
 const lineLinks = document.querySelectorAll(".js-line-link");
 const emailLinks = document.querySelectorAll(".js-email-link");
+const filterButtons = document.querySelectorAll(".filter-button");
+const carCards = document.querySelectorAll(".car-card");
+const exampleResultCount = document.querySelector("#exampleResultCount");
+const methodGuide = document.querySelector("#methodGuide");
+const liveSummaryList = document.querySelector("#liveSummaryList");
+const formProgressText = document.querySelector("#formProgressText");
+const formProgressBar = document.querySelector("#formProgressBar");
+
+const methodGuides = {
+  電話: "電話で条件を確認します。電話番号を入力していただくと折り返しがスムーズです。",
+  メール: "メールで候補車の写真・状態・費用感をまとめてご連絡します。",
+  ビジネスLINE: "LINEで写真や追加条件をやり取りできます。送信後の画面からLINE相談へ進めます。",
+};
 
 const labels = {
   contactMethod: "希望の相談方法",
@@ -46,12 +59,25 @@ if (modalLineLink) {
   modalLineLink.href = lineUrl || "#contact";
 }
 
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    filterButtons.forEach((item) => item.classList.remove("is-active"));
+    button.classList.add("is-active");
+    filterExamples(button.dataset.filter);
+  });
+});
+
 mobileNav?.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
     mobileNav.classList.remove("is-open");
     menuButton?.setAttribute("aria-expanded", "false");
   });
 });
+
+form?.addEventListener("input", updateDynamicForm);
+form?.addEventListener("change", updateDynamicForm);
+updateDynamicForm();
+filterExamples("all");
 
 form?.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -162,4 +188,106 @@ async function sendForm(formData) {
   if (!response.ok) {
     throw new Error("Form submission failed");
   }
+}
+
+function filterExamples(filter) {
+  let visibleCount = 0;
+
+  carCards.forEach((card) => {
+    const budget = card.dataset.budget;
+    const category = card.dataset.category;
+    const shouldShow =
+      filter === "all" ||
+      budget === filter ||
+      (filter === "mid" && budget === "low") ||
+      category === filter;
+
+    card.classList.toggle("is-hidden", !shouldShow);
+    if (shouldShow) {
+      visibleCount += 1;
+    }
+  });
+
+  if (exampleResultCount) {
+    exampleResultCount.textContent = `${visibleCount}台を表示中`;
+  }
+}
+
+function updateDynamicForm() {
+  if (!form) {
+    return;
+  }
+
+  const formData = new FormData(form);
+  const contactMethod = String(formData.get("contactMethod") || "メール");
+  const carModel = getFieldValue(formData, "carModel", "未入力");
+  const budget = getFieldValue(formData, "budget", "未入力");
+  const timing = getFieldValue(formData, "timing", "未定");
+  const phone = form.querySelector('[name="phone"]');
+  const submitButton = form.querySelector(".submit-button");
+
+  if (methodGuide) {
+    methodGuide.textContent = methodGuides[contactMethod] || methodGuides.メール;
+  }
+
+  if (phone) {
+    phone.required = contactMethod === "電話";
+  }
+
+  if (submitButton) {
+    submitButton.textContent =
+      contactMethod === "電話"
+        ? "電話相談を送信する"
+        : contactMethod === "ビジネスLINE"
+          ? "LINE相談を送信する"
+          : "メール相談を送信する";
+  }
+
+  if (liveSummaryList) {
+    liveSummaryList.innerHTML = [
+      ["相談方法", contactMethod],
+      ["車種", carModel],
+      ["予算", budget],
+      ["購入時期", timing],
+    ]
+      .map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`)
+      .join("");
+  }
+
+  const requiredNames =
+    contactMethod === "電話"
+      ? ["carModel", "budget", "customerName", "email", "phone", "consent"]
+      : ["carModel", "budget", "customerName", "email", "consent"];
+  const completedCount = requiredNames.filter((name) => {
+    const field = form.querySelector(`[name="${name}"]`);
+    if (!field) {
+      return false;
+    }
+    if (field.type === "checkbox") {
+      return field.checked;
+    }
+    return String(formData.get(name) || "").trim().length > 0;
+  }).length;
+  const progress = Math.round((completedCount / requiredNames.length) * 100);
+
+  if (formProgressText) {
+    formProgressText.textContent = `入力済み ${completedCount}/${requiredNames.length}`;
+  }
+
+  if (formProgressBar) {
+    formProgressBar.style.width = `${progress}%`;
+  }
+}
+
+function getFieldValue(formData, name, fallback) {
+  return String(formData.get(name) || "").trim() || fallback;
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 }

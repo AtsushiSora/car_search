@@ -474,6 +474,38 @@ h1 {
   font-weight: 800;
 }
 
+.example-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: -4px 0 14px;
+}
+
+.filter-button {
+  min-height: 42px;
+  padding: 0 16px;
+  color: var(--blue-dark);
+  background: #fff;
+  border: 1px solid #c9dff3;
+  border-radius: 999px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.filter-button.is-active {
+  color: #fff;
+  background: var(--blue);
+  border-color: var(--blue);
+  box-shadow: 0 8px 20px rgba(15, 103, 189, 0.2);
+}
+
+.result-count {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
 .car-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -482,6 +514,10 @@ h1 {
 
 .car-card {
   overflow: hidden;
+}
+
+.car-card.is-hidden {
+  display: none;
 }
 
 .car-card h3 {
@@ -639,6 +675,79 @@ h1 {
   width: 100%;
 }
 
+.live-summary {
+  margin-top: 16px;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 32px rgba(27, 60, 97, 0.08);
+}
+
+.live-summary-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.live-summary-head strong {
+  color: var(--blue-dark);
+}
+
+.live-summary-head span {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 900;
+}
+
+.progress-track {
+  height: 8px;
+  margin: 12px 0 16px;
+  overflow: hidden;
+  background: #e8f1fa;
+  border-radius: 999px;
+}
+
+.progress-track span {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--line-green));
+  border-radius: inherit;
+  transition: width 0.2s ease;
+}
+
+.live-summary dl {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.live-summary div {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eef3f8;
+}
+
+.live-summary div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.live-summary dt {
+  color: var(--muted);
+}
+
+.live-summary dd {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 900;
+  text-align: right;
+}
+
 .order-form {
   padding: clamp(20px, 4vw, 34px);
   background: #fff;
@@ -715,6 +824,17 @@ legend {
 
 .method-option input:focus-visible + span {
   box-shadow: 0 0 0 4px rgba(15, 103, 189, 0.13);
+}
+
+.method-guide {
+  margin: 12px 0 0;
+  padding: 12px 14px;
+  color: #314057;
+  background: #f4f9ff;
+  border: 1px solid #d7e8f7;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
 label {
@@ -1069,6 +1189,11 @@ pre {
   .text-link {
     display: inline-block;
     margin-top: 8px;
+  }
+
+  .example-filters {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .car-photo {
