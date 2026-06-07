@@ -1270,6 +1270,152 @@ pre {
   font-weight: 800;
 }
 
+.admin-page {
+  background: #f5f9fd;
+}
+
+.admin-header {
+  justify-content: space-between;
+}
+
+.admin-main {
+  min-height: calc(100vh - 82px);
+}
+
+.admin-hero {
+  padding: clamp(58px, 8vw, 94px) 0;
+  color: #fff;
+  background:
+    linear-gradient(135deg, rgba(8, 76, 152, 0.96), rgba(15, 103, 189, 0.88)),
+    url("assets/hero-car-consultation.png") center / cover;
+}
+
+.admin-hero-inner {
+  max-width: 880px;
+}
+
+.admin-hero .section-kicker {
+  color: #cde7ff;
+}
+
+.admin-hero h1 {
+  max-width: 760px;
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+.admin-hero p:last-child {
+  max-width: 760px;
+  margin: 22px 0 0;
+  color: #e7f3ff;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.admin-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.admin-card {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  min-height: 280px;
+  padding: 26px 24px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 14px 36px rgba(20, 66, 116, 0.1);
+}
+
+.admin-card-label {
+  width: max-content;
+  padding: 4px 10px;
+  color: var(--blue-dark);
+  background: var(--blue-soft);
+  border: 1px solid #cde7ff;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 900;
+}
+
+.admin-card h2 {
+  margin: 0;
+  color: var(--blue-dark);
+  font-size: 1.25rem;
+}
+
+.admin-card p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.admin-card a {
+  width: 100%;
+  margin-top: auto;
+}
+
+.admin-steps-section {
+  background: #fff;
+}
+
+.admin-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.admin-steps article {
+  padding: 24px;
+  background: #f8fbff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.admin-steps span {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 16px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 999px;
+  font-weight: 900;
+}
+
+.admin-steps h3 {
+  margin: 0 0 10px;
+  color: var(--blue-dark);
+  font-size: 1.05rem;
+}
+
+.admin-steps p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.admin-code-box {
+  margin-top: 18px;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 30px rgba(20, 66, 116, 0.08);
+}
+
+.admin-code-box strong {
+  color: var(--blue-dark);
+}
+
+.admin-code-box pre {
+  margin-top: 12px;
+}
+
 @media (max-width: 1020px) {
   .desktop-nav,
   .header-actions {
@@ -1315,6 +1461,8 @@ pre {
   .consult-grid,
   .car-grid,
   .stock-grid,
+  .admin-card-grid,
+  .admin-steps,
   .proposal-layout,
   .contact-layout {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1412,6 +1560,8 @@ pre {
   .consult-grid,
   .car-grid,
   .stock-grid,
+  .admin-card-grid,
+  .admin-steps,
   .proposal-layout,
   .contact-layout,
   .form-grid {

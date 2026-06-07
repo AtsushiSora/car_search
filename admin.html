@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>管理用ページ | おまかせカーサーチ</title>
+    <meta name="description" content="おまかせカーサーチの車両データ管理用ページです。" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="admin-page">
+    <header class="site-header admin-header">
+      <a class="brand" href="index.html" aria-label="おまかせカーサーチ トップへ">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" role="img">
+            <path d="M9 27h2l4-9h17l6 9h2a4 4 0 0 1 4 4v5h-5.5a5.5 5.5 0 0 1-11 0h-12a5.5 5.5 0 0 1-11 0H3v-7a6 6 0 0 1 6-6Z" />
+            <path d="M17 18h8v9H13l4-9Zm10 0h5l5 9H27v-9Z" />
+          </svg>
+        </span>
+        <span>
+          <strong>おまかせカーサーチ</strong>
+          <small>管理用ページ</small>
+        </span>
+      </a>
+      <a class="secondary-link" href="index.html">サイトを見る</a>
+    </header>
+
+    <main class="admin-main">
+      <section class="admin-hero">
+        <div class="section-inner admin-hero-inner">
+          <p class="section-kicker">DATA MANAGEMENT</p>
+          <h1>車両データをスプレッドシートで管理</h1>
+          <p>
+            在庫車両とご提案例はCSVからサイトへ表示されます。Googleスプレッドシートで管理する場合は、管理用ExcelをアップロードしてCSV公開URLを設定してください。
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="admin-card-grid">
+            <article class="admin-card">
+              <span class="admin-card-label">Excel</span>
+              <h2>管理用スプレッドシート</h2>
+              <p>在庫車両とご提案例をまとめた編集用テンプレートです。</p>
+              <a class="primary-link" href="outputs/car-data-management.xlsx" download>Excelをダウンロード</a>
+            </article>
+            <article class="admin-card">
+              <span class="admin-card-label">CSV</span>
+              <h2>在庫車両データ</h2>
+              <p>サイトの「在庫車両」セクションに表示されるデータです。</p>
+              <a class="secondary-link" href="data/stock.csv">stock.csvを開く</a>
+            </article>
+            <article class="admin-card">
+              <span class="admin-card-label">CSV</span>
+              <h2>ご提案例データ</h2>
+              <p>サイトの「ご提案例」セクションに表示されるデータです。</p>
+              <a class="secondary-link" href="data/examples.csv">examples.csvを開く</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section admin-steps-section">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="section-kicker">SETUP</p>
+            <h2>Googleスプレッドシートで使う流れ</h2>
+          </div>
+          <div class="admin-steps">
+            <article>
+              <span>1</span>
+              <h3>ExcelをGoogleドライブへアップロード</h3>
+              <p>管理用スプレッドシートをGoogleドライブに入れて、Googleスプレッドシートとして開きます。</p>
+            </article>
+            <article>
+              <span>2</span>
+              <h3>各シートをCSV公開</h3>
+              <p>「在庫車両」と「ご提案例」をそれぞれCSV形式でウェブ公開します。</p>
+            </article>
+            <article>
+              <span>3</span>
+              <h3>CSV URLを設定</h3>
+              <p><code>script.js</code> のURL設定を、GoogleスプレッドシートのCSV公開URLに差し替えます。</p>
+            </article>
+          </div>
+          <div class="admin-code-box">
+            <strong>設定する場所</strong>
+            <pre><code>const stockDataUrl = "在庫車両シートのCSV公開URL";
+const exampleDataUrl = "ご提案例シートのCSV公開URL";</code></pre>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
