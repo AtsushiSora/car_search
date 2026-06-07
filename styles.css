@@ -518,6 +518,13 @@ h1 {
   font-weight: 800;
 }
 
+.section-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
 .example-filters {
   display: flex;
   flex-wrap: wrap;
@@ -1834,6 +1841,11 @@ pre {
 
   .text-link {
     display: inline-block;
+    margin-top: 8px;
+  }
+
+  .section-actions {
+    justify-content: flex-start;
     margin-top: 8px;
   }
 
