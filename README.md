@@ -14,6 +14,8 @@
 - ビジネスLINE: `script.js` の `lineUrl`
 - ビジネスLINE通知Webhook: `script.js` の `lineWebhookEndpoint`
 - フォーム送信先: `script.js` の `formEndpoint`
+- 在庫データ: `data/stock.csv`
+- Googleスプレッドシート公開CSV: `script.js` の `stockDataUrl`
 - ヒーロー画像: `assets/hero-car-consultation.png`
 
 ## フォームについて
@@ -41,6 +43,21 @@
 - 無料相談フォーム
 - よくある質問
 
+## 在庫管理
+
+在庫車両は `data/stock.csv` から自動表示します。
+
+CSVの列:
+
+```csv
+maker,name,year,mileage,color,inspection,price,label,note,image,visible
+```
+
+`visible` を `FALSE` にすると、その車両はサイトに表示されません。
+画像は `assets/example-suv.png` のようにサイト内の画像パスを指定します。
+
+Googleスプレッドシートで管理する場合は、シートをCSV形式でウェブ公開し、発行されたCSV URLを `script.js` の `stockDataUrl` に設定してください。
+
 実際にメールで自動受信したい場合は、フォームサービスが発行する送信先URLを `script.js` の `formEndpoint` に設定してください。
 ビジネスLINEへ自動通知したい場合は、LINE Messaging APIなどを扱うサーバー側Webhook URLを `lineWebhookEndpoint` に設定してください。
 
@@ -49,6 +66,7 @@ const ownerEmail = "あなたのメールアドレス";
 const lineUrl = "LINE公式アカウントの友だち追加URL";
 const lineWebhookEndpoint = "ビジネスLINE通知用Webhook URL";
 const formEndpoint = "フォームサービスの送信先URL";
+const stockDataUrl = "GoogleスプレッドシートのCSV公開URL";
 ```
 
 `formEndpoint` を設定すると、フォーム送信時に入力内容をそのURLへPOSTします。

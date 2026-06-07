@@ -2,6 +2,7 @@ const ownerEmail = "owner@example.com";
 const lineUrl = "https://lin.ee/Xp9AUJy";
 const lineWebhookEndpoint = "";
 const formEndpoint = "";
+const stockDataUrl = "data/stock.csv";
 
 const menuButton = document.querySelector(".menu-button");
 const mobileNav = document.querySelector("#mobileNav");
@@ -22,6 +23,7 @@ const methodGuide = document.querySelector("#methodGuide");
 const liveSummaryList = document.querySelector("#liveSummaryList");
 const formProgressText = document.querySelector("#formProgressText");
 const formProgressBar = document.querySelector("#formProgressBar");
+const stockGrid = document.querySelector("#stockGrid");
 
 const methodGuides = {
   電話: "電話で条件を確認します。電話番号を入力していただくと折り返しがスムーズです。",
@@ -79,6 +81,7 @@ form?.addEventListener("input", updateDynamicForm);
 form?.addEventListener("change", updateDynamicForm);
 updateDynamicForm();
 filterExamples("all");
+loadStockVehicles();
 
 form?.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -193,6 +196,20 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+document.addEventListener("click", (event) => {
+  const link = event.target.closest(".stock-consult-link");
+  if (!link || !form) {
+    return;
+  }
+
+  const carName = link.dataset.carName || "";
+  const carModel = form.querySelector('[name="carModel"]');
+  if (carModel && carName) {
+    carModel.value = carName;
+    updateDynamicForm();
+  }
+});
+
 function openModal() {
   modal.classList.add("is-open");
   modal.setAttribute("aria-hidden", "false");
@@ -254,6 +271,115 @@ function filterExamples(filter) {
   if (exampleResultCount) {
     exampleResultCount.textContent = `${visibleCount}台を表示中`;
   }
+}
+
+async function loadStockVehicles() {
+  if (!stockGrid) {
+    return;
+  }
+
+  try {
+    const response = await fetch(`${stockDataUrl}?v=${Date.now()}`);
+    if (!response.ok) {
+      throw new Error("Stock data fetch failed");
+    }
+
+    const csvText = await response.text();
+    const vehicles = parseCsv(csvText)
+      .filter((vehicle) => String(vehicle.visible || "TRUE").toUpperCase() !== "FALSE")
+      .filter((vehicle) => vehicle.name);
+
+    renderStockVehicles(vehicles);
+  } catch {
+    stockGrid.innerHTML = '<p class="stock-empty">在庫データを読み込めませんでした。</p>';
+  }
+}
+
+function renderStockVehicles(vehicles) {
+  if (!vehicles.length) {
+    stockGrid.innerHTML = '<p class="stock-empty">現在表示できる在庫はありません。</p>';
+    return;
+  }
+
+  stockGrid.innerHTML = vehicles.map(createStockCard).join("");
+}
+
+function createStockCard(vehicle) {
+  const maker = vehicle.maker || "";
+  const name = vehicle.name || "車両名未設定";
+  const image = vehicle.image || "assets/example-suv.png";
+  const label = vehicle.label || "在庫あり";
+  const note = vehicle.note || "詳細はお問い合わせください。";
+
+  return `
+    <article class="stock-card">
+      <div class="stock-photo-wrap">
+        <img class="stock-photo" src="${escapeHtml(image)}" alt="${escapeHtml(name)}の在庫車両" loading="lazy" />
+        <span class="stock-badge">${escapeHtml(label)}</span>
+      </div>
+      <div class="stock-body">
+        <p class="stock-maker">${escapeHtml(maker)}</p>
+        <h3>${escapeHtml(name)}</h3>
+        <dl>
+          ${createStockSpec("年式", vehicle.year)}
+          ${createStockSpec("走行距離", vehicle.mileage)}
+          ${createStockSpec("色", vehicle.color)}
+          ${createStockSpec("車検", vehicle.inspection)}
+        </dl>
+        <p class="stock-price">${escapeHtml(vehicle.price || "応相談")}<span>総額目安</span></p>
+        <p class="stock-note">${escapeHtml(note)}</p>
+        <a class="primary-link stock-consult-link" href="#contact" data-car-name="${escapeHtml(name)}">この車を相談する</a>
+      </div>
+    </article>
+  `;
+}
+
+function createStockSpec(label, value) {
+  return `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value || "未定")}</dd></div>`;
+}
+
+function parseCsv(csvText) {
+  const rows = [];
+  let row = [];
+  let field = "";
+  let inQuotes = false;
+
+  for (let index = 0; index < csvText.length; index += 1) {
+    const char = csvText[index];
+    const nextChar = csvText[index + 1];
+
+    if (char === '"' && inQuotes && nextChar === '"') {
+      field += '"';
+      index += 1;
+    } else if (char === '"') {
+      inQuotes = !inQuotes;
+    } else if (char === "," && !inQuotes) {
+      row.push(field);
+      field = "";
+    } else if ((char === "\n" || char === "\r") && !inQuotes) {
+      if (char === "\r" && nextChar === "\n") {
+        index += 1;
+      }
+      row.push(field);
+      if (row.some((cell) => cell.trim())) {
+        rows.push(row);
+      }
+      row = [];
+      field = "";
+    } else {
+      field += char;
+    }
+  }
+
+  row.push(field);
+  if (row.some((cell) => cell.trim())) {
+    rows.push(row);
+  }
+
+  const headers = rows.shift()?.map((header) => header.trim()) || [];
+  return rows.map((cells) =>
+    Object.fromEntries(headers.map((header, index) => [header, String(cells[index] || "").trim()])),
+  );
 }
 
 function updateDynamicForm() {

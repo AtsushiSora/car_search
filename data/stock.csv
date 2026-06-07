@@ -1,0 +1,4 @@
+maker,name,year,mileage,color,inspection,price,label,note,image,visible
+TOYOTA,トヨタ RAV4 G,2020年,"35,000km",ブラック,車検整備付き,265万円,商談受付中,普段使いとアウトドアの両方に使いやすいSUVです。,assets/example-suv.png,TRUE
+DAIHATSU,ダイハツ タント X,2022年,"12,000km",ライトブルー,2027年3月,100万円,おすすめ,スライドドアで乗り降りしやすく街乗りに向いています。,assets/example-kei.png,TRUE
+LEXUS,レクサス IS300h,2019年,"42,000km",シルバー,相談可,298万円,入荷予定,落ち着いた乗り心地と燃費のバランスが良いセダンです。,assets/example-sedan.png,TRUE
