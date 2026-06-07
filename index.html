@@ -178,43 +178,9 @@
             <button class="filter-button" type="button" data-filter="family">ファミリー向け</button>
           </div>
           <p class="result-count" id="exampleResultCount">4台を表示中</p>
-          <div class="car-grid">
-            <article class="car-card" data-budget="high" data-category="family">
-              <img class="car-photo" src="assets/example-minivan.png" alt="白いミニバンのご提案例" />
-              <h3>トヨタ アルファード</h3>
-              <dl>
-                <div><dt>年式</dt><dd>2021年</dd></div>
-                <div><dt>走行距離</dt><dd>28,000km</dd></div>
-                <div><dt>価格目安</dt><dd>348万円</dd></div>
-              </dl>
-            </article>
-            <article class="car-card" data-budget="mid" data-category="family">
-              <img class="car-photo" src="assets/example-suv.png" alt="黒いSUVのご提案例" />
-              <h3>トヨタ RAV4</h3>
-              <dl>
-                <div><dt>年式</dt><dd>2020年</dd></div>
-                <div><dt>走行距離</dt><dd>35,000km</dd></div>
-                <div><dt>価格目安</dt><dd>265万円</dd></div>
-              </dl>
-            </article>
-            <article class="car-card" data-budget="low" data-category="family">
-              <img class="car-photo" src="assets/example-kei.png" alt="水色の軽ワゴンのご提案例" />
-              <h3>ダイハツ タント</h3>
-              <dl>
-                <div><dt>年式</dt><dd>2022年</dd></div>
-                <div><dt>走行距離</dt><dd>12,000km</dd></div>
-                <div><dt>価格目安</dt><dd>100万円</dd></div>
-              </dl>
-            </article>
-            <article class="car-card" data-budget="mid" data-category="sedan">
-              <img class="car-photo" src="assets/example-sedan.png" alt="シルバーのセダンのご提案例" />
-              <h3>レクサス IS300h</h3>
-              <dl>
-                <div><dt>年式</dt><dd>2019年</dd></div>
-                <div><dt>走行距離</dt><dd>42,000km</dd></div>
-                <div><dt>価格目安</dt><dd>298万円</dd></div>
-              </dl>
-            </article>
+          <p class="example-data-note">ご提案例データはスプレッドシート形式のCSVから読み込んでいます。</p>
+          <div class="car-grid" id="exampleGrid" aria-live="polite">
+            <p class="example-empty">ご提案例を読み込み中です。</p>
           </div>
         </div>
       </section>

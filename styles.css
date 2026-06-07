@@ -550,10 +550,29 @@ h1 {
   font-weight: 800;
 }
 
+.example-data-note {
+  margin: -4px 0 18px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
 .car-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
+}
+
+.example-empty {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 22px;
+  color: var(--muted);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  font-weight: 800;
+  text-align: center;
 }
 
 .car-card {

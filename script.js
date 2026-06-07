@@ -3,6 +3,7 @@ const lineUrl = "https://lin.ee/Xp9AUJy";
 const lineWebhookEndpoint = "";
 const formEndpoint = "";
 const stockDataUrl = "data/stock.csv";
+const exampleDataUrl = "data/examples.csv";
 
 const menuButton = document.querySelector(".menu-button");
 const mobileNav = document.querySelector("#mobileNav");
@@ -17,8 +18,8 @@ const copyButton = document.querySelector("#copyButton");
 const lineLinks = document.querySelectorAll(".js-line-link");
 const emailLinks = document.querySelectorAll(".js-email-link");
 const filterButtons = document.querySelectorAll(".filter-button");
-const carCards = document.querySelectorAll(".car-card");
 const exampleResultCount = document.querySelector("#exampleResultCount");
+const exampleGrid = document.querySelector("#exampleGrid");
 const methodGuide = document.querySelector("#methodGuide");
 const liveSummaryList = document.querySelector("#liveSummaryList");
 const formProgressText = document.querySelector("#formProgressText");
@@ -80,7 +81,7 @@ mobileNav?.querySelectorAll("a").forEach((link) => {
 form?.addEventListener("input", updateDynamicForm);
 form?.addEventListener("change", updateDynamicForm);
 updateDynamicForm();
-filterExamples("all");
+loadExampleVehicles();
 loadStockVehicles();
 
 form?.addEventListener("submit", async (event) => {
@@ -252,6 +253,7 @@ function createLineShareUrl(message) {
 
 function filterExamples(filter) {
   let visibleCount = 0;
+  const carCards = document.querySelectorAll(".car-card");
 
   carCards.forEach((card) => {
     const budget = card.dataset.budget;
@@ -271,6 +273,67 @@ function filterExamples(filter) {
   if (exampleResultCount) {
     exampleResultCount.textContent = `${visibleCount}台を表示中`;
   }
+}
+
+async function loadExampleVehicles() {
+  if (!exampleGrid) {
+    return;
+  }
+
+  try {
+    const response = await fetch(`${exampleDataUrl}?v=${Date.now()}`);
+    if (!response.ok) {
+      throw new Error("Example data fetch failed");
+    }
+
+    const csvText = await response.text();
+    const vehicles = parseCsv(csvText)
+      .filter((vehicle) => String(vehicle.visible || "TRUE").toUpperCase() !== "FALSE")
+      .filter((vehicle) => vehicle.name);
+
+    renderExampleVehicles(vehicles);
+  } catch {
+    exampleGrid.innerHTML = '<p class="example-empty">ご提案例データを読み込めませんでした。</p>';
+    if (exampleResultCount) {
+      exampleResultCount.textContent = "0台を表示中";
+    }
+  }
+}
+
+function renderExampleVehicles(vehicles) {
+  if (!vehicles.length) {
+    exampleGrid.innerHTML = '<p class="example-empty">現在表示できるご提案例はありません。</p>';
+    if (exampleResultCount) {
+      exampleResultCount.textContent = "0台を表示中";
+    }
+    return;
+  }
+
+  exampleGrid.innerHTML = vehicles.map(createExampleCard).join("");
+  filterExamples(getActiveExampleFilter());
+}
+
+function createExampleCard(vehicle) {
+  const name = vehicle.name || "車両名未設定";
+  const image = vehicle.image || "assets/example-suv.png";
+  const budget = vehicle.budget || "mid";
+  const category = vehicle.category || "family";
+
+  return `
+    <article class="car-card" data-budget="${escapeHtml(budget)}" data-category="${escapeHtml(category)}">
+      <img class="car-photo" src="${escapeHtml(image)}" alt="${escapeHtml(name)}のご提案例" loading="lazy" />
+      <h3>${escapeHtml(name)}</h3>
+      <dl>
+        <div><dt>年式</dt><dd>${escapeHtml(vehicle.year || "未定")}</dd></div>
+        <div><dt>走行距離</dt><dd>${escapeHtml(vehicle.mileage || "未定")}</dd></div>
+        <div><dt>価格目安</dt><dd>${escapeHtml(vehicle.price || "応相談")}</dd></div>
+      </dl>
+    </article>
+  `;
+}
+
+function getActiveExampleFilter() {
+  return document.querySelector(".filter-button.is-active")?.dataset.filter || "all";
 }
 
 async function loadStockVehicles() {

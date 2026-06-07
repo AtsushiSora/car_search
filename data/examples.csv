@@ -1,0 +1,5 @@
+name,year,mileage,price,image,budget,category,visible
+トヨタ アルファード,2021年,"28,000km",348万円,assets/example-minivan.png,high,family,TRUE
+トヨタ RAV4,2020年,"35,000km",265万円,assets/example-suv.png,mid,family,TRUE
+ダイハツ タント,2022年,"12,000km",100万円,assets/example-kei.png,low,family,TRUE
+レクサス IS300h,2019年,"42,000km",298万円,assets/example-sedan.png,mid,sedan,TRUE
