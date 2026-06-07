@@ -8,6 +8,15 @@
 
 管理用ページは `admin.html` です。
 
+詳細ページ:
+
+- `flow.html`: サービスの流れ
+- `examples.html`: ご提案例
+- `stock.html`: 在庫車両
+- `service.html`: 対応内容
+- `consultation.html`: 相談方法
+- `faq.html`: よくある質問
+
 ## 変更しやすい場所
 
 - 店舗名: `index.html` の `おまかせカーサーチ`

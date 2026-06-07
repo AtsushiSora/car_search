@@ -373,6 +373,7 @@ function createStockCard(vehicle) {
   const image = vehicle.image || "assets/example-suv.png";
   const label = vehicle.label || "在庫あり";
   const note = vehicle.note || "詳細はお問い合わせください。";
+  const consultHref = form ? "#contact" : "index.html#contact";
 
   return `
     <article class="stock-card">
@@ -391,7 +392,7 @@ function createStockCard(vehicle) {
         </dl>
         <p class="stock-price">${escapeHtml(vehicle.price || "応相談")}<span>総額目安</span></p>
         <p class="stock-note">${escapeHtml(note)}</p>
-        <a class="primary-link stock-consult-link" href="#contact" data-car-name="${escapeHtml(name)}">この車を相談する</a>
+        <a class="primary-link stock-consult-link" href="${consultHref}" data-car-name="${escapeHtml(name)}">この車を相談する</a>
       </div>
     </article>
   `;

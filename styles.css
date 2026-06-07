@@ -1270,6 +1270,172 @@ pre {
   font-weight: 800;
 }
 
+.detail-main {
+  background: #fff;
+}
+
+.detail-hero {
+  padding: clamp(58px, 8vw, 96px) 0;
+  color: #fff;
+  background:
+    linear-gradient(135deg, rgba(8, 76, 152, 0.96), rgba(15, 103, 189, 0.82)),
+    url("assets/hero-car-consultation.png") center / cover;
+}
+
+.detail-hero .section-kicker {
+  color: #cde7ff;
+}
+
+.detail-hero h1 {
+  max-width: 800px;
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+}
+
+.detail-hero p:last-child {
+  max-width: 760px;
+  margin: 22px 0 0;
+  color: #eaf5ff;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.45fr);
+  gap: clamp(24px, 5vw, 54px);
+  align-items: start;
+}
+
+.detail-content {
+  display: grid;
+  gap: 18px;
+}
+
+.detail-card {
+  padding: 26px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 34px rgba(20, 66, 116, 0.08);
+}
+
+.detail-card h2,
+.detail-card h3 {
+  margin: 0 0 10px;
+  color: var(--blue-dark);
+}
+
+.detail-card p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.detail-card ul {
+  margin: 12px 0 0;
+  padding-left: 1.2em;
+  color: #33435a;
+  font-weight: 700;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.detail-side {
+  position: sticky;
+  top: 110px;
+  display: grid;
+  gap: 16px;
+}
+
+.detail-cta {
+  padding: 24px;
+  color: #173321;
+  background: linear-gradient(135deg, #f0fff6, #ffffff);
+  border: 1px solid #bff0d2;
+  border-radius: var(--radius);
+  box-shadow: 0 12px 32px rgba(6, 199, 85, 0.08);
+}
+
+.detail-cta h2 {
+  margin: 0 0 10px;
+  color: #153321;
+  font-size: 1.2rem;
+}
+
+.detail-cta p {
+  margin: 0 0 16px;
+  color: #436051;
+  font-weight: 700;
+}
+
+.detail-cta a {
+  width: 100%;
+}
+
+.detail-note {
+  padding: 22px;
+  background: #f7fbff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.detail-note strong {
+  color: var(--blue-dark);
+}
+
+.detail-note p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.detail-timeline {
+  display: grid;
+  gap: 14px;
+}
+
+.detail-timeline article {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 16px;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.detail-timeline span {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 999px;
+  font-weight: 900;
+}
+
+.detail-timeline h2 {
+  margin: 0 0 6px;
+  color: var(--blue-dark);
+  font-size: 1.15rem;
+}
+
+.detail-timeline p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.detail-section-soft {
+  background: linear-gradient(180deg, #f7fbff 0%, #fff 100%);
+}
+
 .admin-page {
   background: #f5f9fd;
 }
@@ -1537,6 +1703,8 @@ pre {
   .consult-grid,
   .car-grid,
   .stock-grid,
+  .detail-layout,
+  .detail-grid,
   .admin-card-grid,
   .admin-preview-grid,
   .admin-steps,
@@ -1546,6 +1714,10 @@ pre {
   }
 
   .contact-copy {
+    position: static;
+  }
+
+  .detail-side {
     position: static;
   }
 }
@@ -1637,6 +1809,8 @@ pre {
   .consult-grid,
   .car-grid,
   .stock-grid,
+  .detail-layout,
+  .detail-grid,
   .admin-card-grid,
   .admin-preview-grid,
   .admin-steps,
