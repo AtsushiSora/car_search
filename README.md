@@ -51,6 +51,9 @@
 
 ご提案例は `data/examples.csv` から自動表示します。
 
+管理用のExcelテンプレートは `outputs/car-data-management.xlsx` です。
+Googleスプレッドシートで使う場合は、このExcelをGoogleドライブへアップロードして、各シートをCSV形式でウェブ公開します。
+
 在庫CSVの列:
 
 ```csv
