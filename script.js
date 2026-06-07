@@ -1,5 +1,6 @@
 const ownerEmail = "owner@example.com";
 const lineUrl = "";
+const lineWebhookEndpoint = "";
 const formEndpoint = "";
 
 const menuButton = document.querySelector(".menu-button");
@@ -97,17 +98,26 @@ form?.addEventListener("submit", async (event) => {
   const carModel = String(formData.get("carModel") || "車探し相談").trim();
   const subject = `車探し相談: ${customerName}様 / ${carModel}`;
   const body = `下記の内容で車探しの相談がありました。\n\n${summary}`;
+  const payload = {
+    subject,
+    message: body,
+    fields: Object.fromEntries(entries),
+    submittedAt: new Date().toISOString(),
+  };
   formData.set("subject", subject);
   formData.set("message", body);
 
   summaryText.textContent = summary;
   mailtoLink.href = `mailto:${ownerEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  if (modalLineLink) {
+    modalLineLink.href = lineUrl || createLineShareUrl(body);
+  }
 
   localStorage.setItem(
     "latestCarSearchInquiry",
     JSON.stringify({
-      submittedAt: new Date().toISOString(),
-      entries: Object.fromEntries(entries),
+      submittedAt: payload.submittedAt,
+      entries: payload.fields,
     }),
   );
 
@@ -117,16 +127,31 @@ form?.addEventListener("submit", async (event) => {
   submitButton.textContent = "送信中...";
 
   try {
+    let sentToLine = false;
+    let sentToForm = false;
+
+    if (lineWebhookEndpoint) {
+      await sendLineWebhook(payload);
+      sentToLine = true;
+    }
+
     if (formEndpoint) {
       await sendForm(formData);
+      sentToForm = true;
+    }
+
+    if (sentToLine) {
+      resultMessage.textContent = "送信しました。相談内容をビジネスLINEへ通知しました。";
+    } else if (sentToForm) {
       resultMessage.textContent = "送信しました。内容を確認して、候補車が見つかり次第ご連絡します。";
     } else {
       resultMessage.textContent =
-        "送信先メールが未設定のため、下記の内容で確認しました。メール下書きから送信できます。";
+        "LINE通知先が未設定のため、下記の内容で確認しました。内容コピー、メール下書き、またはLINEから送信できます。";
     }
     openModal();
-    if (formEndpoint) {
+    if (sentToLine || sentToForm) {
       form.reset();
+      updateDynamicForm();
     }
   } catch {
     resultMessage.textContent =
@@ -188,6 +213,24 @@ async function sendForm(formData) {
   if (!response.ok) {
     throw new Error("Form submission failed");
   }
+}
+
+async function sendLineWebhook(payload) {
+  const response = await fetch(lineWebhookEndpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!response.ok) {
+    throw new Error("LINE webhook submission failed");
+  }
+}
+
+function createLineShareUrl(message) {
+  return `https://line.me/R/share?text=${encodeURIComponent(message)}`;
 }
 
 function filterExamples(filter) {
