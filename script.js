@@ -1,5 +1,5 @@
 const ownerEmail = "owner@example.com";
-const lineUrl = "";
+const lineUrl = "https://lin.ee/Xp9AUJy";
 const lineWebhookEndpoint = "";
 const formEndpoint = "";
 
