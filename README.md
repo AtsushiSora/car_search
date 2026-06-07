@@ -16,6 +16,7 @@
 - `service.html`: 対応内容
 - `consultation.html`: 相談方法
 - `faq.html`: よくある質問
+- `about.html`: お店について
 
 ## 変更しやすい場所
 

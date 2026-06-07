@@ -113,10 +113,10 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(12px, 1.6vw, 24px);
+  gap: clamp(9px, 1.2vw, 18px);
   flex: 1;
   color: #223044;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 700;
 }
 
@@ -124,6 +124,11 @@ textarea {
   padding: 8px 0;
   border-bottom: 2px solid transparent;
   white-space: nowrap;
+}
+
+.desktop-nav a[href="#contact"],
+.desktop-nav a[href="index.html#contact"] {
+  display: none;
 }
 
 .desktop-nav a:hover,
