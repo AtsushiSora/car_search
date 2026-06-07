@@ -113,16 +113,17 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(16px, 2.2vw, 34px);
+  gap: clamp(12px, 1.6vw, 24px);
   flex: 1;
   color: #223044;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 700;
 }
 
 .desktop-nav a {
   padding: 8px 0;
   border-bottom: 2px solid transparent;
+  white-space: nowrap;
 }
 
 .desktop-nav a:hover,
@@ -427,12 +428,50 @@ h1 {
 }
 
 .step-card,
+.feature-card,
 .car-card,
 .consult-card {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: 0 12px 34px rgba(20, 66, 116, 0.08);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.feature-card {
+  display: grid;
+  align-content: start;
+  min-height: 232px;
+  padding: 24px 20px;
+}
+
+.feature-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 16px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 999px;
+  font-weight: 900;
+}
+
+.feature-card h3 {
+  margin: 0 0 10px;
+  color: var(--blue-dark);
+  font-size: 1.1rem;
+}
+
+.feature-card p {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 600;
 }
 
 .step-card {
@@ -616,6 +655,52 @@ h1 {
 .consult-card a {
   width: 100%;
   margin-top: auto;
+}
+
+.proposal-section {
+  background: linear-gradient(135deg, #f7fbff 0%, #fff 52%, #fff8ef 100%);
+}
+
+.proposal-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(320px, 1.1fr);
+  gap: clamp(26px, 5vw, 58px);
+  align-items: center;
+}
+
+.proposal-layout h2 {
+  margin: 0;
+  font-size: clamp(1.65rem, 3vw, 2.45rem);
+  line-height: 1.32;
+}
+
+.proposal-layout p {
+  margin: 18px 0 0;
+  color: #314057;
+  font-weight: 600;
+}
+
+.proposal-list {
+  display: grid;
+  gap: 12px;
+}
+
+.proposal-list div {
+  padding: 20px 22px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 30px rgba(20, 66, 116, 0.08);
+}
+
+.proposal-list strong {
+  color: var(--blue-dark);
+  font-size: 1.04rem;
+}
+
+.proposal-list p {
+  margin: 8px 0 0;
+  color: var(--muted);
 }
 
 .contact-section {
@@ -1073,8 +1158,10 @@ pre {
   }
 
   .steps,
+  .feature-grid,
   .consult-grid,
   .car-grid,
+  .proposal-layout,
   .contact-layout {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1167,8 +1254,10 @@ pre {
 
   .intro-grid,
   .steps,
+  .feature-grid,
   .consult-grid,
   .car-grid,
+  .proposal-layout,
   .contact-layout,
   .form-grid {
     grid-template-columns: 1fr;
