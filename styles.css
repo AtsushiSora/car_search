@@ -127,7 +127,8 @@ textarea {
 }
 
 .desktop-nav a[href="#contact"],
-.desktop-nav a[href="index.html#contact"] {
+.desktop-nav a[href="index.html#contact"],
+.desktop-nav a[href="contact.html"] {
   display: none;
 }
 

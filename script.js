@@ -80,6 +80,7 @@ mobileNav?.querySelectorAll("a").forEach((link) => {
 
 form?.addEventListener("input", updateDynamicForm);
 form?.addEventListener("change", updateDynamicForm);
+applyUrlPrefill();
 updateDynamicForm();
 loadExampleVehicles();
 loadStockVehicles();
@@ -373,7 +374,7 @@ function createStockCard(vehicle) {
   const image = vehicle.image || "assets/example-suv.png";
   const label = vehicle.label || "在庫あり";
   const note = vehicle.note || "詳細はお問い合わせください。";
-  const consultHref = form ? "#contact" : "index.html#contact";
+  const consultHref = form ? "#contact" : `contact.html?car=${encodeURIComponent(name)}`;
 
   return `
     <article class="stock-card">
@@ -396,6 +397,32 @@ function createStockCard(vehicle) {
       </div>
     </article>
   `;
+}
+
+function applyUrlPrefill() {
+  if (!form) {
+    return;
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const carName = params.get("car");
+  const contactMethod = params.get("method");
+
+  if (carName) {
+    const carModel = form.querySelector('[name="carModel"]');
+    if (carModel) {
+      carModel.value = carName;
+    }
+  }
+
+  if (contactMethod) {
+    const methodField = [...form.querySelectorAll('[name="contactMethod"]')].find(
+      (field) => field.value === contactMethod,
+    );
+    if (methodField) {
+      methodField.checked = true;
+    }
+  }
 }
 
 function createStockSpec(label, value) {

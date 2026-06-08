@@ -17,6 +17,7 @@
 - `consultation.html`: 相談方法
 - `faq.html`: よくある質問
 - `about.html`: お店について
+- `contact.html`: 無料相談フォーム
 
 ## 変更しやすい場所
 

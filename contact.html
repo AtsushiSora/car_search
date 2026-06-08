@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>無料相談フォーム | おまかせカーサーチ</title>
+    <meta name="description" content="車種・年式・走行距離・色・予算などを入力して、車探しを無料で相談できます。" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="おまかせカーサーチ トップへ">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" role="img">
+            <path d="M9 27h2l4-9h17l6 9h2a4 4 0 0 1 4 4v5h-5.5a5.5 5.5 0 0 1-11 0h-12a5.5 5.5 0 0 1-11 0H3v-7a6 6 0 0 1 6-6Z" />
+            <path d="M17 18h8v9H13l4-9Zm10 0h5l5 9H27v-9Z" />
+          </svg>
+        </span>
+        <span><strong>おまかせカーサーチ</strong><small>理想の1台、見つけます</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="メインメニュー">
+        <a href="flow.html">サービスの流れ</a>
+        <a href="examples.html">ご提案例</a>
+        <a href="stock.html">在庫車両</a>
+        <a href="service.html">対応内容</a>
+        <a href="consultation.html">相談方法</a>
+        <a href="faq.html">よくある質問</a>
+        <a href="about.html">お店について</a>
+        <a href="contact.html">相談フォーム</a>
+      </nav>
+      <div class="header-actions">
+        <a class="phone-link" href="tel:0312345678"><span aria-hidden="true">☎</span><span><strong>03-1234-5678</strong><small>9:00-18:00</small></span></a>
+        <a class="line-link js-line-link" href="#" target="_blank" rel="noopener">LINE相談</a>
+        <a class="primary-link" href="contact.html">無料で相談</a>
+      </div>
+      <button class="menu-button" type="button" aria-label="メニューを開く" aria-controls="mobileNav" aria-expanded="false"><span></span><span></span><span></span></button>
+    </header>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="モバイルメニュー">
+      <a href="flow.html">サービスの流れ</a>
+      <a href="examples.html">ご提案例</a>
+      <a href="stock.html">在庫車両</a>
+      <a href="service.html">対応内容</a>
+      <a href="consultation.html">相談方法</a>
+      <a href="faq.html">よくある質問</a>
+      <a href="about.html">お店について</a>
+      <a class="js-line-link" href="#" target="_blank" rel="noopener">ビジネスLINE</a>
+      <a href="contact.html">相談フォーム</a>
+    </nav>
+
+    <main class="detail-main">
+      <section class="detail-hero">
+        <div class="section-inner">
+          <p class="section-kicker">ORDER FORM</p>
+          <h1>無料相談フォーム</h1>
+          <p>希望条件を送っていただければ、車屋が候補車を探して、写真・状態・費用感をまとめてご連絡します。</p>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="section-inner contact-layout">
+          <div class="contact-copy">
+            <p class="section-kicker">REQUEST</p>
+            <h2>希望条件を入力してください</h2>
+            <p>まだ決まっていない項目は「未定」で大丈夫です。車種がわからない場合は、用途や人数をその他欄に入力してください。</p>
+            <div class="support-box">
+              <strong>送っていただく内容</strong>
+              <ul>
+                <li>希望の車種・年式・走行距離・色・予算</li>
+                <li>お名前・メールアドレス・電話番号</li>
+                <li>こだわり条件、購入時期、下取りやローン希望</li>
+              </ul>
+            </div>
+            <div class="line-box">
+              <strong>LINEでも相談できます</strong>
+              <p>写真やURLを送りながら相談したい場合は、ビジネスLINEも使えます。</p>
+              <a class="line-link js-line-link" href="#" target="_blank" rel="noopener">ビジネスLINEを開く</a>
+            </div>
+            <div class="live-summary" aria-live="polite">
+              <div class="live-summary-head">
+                <strong>相談内容</strong>
+                <span id="formProgressText">入力済み 0/5</span>
+              </div>
+              <div class="progress-track" aria-hidden="true">
+                <span id="formProgressBar"></span>
+              </div>
+              <dl id="liveSummaryList">
+                <div><dt>相談方法</dt><dd>メール</dd></div>
+                <div><dt>車種</dt><dd>未入力</dd></div>
+                <div><dt>予算</dt><dd>未入力</dd></div>
+                <div><dt>購入時期</dt><dd>未定</dd></div>
+              </dl>
+            </div>
+          </div>
+
+          <form class="order-form" id="orderForm" method="post">
+            <input type="hidden" name="formName" value="car-search-order" />
+            <input type="hidden" name="subject" value="車探し無料相談フォーム" />
+            <fieldset>
+              <legend>希望の相談方法</legend>
+              <div class="method-options">
+                <label class="method-option"><input type="radio" name="contactMethod" value="電話" /><span>電話</span></label>
+                <label class="method-option"><input type="radio" name="contactMethod" value="メール" checked /><span>メール</span></label>
+                <label class="method-option"><input type="radio" name="contactMethod" value="ビジネスLINE" /><span>ビジネスLINE</span></label>
+              </div>
+              <p class="method-guide" id="methodGuide">メールで候補車の写真・状態・費用感をまとめてご連絡します。</p>
+            </fieldset>
+
+            <fieldset>
+              <legend>車の情報</legend>
+              <div class="form-grid">
+                <label><span>車種</span><input name="carModel" type="text" placeholder="例）アルファード、N-BOX" required /></label>
+                <label>
+                  <span>年式</span>
+                  <select name="year">
+                    <option value="">選択してください</option>
+                    <option>新車</option>
+                    <option>2025年以降</option>
+                    <option>2022年〜2024年</option>
+                    <option>2019年〜2021年</option>
+                    <option>2018年以前</option>
+                    <option>未定</option>
+                  </select>
+                </label>
+                <label>
+                  <span>走行距離</span>
+                  <select name="mileage">
+                    <option value="">選択してください</option>
+                    <option>1万km以内</option>
+                    <option>3万km以内</option>
+                    <option>5万km以内</option>
+                    <option>10万km以内</option>
+                    <option>未定</option>
+                  </select>
+                </label>
+                <label><span>色</span><input name="color" type="text" placeholder="例）白、黒、何色でも可" /></label>
+                <label><span>予算</span><input name="budget" type="text" placeholder="例）総額200万円以内" required /></label>
+                <label>
+                  <span>購入時期</span>
+                  <select name="timing">
+                    <option value="">選択してください</option>
+                    <option>すぐに</option>
+                    <option>1か月以内</option>
+                    <option>3か月以内</option>
+                    <option>半年以内</option>
+                    <option>未定</option>
+                  </select>
+                </label>
+              </div>
+              <label class="full"><span>その他の希望</span><textarea name="notes" rows="4" placeholder="グレード、駆動方式、装備、下取り、ローン希望など"></textarea></label>
+            </fieldset>
+
+            <fieldset>
+              <legend>お客様の情報</legend>
+              <div class="form-grid">
+                <label><span>お名前</span><input name="customerName" type="text" placeholder="例）山田 太郎" required /></label>
+                <label><span>メールアドレス</span><input name="email" type="email" placeholder="例）sample@example.com" required /></label>
+                <label><span>電話番号</span><input name="phone" type="tel" placeholder="例）090-1234-5678" /></label>
+              </div>
+            </fieldset>
+
+            <label class="consent">
+              <input type="checkbox" name="consent" required />
+              <span>入力内容の確認連絡を受け取ることに同意します</span>
+            </label>
+
+            <button class="submit-button" type="submit">無料で相談する</button>
+            <p class="form-note">Netlify設定前は、送信後に内容確認・メール下書き・LINE相談ボタンを表示します。</p>
+          </form>
+        </div>
+      </section>
+
+      <section class="section related-pages">
+        <div class="section-inner">
+          <div class="section-heading"><p class="section-kicker">NEXT</p><h2>相談前に確認する</h2></div>
+          <div class="related-grid">
+            <a class="related-card" href="flow.html"><span>FLOW</span><strong>サービスの流れ</strong><p>相談後にどう進むか確認できます。</p></a>
+            <a class="related-card" href="consultation.html"><span>CONTACT</span><strong>相談方法</strong><p>電話・メール・LINEの使い分けを確認できます。</p></a>
+            <a class="related-card" href="faq.html"><span>FAQ</span><strong>よくある質問</strong><p>相談前の疑問を確認できます。</p></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal" id="resultModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+      <div class="modal-panel">
+        <button class="modal-close" type="button" aria-label="閉じる">×</button>
+        <h2 id="resultTitle">相談内容を受け付けました</h2>
+        <p id="resultMessage">下記の内容で確認しました。</p>
+        <pre id="summaryText"></pre>
+        <div class="modal-actions">
+          <a class="secondary-link" href="tel:0312345678">電話する</a>
+          <a class="primary-link" id="mailtoLink" href="#">メール下書きを作成</a>
+          <a class="line-link" id="modalLineLink" href="#" target="_blank" rel="noopener">LINEで追加相談</a>
+          <button class="secondary-button" id="copyButton" type="button">内容をコピー</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="section-inner footer-inner">
+        <div><strong>おまかせカーサーチ</strong><p>あなたのカーライフを、心をこめてサポートします。</p></div>
+        <div class="footer-links"><a href="index.html">トップ</a><a href="about.html">お店について</a><a href="contact.html">相談フォーム</a><a class="js-line-link" href="#" target="_blank" rel="noopener">ビジネスLINE</a><a class="js-email-link" href="mailto:owner@example.com">メールで相談する</a></div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
