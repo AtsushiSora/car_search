@@ -1114,6 +1114,10 @@ legend {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.form-type-options {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .method-option {
   position: relative;
   display: block;

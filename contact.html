@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>無料相談フォーム | おまかせカーサーチ</title>
     <meta name="description" content="車種・年式・走行距離・色・予算などを入力して、車探しを無料で相談できます。" />
-    <link rel="stylesheet" href="styles.css?v=needs6" />
+    <link rel="stylesheet" href="styles.css?v=needs7" />
   </head>
   <body>
     <header class="site-header">
@@ -98,11 +98,11 @@
             <div class="need-guide" id="needGuide">
               <strong>入力のポイント</strong>
               <ul>
-                <li>ローンが不安な場合は、月々の希望額や頭金を入力してください。</li>
-                <li>格安の軽自動車は、使い方・予算・車検の希望を書くと探しやすくなります。</li>
+                <li>車種、予算、年式、走行距離、色を入力してください。</li>
+                <li>決まっていない項目は「未定」で大丈夫です。</li>
               </ul>
             </div>
-            <div class="example-assist">
+            <div class="example-assist" hidden>
               <strong>よくある相談例</strong>
               <p>近い内容を選ぶと、フォームに入力例を入れられます。</p>
               <div class="example-assist-grid">
@@ -159,6 +159,14 @@
               <label>入力しないでください <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
             </p>
             <fieldset>
+              <legend>フォーム種類</legend>
+              <div class="method-options form-type-options">
+                <label class="method-option"><input type="radio" name="inquiryType" value="車だけ" checked /><span>車だけ</span></label>
+                <label class="method-option"><input type="radio" name="inquiryType" value="車プラスローンが心配" /><span>車プラスローンが心配</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset>
               <legend>希望の相談方法</legend>
               <div class="method-options">
                 <label class="method-option"><input type="radio" name="contactMethod" value="電話" /><span>電話</span></label>
@@ -168,8 +176,8 @@
               <p class="method-guide" id="methodGuide">メールで候補車の写真・状態・費用感をまとめてご連絡します。</p>
             </fieldset>
 
-            <fieldset>
-              <legend>相談したいこと</legend>
+            <fieldset class="loan-section support-fieldset" data-loan-section hidden>
+              <legend>ローン・支払いの相談内容</legend>
               <div class="method-options support-options">
                 <label class="method-option"><input type="checkbox" name="supportNeeds" value="ローン審査が不安" /><span>ローン審査が不安</span></label>
                 <label class="method-option"><input type="checkbox" name="supportNeeds" value="格安の軽自動車を探したい" /><span>格安の軽自動車</span></label>
@@ -232,7 +240,7 @@
               <label class="full"><span>その他の希望</span><textarea name="notes" rows="4" placeholder="グレード、駆動方式、装備、下取り希望など"></textarea></label>
             </fieldset>
 
-            <fieldset>
+            <fieldset class="loan-section" data-loan-section hidden>
               <legend>ローン・格安軽の希望</legend>
               <div class="form-grid">
                 <label><span>月々の希望額</span><input name="monthlyPayment" type="text" placeholder="例）月々2万円以内" /></label>
@@ -295,6 +303,6 @@
         <div class="footer-links"><a href="index.html">トップ</a><a href="about.html">お店について</a><a href="payment.html">支払い方法</a><a href="contact.html">相談フォーム</a><a class="js-line-link" href="#" target="_blank" rel="noopener">ビジネスLINE</a><a class="js-email-link" href="mailto:owner@example.com">メールで相談する</a></div>
       </div>
     </footer>
-    <script src="script.js?v=needs6"></script>
+    <script src="script.js?v=needs7"></script>
   </body>
 </html>
