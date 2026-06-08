@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /thanks.html
+
+Sitemap: https://atsushisora.github.io/car_search/sitemap.xml
