@@ -1230,6 +1230,13 @@ textarea:focus {
   font-weight: 700;
 }
 
+.consent a {
+  color: var(--blue);
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .submit-button {
   width: 100%;
   min-height: 60px;
@@ -1811,7 +1818,7 @@ pre {
   margin-top: 12px;
 }
 
-@media (max-width: 1020px) {
+@media (max-width: 1280px) {
   .desktop-nav,
   .header-actions {
     display: none;
