@@ -8,7 +8,7 @@
       name="description"
       content="ご希望条件を入力するだけで、車屋が全国の在庫・オークションからぴったりの1台を探してご提案します。"
     />
-    <link rel="stylesheet" href="styles.css?v=needs3" />
+    <link rel="stylesheet" href="styles.css?v=needs4" />
   </head>
   <body>
     <header class="site-header">
@@ -352,6 +352,51 @@
                 <li>格安の軽自動車は、使い方・予算・車検の希望を書くと探しやすくなります。</li>
               </ul>
             </div>
+            <div class="example-assist">
+              <strong>よくある相談例</strong>
+              <p>近い内容を選ぶと、フォームに入力例を入れられます。</p>
+              <div class="example-assist-grid">
+                <button
+                  class="example-fill-button js-fill-example"
+                  type="button"
+                  data-support-need="ローン審査が不安"
+                  data-car-model="軽自動車"
+                  data-budget="総額80万円以内"
+                  data-payment-method="ローン"
+                  data-monthly-payment="月々2万円以内"
+                  data-down-payment="なし、または未定"
+                  data-loan-concern="ローン審査が通るか不安です。月々の支払いを抑えて相談したいです。"
+                  data-notes="通勤で使うため、維持費が安い車を希望します。"
+                >
+                  ローンが不安
+                </button>
+                <button
+                  class="example-fill-button js-fill-example"
+                  type="button"
+                  data-support-need="格安の軽自動車を探したい"
+                  data-car-model="軽自動車"
+                  data-budget="総額50万円以内"
+                  data-payment-method="未定"
+                  data-cheap-kei-preference="通勤用で使える格安の軽自動車を探しています。車検付き、できれば総額50万円以内が希望です。"
+                  data-notes="年式や走行距離よりも、総額と状態のバランスを重視したいです。"
+                >
+                  格安軽を探したい
+                </button>
+                <button
+                  class="example-fill-button js-fill-example"
+                  type="button"
+                  data-support-need="支払い方法を相談したい"
+                  data-car-model="未定"
+                  data-budget="総額150万円以内"
+                  data-payment-method="未定"
+                  data-monthly-payment="無理のない金額で相談"
+                  data-down-payment="未定"
+                  data-notes="現金、ローン、リースのどれが合うか相談したいです。購入後の維持費も含めて知りたいです。"
+                >
+                  支払い方法を相談
+                </button>
+              </div>
+            </div>
           </div>
 
           <form class="order-form" id="orderForm" method="post">
@@ -575,6 +620,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=needs3"></script>
+    <script src="script.js?v=needs4"></script>
   </body>
 </html>

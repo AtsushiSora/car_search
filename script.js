@@ -25,6 +25,7 @@ const liveSummaryList = document.querySelector("#liveSummaryList");
 const formProgressText = document.querySelector("#formProgressText");
 const formProgressBar = document.querySelector("#formProgressBar");
 const needGuide = document.querySelector("#needGuide");
+const exampleFillButtons = document.querySelectorAll(".js-fill-example");
 const stockGrid = document.querySelector("#stockGrid");
 
 const methodGuides = {
@@ -75,6 +76,12 @@ filterButtons.forEach((button) => {
     filterButtons.forEach((item) => item.classList.remove("is-active"));
     button.classList.add("is-active");
     filterExamples(button.dataset.filter);
+  });
+});
+
+exampleFillButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    applyInquiryExample(button);
   });
 });
 
@@ -438,6 +445,46 @@ function applyUrlPrefill() {
       needField.checked = true;
     }
   });
+}
+
+function applyInquiryExample(button) {
+  if (!form) {
+    return;
+  }
+
+  const supportNeed = button.dataset.supportNeed;
+  const values = {
+    carModel: button.dataset.carModel,
+    budget: button.dataset.budget,
+    paymentMethod: button.dataset.paymentMethod,
+    monthlyPayment: button.dataset.monthlyPayment,
+    downPayment: button.dataset.downPayment,
+    loanConcern: button.dataset.loanConcern,
+    cheapKeiPreference: button.dataset.cheapKeiPreference,
+    notes: button.dataset.notes,
+  };
+
+  if (supportNeed) {
+    const needField = [...form.querySelectorAll('[name="supportNeeds"]')].find(
+      (field) => field.value === supportNeed,
+    );
+    if (needField) {
+      needField.checked = true;
+    }
+  }
+
+  Object.entries(values).forEach(([name, value]) => {
+    if (!value) {
+      return;
+    }
+    const field = form.querySelector(`[name="${name}"]`);
+    if (field) {
+      field.value = value;
+    }
+  });
+
+  updateDynamicForm();
+  form.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
 function createStockSpec(label, value) {
