@@ -1073,6 +1073,14 @@ h1 {
   box-shadow: var(--shadow);
 }
 
+.bot-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 fieldset {
   margin: 0;
   padding: 0;

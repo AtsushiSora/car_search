@@ -154,7 +154,7 @@ form?.addEventListener("submit", async (event) => {
       sentToLine = true;
     }
 
-    if (formEndpoint) {
+    if (getFormEndpoint()) {
       await sendForm(formData);
       sentToForm = true;
     }
@@ -238,14 +238,31 @@ function closeModal() {
 }
 
 async function sendForm(formData) {
-  const response = await fetch(formEndpoint, {
+  const endpoint = getFormEndpoint();
+  const response = await fetch(endpoint, {
     method: "POST",
-    body: formData,
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(formData).toString(),
   });
 
   if (!response.ok) {
     throw new Error("Form submission failed");
   }
+}
+
+function getFormEndpoint() {
+  if (formEndpoint) {
+    return formEndpoint;
+  }
+
+  if (!form?.dataset.netlify) {
+    return "";
+  }
+
+  const host = window.location.hostname;
+  const isLocalPreview = !host || host === "localhost" || host === "127.0.0.1";
+  const isGitHubPages = host.endsWith("github.io");
+  return isLocalPreview || isGitHubPages ? "" : "/";
 }
 
 async function sendLineWebhook(payload) {
