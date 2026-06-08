@@ -34,6 +34,7 @@ const methodGuides = {
 
 const labels = {
   contactMethod: "希望の相談方法",
+  supportNeeds: "相談したいこと",
   carModel: "車種",
   year: "年式",
   mileage: "走行距離",
@@ -95,7 +96,7 @@ form?.addEventListener("submit", async (event) => {
 
   const formData = new FormData(form);
   const entries = Object.entries(labels).map(([name, label]) => {
-    const value = String(formData.get(name) || "").trim();
+    const value = getFormEntryValue(formData, name);
     return [label, value || "未定"];
   });
 
@@ -408,6 +409,7 @@ function applyUrlPrefill() {
   const params = new URLSearchParams(window.location.search);
   const carName = params.get("car");
   const contactMethod = params.get("method");
+  const needs = params.getAll("need");
 
   if (carName) {
     const carModel = form.querySelector('[name="carModel"]');
@@ -424,6 +426,13 @@ function applyUrlPrefill() {
       methodField.checked = true;
     }
   }
+
+  needs.forEach((need) => {
+    const needField = [...form.querySelectorAll('[name="supportNeeds"]')].find((field) => field.value === need);
+    if (needField) {
+      needField.checked = true;
+    }
+  });
 }
 
 function createStockSpec(label, value) {
@@ -484,6 +493,7 @@ function updateDynamicForm() {
   const carModel = getFieldValue(formData, "carModel", "未入力");
   const budget = getFieldValue(formData, "budget", "未入力");
   const paymentMethod = getFieldValue(formData, "paymentMethod", "未定");
+  const supportNeeds = getFieldValues(formData, "supportNeeds", "未選択");
   const timing = getFieldValue(formData, "timing", "未定");
   const phone = form.querySelector('[name="phone"]');
   const submitButton = form.querySelector(".submit-button");
@@ -508,6 +518,7 @@ function updateDynamicForm() {
   if (liveSummaryList) {
     liveSummaryList.innerHTML = [
       ["相談方法", contactMethod],
+      ["相談したいこと", supportNeeds],
       ["車種", carModel],
       ["予算", budget],
       ["支払い方法", paymentMethod],
@@ -544,6 +555,15 @@ function updateDynamicForm() {
 
 function getFieldValue(formData, name, fallback) {
   return String(formData.get(name) || "").trim() || fallback;
+}
+
+function getFieldValues(formData, name, fallback) {
+  const values = formData.getAll(name).map((value) => String(value).trim()).filter(Boolean);
+  return values.length ? values.join("、") : fallback;
+}
+
+function getFormEntryValue(formData, name) {
+  return formData.getAll(name).map((value) => String(value).trim()).filter(Boolean).join("、");
 }
 
 function escapeHtml(value) {

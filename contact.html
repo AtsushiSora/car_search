@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>無料相談フォーム | おまかせカーサーチ</title>
     <meta name="description" content="車種・年式・走行距離・色・予算などを入力して、車探しを無料で相談できます。" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=needs1" />
   </head>
   <body>
     <header class="site-header">
@@ -86,6 +86,7 @@
               </div>
               <dl id="liveSummaryList">
                 <div><dt>相談方法</dt><dd>メール</dd></div>
+                <div><dt>相談したいこと</dt><dd>未選択</dd></div>
                 <div><dt>車種</dt><dd>未入力</dd></div>
                 <div><dt>予算</dt><dd>未入力</dd></div>
                 <div><dt>支払い方法</dt><dd>未定</dd></div>
@@ -105,6 +106,15 @@
                 <label class="method-option"><input type="radio" name="contactMethod" value="ビジネスLINE" /><span>ビジネスLINE</span></label>
               </div>
               <p class="method-guide" id="methodGuide">メールで候補車の写真・状態・費用感をまとめてご連絡します。</p>
+            </fieldset>
+
+            <fieldset>
+              <legend>相談したいこと</legend>
+              <div class="method-options support-options">
+                <label class="method-option"><input type="checkbox" name="supportNeeds" value="ローン審査が不安" /><span>ローン審査が不安</span></label>
+                <label class="method-option"><input type="checkbox" name="supportNeeds" value="格安の軽自動車を探したい" /><span>格安の軽自動車</span></label>
+                <label class="method-option"><input type="checkbox" name="supportNeeds" value="支払い方法を相談したい" /><span>支払い方法を相談</span></label>
+              </div>
             </fieldset>
 
             <fieldset>
@@ -215,6 +225,6 @@
         <div class="footer-links"><a href="index.html">トップ</a><a href="about.html">お店について</a><a href="payment.html">支払い方法</a><a href="contact.html">相談フォーム</a><a class="js-line-link" href="#" target="_blank" rel="noopener">ビジネスLINE</a><a class="js-email-link" href="mailto:owner@example.com">メールで相談する</a></div>
       </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js?v=needs1"></script>
   </body>
 </html>

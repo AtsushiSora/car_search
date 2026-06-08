@@ -1036,6 +1036,10 @@ legend {
   gap: 10px;
 }
 
+.support-options {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .method-option {
   position: relative;
   display: block;
@@ -1879,6 +1883,10 @@ pre {
   }
 
   .method-options {
+    grid-template-columns: 1fr;
+  }
+
+  .support-options {
     grid-template-columns: 1fr;
   }
 

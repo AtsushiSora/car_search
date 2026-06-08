@@ -8,7 +8,7 @@
       name="description"
       content="ご希望条件を入力するだけで、車屋が全国の在庫・オークションからぴったりの1台を探してご提案します。"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=needs1" />
   </head>
   <body>
     <header class="site-header">
@@ -304,6 +304,7 @@
               </div>
               <dl id="liveSummaryList">
                 <div><dt>相談方法</dt><dd>メール</dd></div>
+                <div><dt>相談したいこと</dt><dd>未選択</dd></div>
                 <div><dt>車種</dt><dd>未入力</dd></div>
                 <div><dt>予算</dt><dd>未入力</dd></div>
                 <div><dt>支払い方法</dt><dd>未定</dd></div>
@@ -332,6 +333,15 @@
                 </label>
               </div>
               <p class="method-guide" id="methodGuide">メールで候補車の写真・状態・費用感をまとめてご連絡します。</p>
+            </fieldset>
+
+            <fieldset>
+              <legend>相談したいこと</legend>
+              <div class="method-options support-options">
+                <label class="method-option"><input type="checkbox" name="supportNeeds" value="ローン審査が不安" /><span>ローン審査が不安</span></label>
+                <label class="method-option"><input type="checkbox" name="supportNeeds" value="格安の軽自動車を探したい" /><span>格安の軽自動車</span></label>
+                <label class="method-option"><input type="checkbox" name="supportNeeds" value="支払い方法を相談したい" /><span>支払い方法を相談</span></label>
+              </div>
             </fieldset>
 
             <fieldset>
@@ -502,6 +512,6 @@
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=needs1"></script>
   </body>
 </html>
