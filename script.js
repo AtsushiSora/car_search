@@ -41,7 +41,11 @@ const labels = {
   color: "色",
   budget: "予算",
   paymentMethod: "支払い方法",
+  monthlyPayment: "月々の希望額",
+  downPayment: "頭金",
   timing: "購入時期",
+  loanConcern: "ローン審査の不安",
+  cheapKeiPreference: "格安軽の希望条件",
   notes: "その他の希望",
   customerName: "お名前",
   email: "メールアドレス",
@@ -494,6 +498,8 @@ function updateDynamicForm() {
   const budget = getFieldValue(formData, "budget", "未入力");
   const paymentMethod = getFieldValue(formData, "paymentMethod", "未定");
   const supportNeeds = getFieldValues(formData, "supportNeeds", "未選択");
+  const monthlyPayment = getFieldValue(formData, "monthlyPayment", "未入力");
+  const downPayment = getFieldValue(formData, "downPayment", "未定");
   const timing = getFieldValue(formData, "timing", "未定");
   const phone = form.querySelector('[name="phone"]');
   const submitButton = form.querySelector(".submit-button");
@@ -522,6 +528,8 @@ function updateDynamicForm() {
       ["車種", carModel],
       ["予算", budget],
       ["支払い方法", paymentMethod],
+      ["月々の希望", monthlyPayment],
+      ["頭金", downPayment],
       ["購入時期", timing],
     ]
       .map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`)

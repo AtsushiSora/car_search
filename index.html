@@ -8,7 +8,7 @@
       name="description"
       content="ご希望条件を入力するだけで、車屋が全国の在庫・オークションからぴったりの1台を探してご提案します。"
     />
-    <link rel="stylesheet" href="styles.css?v=needs1" />
+    <link rel="stylesheet" href="styles.css?v=needs2" />
   </head>
   <body>
     <header class="site-header">
@@ -340,6 +340,8 @@
                 <div><dt>車種</dt><dd>未入力</dd></div>
                 <div><dt>予算</dt><dd>未入力</dd></div>
                 <div><dt>支払い方法</dt><dd>未定</dd></div>
+                <div><dt>月々の希望</dt><dd>未入力</dd></div>
+                <div><dt>頭金</dt><dd>未定</dd></div>
                 <div><dt>購入時期</dt><dd>未定</dd></div>
               </dl>
             </div>
@@ -444,6 +446,28 @@
             </fieldset>
 
             <fieldset>
+              <legend>ローン・格安軽の希望</legend>
+              <div class="form-grid">
+                <label>
+                  <span>月々の希望額</span>
+                  <input name="monthlyPayment" type="text" placeholder="例）月々2万円以内" />
+                </label>
+                <label>
+                  <span>頭金</span>
+                  <input name="downPayment" type="text" placeholder="例）10万円、なし、未定" />
+                </label>
+              </div>
+              <label class="full">
+                <span>ローン審査の不安</span>
+                <textarea name="loanConcern" rows="3" placeholder="例）通るか不安、月々を抑えたい、頭金なしで相談したい"></textarea>
+              </label>
+              <label class="full">
+                <span>格安軽の希望条件</span>
+                <textarea name="cheapKeiPreference" rows="3" placeholder="例）通勤用、総額50万円以内、車検付き希望、走行距離より価格重視"></textarea>
+              </label>
+            </fieldset>
+
+            <fieldset>
               <legend>お客様の情報</legend>
               <div class="form-grid">
                 <label>
@@ -544,6 +568,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=needs1"></script>
+    <script src="script.js?v=needs2"></script>
   </body>
 </html>
