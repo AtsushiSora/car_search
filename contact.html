@@ -68,7 +68,7 @@
               <ul>
                 <li>希望の車種・年式・走行距離・色・予算</li>
                 <li>お名前・メールアドレス・電話番号</li>
-                <li>こだわり条件、購入時期、下取りやローン希望</li>
+                <li>支払い方法、こだわり条件、購入時期、下取り希望</li>
               </ul>
             </div>
             <div class="line-box">
@@ -88,6 +88,7 @@
                 <div><dt>相談方法</dt><dd>メール</dd></div>
                 <div><dt>車種</dt><dd>未入力</dd></div>
                 <div><dt>予算</dt><dd>未入力</dd></div>
+                <div><dt>支払い方法</dt><dd>未定</dd></div>
                 <div><dt>購入時期</dt><dd>未定</dd></div>
               </dl>
             </div>
@@ -136,6 +137,17 @@
                 <label><span>色</span><input name="color" type="text" placeholder="例）白、黒、何色でも可" /></label>
                 <label><span>予算</span><input name="budget" type="text" placeholder="例）総額200万円以内" required /></label>
                 <label>
+                  <span>支払い方法</span>
+                  <select name="paymentMethod">
+                    <option value="">選択してください</option>
+                    <option>現金一括</option>
+                    <option>ローン</option>
+                    <option>残価設定ローン</option>
+                    <option>リース</option>
+                    <option>未定</option>
+                  </select>
+                </label>
+                <label>
                   <span>購入時期</span>
                   <select name="timing">
                     <option value="">選択してください</option>
@@ -147,7 +159,7 @@
                   </select>
                 </label>
               </div>
-              <label class="full"><span>その他の希望</span><textarea name="notes" rows="4" placeholder="グレード、駆動方式、装備、下取り、ローン希望など"></textarea></label>
+              <label class="full"><span>その他の希望</span><textarea name="notes" rows="4" placeholder="グレード、駆動方式、装備、下取り希望など"></textarea></label>
             </fieldset>
 
             <fieldset>

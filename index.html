@@ -286,7 +286,7 @@
               <ul>
                 <li>希望の車種・年式・走行距離・色・予算</li>
                 <li>お名前・メールアドレス</li>
-                <li>こだわり条件や購入時期</li>
+                <li>支払い方法、こだわり条件、購入時期</li>
               </ul>
             </div>
             <div class="line-box">
@@ -306,6 +306,7 @@
                 <div><dt>相談方法</dt><dd>メール</dd></div>
                 <div><dt>車種</dt><dd>未入力</dd></div>
                 <div><dt>予算</dt><dd>未入力</dd></div>
+                <div><dt>支払い方法</dt><dd>未定</dd></div>
                 <div><dt>購入時期</dt><dd>未定</dd></div>
               </dl>
             </div>
@@ -372,6 +373,17 @@
                   <input name="budget" type="text" placeholder="例）総額200万円以内" required />
                 </label>
                 <label>
+                  <span>支払い方法</span>
+                  <select name="paymentMethod">
+                    <option value="">選択してください</option>
+                    <option>現金一括</option>
+                    <option>ローン</option>
+                    <option>残価設定ローン</option>
+                    <option>リース</option>
+                    <option>未定</option>
+                  </select>
+                </label>
+                <label>
                   <span>購入時期</span>
                   <select name="timing">
                     <option value="">選択してください</option>
@@ -385,7 +397,7 @@
               </div>
               <label class="full">
                 <span>その他の希望</span>
-                <textarea name="notes" rows="4" placeholder="グレード、駆動方式、装備、下取り、ローン希望など"></textarea>
+                <textarea name="notes" rows="4" placeholder="グレード、駆動方式、装備、下取り希望など"></textarea>
               </label>
             </fieldset>
 
@@ -446,7 +458,7 @@
             </details>
             <details>
               <summary>下取りやローンの相談もできますか？</summary>
-              <p>可能です。下取り予定の車や支払い方法の希望があれば、フォームのその他欄に入力してください。</p>
+              <p>可能です。下取り予定の車や支払い方法の希望があれば、フォームから入力してください。</p>
             </details>
             <details>
               <summary>LINEで写真を送って相談できますか？</summary>

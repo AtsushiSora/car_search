@@ -39,6 +39,7 @@ const labels = {
   mileage: "走行距離",
   color: "色",
   budget: "予算",
+  paymentMethod: "支払い方法",
   timing: "購入時期",
   notes: "その他の希望",
   customerName: "お名前",
@@ -482,6 +483,7 @@ function updateDynamicForm() {
   const contactMethod = String(formData.get("contactMethod") || "メール");
   const carModel = getFieldValue(formData, "carModel", "未入力");
   const budget = getFieldValue(formData, "budget", "未入力");
+  const paymentMethod = getFieldValue(formData, "paymentMethod", "未定");
   const timing = getFieldValue(formData, "timing", "未定");
   const phone = form.querySelector('[name="phone"]');
   const submitButton = form.querySelector(".submit-button");
@@ -508,6 +510,7 @@ function updateDynamicForm() {
       ["相談方法", contactMethod],
       ["車種", carModel],
       ["予算", budget],
+      ["支払い方法", paymentMethod],
       ["購入時期", timing],
     ]
       .map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`)
