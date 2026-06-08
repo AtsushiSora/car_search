@@ -50,7 +50,6 @@ const labels = {
   downPayment: "頭金",
   timing: "購入時期",
   loanConcern: "ローン審査の不安",
-  cheapKeiPreference: "格安軽の希望条件",
   notes: "その他の希望",
   customerName: "お名前",
   email: "メールアドレス",
@@ -447,6 +446,7 @@ function applyUrlPrefill() {
   const contactMethod = params.get("method");
   const needs = params.getAll("need");
   const inquiryType = params.get("type");
+  const loanNeeds = ["ローン審査が不安", "支払い方法を相談したい"];
 
   if (carName) {
     const carModel = form.querySelector('[name="carModel"]');
@@ -471,7 +471,7 @@ function applyUrlPrefill() {
     }
   }
 
-  if (needs.length) {
+  if (needs.some((need) => loanNeeds.includes(need))) {
     const loanTypeField = [...form.querySelectorAll('[name="inquiryType"]')].find(
       (field) => field.value === "車プラスローンが心配",
     );
@@ -507,7 +507,6 @@ function applyInquiryExample(button) {
     monthlyPayment: button.dataset.monthlyPayment,
     downPayment: button.dataset.downPayment,
     loanConcern: button.dataset.loanConcern,
-    cheapKeiPreference: button.dataset.cheapKeiPreference,
     notes: button.dataset.notes,
   };
 
@@ -690,7 +689,7 @@ function getSubmissionLabelEntries(inquiryType) {
     "phone",
   ];
 
-  const loanNames = ["supportNeeds", "monthlyPayment", "downPayment", "loanConcern", "cheapKeiPreference"];
+  const loanNames = ["supportNeeds", "monthlyPayment", "downPayment", "loanConcern"];
   const names = inquiryType === "車プラスローンが心配"
     ? ["inquiryType", "contactMethod", ...loanNames, ...baseNames.slice(2)]
     : baseNames;
@@ -734,16 +733,12 @@ function createNeedGuide(needs, inquiryType = "車だけ") {
     guideItems.push("月々の希望額、頭金、支払回数の希望があれば入力してください。未定でも相談できます。");
   }
 
-  if (selectedNeeds.includes("格安の軽自動車を探したい")) {
-    guideItems.push("通勤用、車検付き、総額の上限、走行距離の希望などを書くと候補を探しやすくなります。");
-  }
-
   if (selectedNeeds.includes("支払い方法を相談したい")) {
     guideItems.push("現金、ローン、残価設定、リースで迷っている内容をその他欄に書いてください。");
   }
 
   if (!guideItems.length) {
-    guideItems.push("ローンや格安軽の相談がある場合は、相談したいことを選ぶと入力ポイントが表示されます。");
+    guideItems.push("ローンや支払いの相談がある場合は、相談したいことを選ぶと入力ポイントが表示されます。");
   }
 
   return `<strong>入力のポイント</strong><ul>${guideItems.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
