@@ -18,6 +18,7 @@
 - `faq.html`: よくある質問
 - `about.html`: お店について
 - `contact.html`: 無料相談フォーム
+- `payment.html`: 支払い方法
 
 ## 変更しやすい場所
 
