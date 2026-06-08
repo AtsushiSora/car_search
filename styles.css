@@ -935,6 +935,26 @@ h1 {
   box-shadow: 0 12px 32px rgba(27, 60, 97, 0.08);
 }
 
+.need-guide {
+  margin-top: 16px;
+  padding: 20px;
+  background: #fff8ef;
+  border: 1px solid #ffd9ad;
+  border-radius: var(--radius);
+  box-shadow: 0 12px 32px rgba(255, 122, 0, 0.08);
+}
+
+.need-guide strong {
+  color: var(--orange-dark);
+  font-weight: 900;
+}
+
+.need-guide ul {
+  margin: 10px 0 0;
+  padding-left: 1.2em;
+  color: #6f563a;
+}
+
 .live-summary-head {
   display: flex;
   align-items: center;

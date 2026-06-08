@@ -24,6 +24,7 @@ const methodGuide = document.querySelector("#methodGuide");
 const liveSummaryList = document.querySelector("#liveSummaryList");
 const formProgressText = document.querySelector("#formProgressText");
 const formProgressBar = document.querySelector("#formProgressBar");
+const needGuide = document.querySelector("#needGuide");
 const stockGrid = document.querySelector("#stockGrid");
 
 const methodGuides = {
@@ -536,6 +537,10 @@ function updateDynamicForm() {
       .join("");
   }
 
+  if (needGuide) {
+    needGuide.innerHTML = createNeedGuide(formData.getAll("supportNeeds"));
+  }
+
   const requiredNames =
     contactMethod === "電話"
       ? ["carModel", "budget", "customerName", "email", "phone", "consent"]
@@ -572,6 +577,29 @@ function getFieldValues(formData, name, fallback) {
 
 function getFormEntryValue(formData, name) {
   return formData.getAll(name).map((value) => String(value).trim()).filter(Boolean).join("、");
+}
+
+function createNeedGuide(needs) {
+  const selectedNeeds = needs.map((need) => String(need));
+  const guideItems = [];
+
+  if (selectedNeeds.includes("ローン審査が不安")) {
+    guideItems.push("月々の希望額、頭金、支払回数の希望があれば入力してください。未定でも相談できます。");
+  }
+
+  if (selectedNeeds.includes("格安の軽自動車を探したい")) {
+    guideItems.push("通勤用、車検付き、総額の上限、走行距離の希望などを書くと候補を探しやすくなります。");
+  }
+
+  if (selectedNeeds.includes("支払い方法を相談したい")) {
+    guideItems.push("現金、ローン、残価設定、リースで迷っている内容をその他欄に書いてください。");
+  }
+
+  if (!guideItems.length) {
+    guideItems.push("ローンや格安軽の相談がある場合は、相談したいことを選ぶと入力ポイントが表示されます。");
+  }
+
+  return `<strong>入力のポイント</strong><ul>${guideItems.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
 }
 
 function escapeHtml(value) {
