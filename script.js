@@ -117,14 +117,17 @@ form?.addEventListener("submit", async (event) => {
   const carModel = String(formData.get("carModel") || "車探し相談").trim();
   const subject = `車探し相談: ${customerName}様 / ${carModel}`;
   const body = `下記の内容で車探しの相談がありました。\n\n${summary}`;
+  const submittedAt = new Date().toISOString();
   const payload = {
     subject,
     message: body,
     fields: Object.fromEntries(entries),
-    submittedAt: new Date().toISOString(),
+    submittedAt,
   };
   formData.set("subject", subject);
   formData.set("message", body);
+  formData.set("submittedAt", submittedAt);
+  formData.set("sourcePage", window.location.href);
 
   summaryText.textContent = summary;
   mailtoLink.href = `mailto:${ownerEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
