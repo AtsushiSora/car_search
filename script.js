@@ -1,4 +1,7 @@
 const ownerEmail = "owner@example.com";
+const ownerPhoneDisplay = "03-1234-5678";
+const ownerPhoneHref = "0312345678";
+const businessHours = "9:00-18:00";
 const lineUrl = "https://lin.ee/Xp9AUJy";
 const lineWebhookEndpoint = "";
 const formEndpoint = "";
@@ -17,6 +20,9 @@ const modalLineLink = document.querySelector("#modalLineLink");
 const copyButton = document.querySelector("#copyButton");
 const lineLinks = document.querySelectorAll(".js-line-link");
 const emailLinks = document.querySelectorAll(".js-email-link");
+const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+const phoneTextNodes = document.querySelectorAll("[data-site-phone]");
+const businessHourNodes = document.querySelectorAll("[data-site-hours]");
 const filterButtons = document.querySelectorAll(".filter-button");
 const exampleResultCount = document.querySelector("#exampleResultCount");
 const exampleGrid = document.querySelector("#exampleGrid");
@@ -67,6 +73,31 @@ lineLinks.forEach((link) => {
 
 emailLinks.forEach((link) => {
   link.href = `mailto:${ownerEmail}`;
+});
+
+phoneLinks.forEach((link) => {
+  link.href = `tel:${ownerPhoneHref}`;
+
+  const phoneText = link.querySelector("strong");
+  const hoursText = link.querySelector("small");
+
+  if (phoneText) {
+    phoneText.textContent = ownerPhoneDisplay;
+  } else if (link.textContent.trim().match(/^[0-9-]+$/) || link.textContent.includes("電話する")) {
+    link.textContent = link.textContent.includes("電話する") ? "電話する" : ownerPhoneDisplay;
+  }
+
+  if (hoursText) {
+    hoursText.textContent = businessHours;
+  }
+});
+
+phoneTextNodes.forEach((node) => {
+  node.textContent = ownerPhoneDisplay;
+});
+
+businessHourNodes.forEach((node) => {
+  node.textContent = businessHours;
 });
 
 if (modalLineLink) {
