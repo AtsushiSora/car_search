@@ -2069,20 +2069,35 @@ pre {
 
 @media (max-width: 740px) {
   .site-header {
-    padding-inline: 16px;
+    min-height: 58px;
+    padding: 8px 14px;
   }
 
   .brand strong {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .brand small {
-    font-size: 0.68rem;
+    font-size: 0.64rem;
   }
 
   .brand-mark {
-    width: 42px;
-    height: 42px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-mark svg {
+    width: 27px;
+  }
+
+  .menu-button {
+    width: 38px;
+    height: 38px;
+    padding: 8px;
+  }
+
+  .mobile-nav.is-open {
+    top: 58px;
   }
 
   .hero {
@@ -2167,7 +2182,7 @@ pre {
   }
 
   .compact-hero {
-    padding: 14px 0 18px;
+    padding: 10px 0 14px;
   }
 
   .compact-hero-inner,
@@ -2180,56 +2195,62 @@ pre {
     display: none;
   }
 
+  .compact-hero-copy .eyebrow {
+    margin-bottom: 6px;
+    font-size: 0.72rem;
+  }
+
   .compact-hero-copy h1 {
-    font-size: 1.72rem;
+    font-size: 1.54rem;
     line-height: 1.22;
   }
 
   .worry-list {
-    gap: 7px;
-    margin-top: 12px;
+    gap: 6px;
+    margin-top: 9px;
   }
 
   .worry-list li {
-    grid-template-columns: 26px 1fr;
-    gap: 8px;
-    padding: 9px 10px;
-    font-size: 0.88rem;
+    grid-template-columns: 22px 1fr;
+    gap: 7px;
+    padding: 7px 9px;
+    font-size: 0.8rem;
+    line-height: 1.34;
   }
 
   .worry-list span {
-    width: 26px;
-    height: 26px;
-    font-size: 0.76rem;
+    width: 22px;
+    height: 22px;
+    font-size: 0.68rem;
   }
 
   .solution-copy {
-    margin-top: 10px;
-    font-size: 1rem;
+    margin-top: 8px;
+    font-size: 0.94rem;
   }
 
   .compact-actions {
     display: grid;
     grid-template-columns: 1fr 0.82fr;
-    gap: 8px;
-    margin-top: 14px;
+    gap: 7px;
+    margin-top: 10px;
   }
 
   .compact-actions .primary-link.large,
   .compact-actions .line-link.large {
-    min-height: 46px;
+    min-height: 42px;
     padding-inline: 12px;
-    font-size: 0.92rem;
+    font-size: 0.86rem;
   }
 
   .area-note {
-    margin-top: 10px;
-    font-size: 0.8rem;
-    line-height: 1.5;
+    margin-top: 8px;
+    font-size: 0.72rem;
+    line-height: 1.4;
   }
 
   .compact-examples {
-    padding: 18px 0;
+    padding: 14px 0;
   }
 
   .compact-heading {
@@ -2237,35 +2258,35 @@ pre {
   }
 
   .compact-heading h2 {
-    font-size: 1.38rem;
+    font-size: 1.24rem;
   }
 
   .price-example-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
+    gap: 7px;
   }
 
   .price-example-card {
-    min-height: 122px;
-    padding: 12px 10px;
-    gap: 5px;
+    min-height: 104px;
+    padding: 10px 9px;
+    gap: 4px;
   }
 
   .price-example-card strong {
-    font-size: 1.45rem;
+    font-size: 1.32rem;
   }
 
   .price-example-card span {
-    font-size: 0.86rem;
+    font-size: 0.78rem;
   }
 
   .price-example-card p {
-    font-size: 0.76rem;
-    line-height: 1.42;
+    font-size: 0.7rem;
+    line-height: 1.35;
   }
 
   .compact-order-section {
-    padding: 18px 0 44px;
+    padding: 14px 0 40px;
   }
 
   .compact-order-form {
