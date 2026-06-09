@@ -1944,6 +1944,18 @@ pre {
   box-shadow: 0 10px 24px rgba(20, 66, 116, 0.08);
 }
 
+.example-image-placeholder {
+  display: grid;
+  place-items: center;
+  min-height: 82px;
+  color: #6d7d90;
+  background: linear-gradient(135deg, #edf5ff, #f9fbfd);
+  border: 1px dashed #b9cfe5;
+  border-radius: var(--radius);
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
 .price-example-card strong {
   color: var(--orange);
   font-size: clamp(1.55rem, 3vw, 2.2rem);
@@ -2278,9 +2290,14 @@ pre {
   }
 
   .price-example-card {
-    min-height: 104px;
+    min-height: 154px;
     padding: 10px 9px;
     gap: 4px;
+  }
+
+  .example-image-placeholder {
+    min-height: 56px;
+    font-size: 0.72rem;
   }
 
   .price-example-card strong {
