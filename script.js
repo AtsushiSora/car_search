@@ -39,7 +39,7 @@ const stockGrid = document.querySelector("#stockGrid");
 const methodGuides = {
   電話: "電話で条件を確認します。電話番号を入力していただくと折り返しがスムーズです。",
   メール: "メールで候補車の写真・状態・費用感をまとめてご連絡します。",
-  ビジネスLINE: "LINEで写真や追加条件をやり取りできます。送信後の画面からLINE相談へ進めます。",
+  LINE: "LINEで写真や追加条件をやり取りできます。送信後の画面からLINE相談へ進めます。",
 };
 
 const labels = {
@@ -198,7 +198,7 @@ form?.addEventListener("submit", async (event) => {
     }
 
     if (sentToLine) {
-      resultMessage.textContent = "送信しました。相談内容をビジネスLINEへ通知しました。";
+      resultMessage.textContent = "送信しました。相談内容をLINEへ通知しました。";
     } else if (sentToForm) {
       resultMessage.textContent = "送信しました。内容を確認して、候補車が見つかり次第ご連絡します。";
     } else {
@@ -643,7 +643,7 @@ function updateDynamicForm() {
     submitButton.textContent =
       contactMethod === "電話"
         ? "電話相談を送信する"
-        : contactMethod === "ビジネスLINE"
+        : contactMethod === "LINE"
           ? "LINE相談を送信する"
           : "メール相談を送信する";
   }

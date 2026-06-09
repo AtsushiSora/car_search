@@ -30,8 +30,8 @@
 - 電話番号表示: `script.js` の `ownerPhoneDisplay`
 - 電話リンク: `script.js` の `ownerPhoneHref`
 - 受付時間: `script.js` の `businessHours`
-- ビジネスLINE: `script.js` の `lineUrl`
-- ビジネスLINE通知Webhook: `script.js` の `lineWebhookEndpoint`
+- LINE: `script.js` の `lineUrl`
+- LINE通知Webhook: `script.js` の `lineWebhookEndpoint`
 - フォーム送信先: `script.js` の `formEndpoint`
 - 在庫データ: `data/stock.csv`
 - ご提案例データ: `data/examples.csv`
@@ -46,7 +46,7 @@
 Netlifyで公開すると、フォームはNetlify Formsで受信できるように設定しています。
 フォーム名は `car-search-order` です。
 
-相談方法は、電話・メール・ビジネスLINEの3パターンを表示しています。
+相談方法は、電話・メール・LINEの3パターンを表示しています。
 電話番号と受付時間は `script.js` 冒頭の `ownerPhoneDisplay`、`ownerPhoneHref`、`businessHours` を差し替えてください。
 
 フォームは「格安の軽自動車」「ローン審査が不安」「月々の支払いを抑えたい」「頭金なしで相談したい」を中心にした内容です。
@@ -70,7 +70,7 @@ Netlifyで公開すると、フォームはNetlify Formsで受信できるよう
 - サービスの流れ
 - ご提案例
 - 在庫車両
-- 電話・メール・ビジネスLINEの相談方法
+- 電話・メール・LINEの相談方法
 - 無料相談フォーム
 - よくある質問
 
@@ -101,12 +101,12 @@ name,year,mileage,price,image,budget,category,visible
 Googleスプレッドシートで管理する場合は、シートをCSV形式でウェブ公開し、発行されたCSV URLを `script.js` の `stockDataUrl` または `exampleDataUrl` に設定してください。
 
 実際にメールで自動受信したい場合は、フォームサービスが発行する送信先URLを `script.js` の `formEndpoint` に設定してください。
-ビジネスLINEへ自動通知したい場合は、LINE Messaging APIなどを扱うサーバー側Webhook URLを `lineWebhookEndpoint` に設定してください。
+LINEへ自動通知したい場合は、LINE Messaging APIなどを扱うサーバー側Webhook URLを `lineWebhookEndpoint` に設定してください。
 
 ```js
 const ownerEmail = "あなたのメールアドレス";
 const lineUrl = "LINE公式アカウントの友だち追加URL";
-const lineWebhookEndpoint = "ビジネスLINE通知用Webhook URL";
+const lineWebhookEndpoint = "LINE通知用Webhook URL";
 const formEndpoint = "フォームサービスの送信先URL";
 const stockDataUrl = "GoogleスプレッドシートのCSV公開URL";
 const exampleDataUrl = "ご提案例用GoogleスプレッドシートのCSV公開URL";
