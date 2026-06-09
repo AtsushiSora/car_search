@@ -1980,6 +1980,49 @@ pre {
   margin-top: 24px;
 }
 
+.inventory-reason-card {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 18px;
+  background: linear-gradient(135deg, #f7fbff, #fff);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 24px rgba(20, 66, 116, 0.08);
+}
+
+.inventory-reason-card h2,
+.inventory-reason-card h3,
+.inventory-reason-card p {
+  margin: 0;
+}
+
+.inventory-reason-card h2 {
+  color: var(--ink);
+  font-size: 1.2rem;
+  line-height: 1.25;
+}
+
+.inventory-reason-card h3 {
+  color: var(--blue-dark);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.inventory-reason-card p {
+  color: #33435a;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.65;
+}
+
+.inventory-reason-card small {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
 .sales-record-card .sales-spec {
   color: #33435a;
   font-size: 0.8rem;
@@ -2315,6 +2358,30 @@ pre {
 
   .sales-heading {
     margin-top: 18px;
+  }
+
+  .inventory-reason-card {
+    gap: 5px;
+    margin-top: 12px;
+    padding: 11px 10px;
+  }
+
+  .inventory-reason-card h2 {
+    font-size: 1rem;
+  }
+
+  .inventory-reason-card h3 {
+    font-size: 0.86rem;
+  }
+
+  .inventory-reason-card p {
+    font-size: 0.74rem;
+    line-height: 1.45;
+  }
+
+  .inventory-reason-card small {
+    font-size: 0.68rem;
+    line-height: 1.35;
   }
 
   .sales-record-card .sales-spec {
