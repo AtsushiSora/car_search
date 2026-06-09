@@ -43,9 +43,10 @@ const methodGuides = {
 };
 
 const labels = {
-  inquiryType: "フォーム種類",
+  inquiryType: "相談種別",
   contactMethod: "希望の相談方法",
   supportNeeds: "相談したいこと",
+  area: "対応地域",
   carModel: "車種",
   year: "年式",
   mileage: "走行距離",
@@ -140,7 +141,7 @@ form?.addEventListener("submit", async (event) => {
   }
 
   const formData = new FormData(form);
-  const inquiryType = String(formData.get("inquiryType") || "車だけ");
+  const inquiryType = String(formData.get("inquiryType") || "格安軽・ローン相談");
   const entries = getSubmissionLabelEntries(inquiryType).map(([name, label]) => {
     const value = getFormEntryValue(formData, name);
     return [label, value || "未定"];
@@ -149,8 +150,8 @@ form?.addEventListener("submit", async (event) => {
   const summary = entries.map(([label, value]) => `${label}: ${value}`).join("\n");
   const customerName = String(formData.get("customerName") || "お客様").trim();
   const carModel = String(formData.get("carModel") || "車探し相談").trim();
-  const subject = `車探し相談: ${customerName}様 / ${carModel}`;
-  const body = `下記の内容で車探しの相談がありました。\n\n${summary}`;
+  const subject = `格安軽・ローン相談: ${customerName}様 / ${carModel}`;
+  const body = `下記の内容で格安軽・ローン相談がありました。\n\n${summary}`;
   const submittedAt = new Date().toISOString();
   const payload = {
     subject,
@@ -477,7 +478,7 @@ function applyUrlPrefill() {
   const contactMethod = params.get("method");
   const needs = params.getAll("need");
   const inquiryType = params.get("type");
-  const loanNeeds = ["ローン審査が不安", "支払い方法を相談したい"];
+  const area = params.get("area");
 
   if (carName) {
     const carModel = form.querySelector('[name="carModel"]');
@@ -499,15 +500,18 @@ function applyUrlPrefill() {
     const typeField = [...form.querySelectorAll('[name="inquiryType"]')].find((field) => field.value === inquiryType);
     if (typeField) {
       typeField.checked = true;
+    } else {
+      const hiddenTypeField = form.querySelector('input[type="hidden"][name="inquiryType"]');
+      if (hiddenTypeField) {
+        hiddenTypeField.value = inquiryType;
+      }
     }
   }
 
-  if (needs.some((need) => loanNeeds.includes(need))) {
-    const loanTypeField = [...form.querySelectorAll('[name="inquiryType"]')].find(
-      (field) => field.value === "車プラスローンが心配",
-    );
-    if (loanTypeField) {
-      loanTypeField.checked = true;
+  if (area) {
+    const areaField = form.querySelector('[name="area"]');
+    if (areaField) {
+      areaField.value = area === "その他" ? "その他（全国対応・陸送費別途）" : area;
     }
   }
 
@@ -525,13 +529,8 @@ function applyInquiryExample(button) {
   }
 
   const supportNeed = button.dataset.supportNeed;
-  const loanTypeField = [...form.querySelectorAll('[name="inquiryType"]')].find(
-    (field) => field.value === "車プラスローンが心配",
-  );
-  if (loanTypeField) {
-    loanTypeField.checked = true;
-  }
   const values = {
+    area: button.dataset.area,
     carModel: button.dataset.carModel,
     budget: button.dataset.budget,
     paymentMethod: button.dataset.paymentMethod,
@@ -542,12 +541,10 @@ function applyInquiryExample(button) {
   };
 
   if (supportNeed) {
-    const needField = [...form.querySelectorAll('[name="supportNeeds"]')].find(
-      (field) => field.value === supportNeed,
-    );
-    if (needField) {
-      needField.checked = true;
-    }
+    const supportNeeds = supportNeed.split(",").map((need) => need.trim()).filter(Boolean);
+    form.querySelectorAll('[name="supportNeeds"]').forEach((field) => {
+      field.checked = supportNeeds.includes(field.value);
+    });
   }
 
   Object.entries(values).forEach(([name, value]) => {
@@ -618,11 +615,12 @@ function updateDynamicForm() {
   }
 
   let formData = new FormData(form);
-  const inquiryType = String(formData.get("inquiryType") || "車だけ");
-  const wantsLoanSupport = inquiryType === "車プラスローンが心配";
+  const inquiryType = String(formData.get("inquiryType") || "格安軽・ローン相談");
+  const wantsLoanSupport = true;
   setLoanSectionState(wantsLoanSupport);
   formData = new FormData(form);
   const contactMethod = String(formData.get("contactMethod") || "メール");
+  const area = getFieldValue(formData, "area", "未選択");
   const carModel = getFieldValue(formData, "carModel", "未入力");
   const budget = getFieldValue(formData, "budget", "未入力");
   const paymentMethod = getFieldValue(formData, "paymentMethod", "未定");
@@ -652,18 +650,16 @@ function updateDynamicForm() {
 
   if (liveSummaryList) {
     const summaryRows = [
-      ["フォーム種類", inquiryType],
       ["相談方法", contactMethod],
-      ["車種", carModel],
+      ["相談したいこと", supportNeeds],
+      ["対応地域", area],
+      ["希望車種", carModel],
       ["予算", budget],
       ["支払い方法", paymentMethod],
+      ["月々の希望", monthlyPayment],
+      ["頭金", downPayment],
       ["購入時期", timing],
     ];
-
-    if (wantsLoanSupport) {
-      summaryRows.splice(2, 0, ["相談したいこと", supportNeeds]);
-      summaryRows.splice(6, 0, ["月々の希望", monthlyPayment], ["頭金", downPayment]);
-    }
 
     liveSummaryList.innerHTML = summaryRows
       .map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`)
@@ -671,13 +667,13 @@ function updateDynamicForm() {
   }
 
   if (needGuide) {
-    needGuide.innerHTML = createNeedGuide(formData.getAll("supportNeeds"), inquiryType);
+    needGuide.innerHTML = createNeedGuide(formData.getAll("supportNeeds"), area);
   }
 
   const requiredNames =
     contactMethod === "電話"
-      ? ["carModel", "budget", "customerName", "email", "phone", "consent"]
-      : ["carModel", "budget", "customerName", "email", "consent"];
+      ? ["area", "carModel", "budget", "customerName", "email", "phone", "consent"]
+      : ["area", "carModel", "budget", "customerName", "email", "consent"];
   const completedCount = requiredNames.filter((name) => {
     const field = form.querySelector(`[name="${name}"]`);
     if (!field) {
@@ -704,26 +700,26 @@ function getFieldValue(formData, name, fallback) {
 }
 
 function getSubmissionLabelEntries(inquiryType) {
-  const baseNames = [
+  const names = [
     "inquiryType",
     "contactMethod",
+    "supportNeeds",
+    "area",
     "carModel",
     "year",
     "mileage",
     "color",
     "budget",
     "paymentMethod",
+    "monthlyPayment",
+    "downPayment",
     "timing",
+    "loanConcern",
     "notes",
     "customerName",
     "email",
     "phone",
   ];
-
-  const loanNames = ["supportNeeds", "monthlyPayment", "downPayment", "loanConcern"];
-  const names = inquiryType === "車プラスローンが心配"
-    ? ["inquiryType", "contactMethod", ...loanNames, ...baseNames.slice(2)]
-    : baseNames;
 
   return names.map((name) => [name, labels[name]]).filter(([, label]) => label);
 }
@@ -750,26 +746,34 @@ function getFormEntryValue(formData, name) {
   return formData.getAll(name).map((value) => String(value).trim()).filter(Boolean).join("、");
 }
 
-function createNeedGuide(needs, inquiryType = "車だけ") {
+function createNeedGuide(needs, area = "") {
   const selectedNeeds = needs.map((need) => String(need));
   const guideItems = [];
 
-  if (inquiryType === "車だけ") {
-    guideItems.push("車種、予算、年式、走行距離、色を入力してください。決まっていない項目は未定で大丈夫です。");
-    guideItems.push("用途や人数、荷物の量、通勤距離などをその他欄に書くと候補を絞りやすくなります。");
-    return `<strong>入力のポイント</strong><ul>${guideItems.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+  if (selectedNeeds.includes("格安の軽自動車を探したい")) {
+    guideItems.push("総額予算、用途、通勤距離、車検付き希望などを書くと候補を絞りやすくなります。");
   }
 
   if (selectedNeeds.includes("ローン審査が不安")) {
     guideItems.push("月々の希望額、頭金、支払回数の希望があれば入力してください。未定でも相談できます。");
   }
 
-  if (selectedNeeds.includes("支払い方法を相談したい")) {
-    guideItems.push("現金、ローン、残価設定、リースで迷っている内容をその他欄に書いてください。");
+  if (selectedNeeds.includes("月々の支払いを抑えたい")) {
+    guideItems.push("無理なく払える月額の上限を入れると、車両価格と支払い方法を考えやすくなります。");
+  }
+
+  if (selectedNeeds.includes("頭金なしで相談したい")) {
+    guideItems.push("頭金なし希望の場合も、月々の上限や購入時期を一緒に入力してください。");
+  }
+
+  if (area.includes("その他")) {
+    guideItems.push("全国対応の場合は、車両代とは別に陸送費・登録費などがかかる場合があります。");
+  } else if (area) {
+    guideItems.push(`${area}を中心に、納車までの費用感を確認してご案内します。`);
   }
 
   if (!guideItems.length) {
-    guideItems.push("ローンや支払いの相談がある場合は、相談したいことを選ぶと入力ポイントが表示されます。");
+    guideItems.push("総額予算、地域、月々の希望額を入力してください。決まっていない項目は未定で大丈夫です。");
   }
 
   return `<strong>入力のポイント</strong><ul>${guideItems.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
