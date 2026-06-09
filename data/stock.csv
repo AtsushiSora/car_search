@@ -1,4 +1,7 @@
 maker,name,year,mileage,color,inspection,price,label,note,image,visible
-TOYOTA,トヨタ RAV4 G,2020年,"35,000km",ブラック,車検整備付き,265万円,商談受付中,普段使いとアウトドアの両方に使いやすいSUVです。,assets/example-suv.png,TRUE
-DAIHATSU,ダイハツ タント X,2022年,"12,000km",ライトブルー,2027年3月,100万円,おすすめ,スライドドアで乗り降りしやすく街乗りに向いています。,assets/example-kei.png,TRUE
-LEXUS,レクサス IS300h,2019年,"42,000km",シルバー,相談可,298万円,入荷予定,落ち着いた乗り心地と燃費のバランスが良いセダンです。,assets/example-sedan.png,TRUE
+DAIHATSU,ダイハツ ミラ,2012年,"96,000km",ホワイト,相談可,15万円,低予算,通勤用やセカンドカー向けの格安軽自動車です。,assets/example-kei.png,TRUE
+SUZUKI,スズキ ワゴンR,2013年,"88,000km",シルバー,相談可,20万円,商談受付中,室内が使いやすく日常の足として相談しやすい車両です。,assets/example-kei.png,TRUE
+NISSAN,日産 モコ,2014年,"82,000km",ブラウン,車検整備相談,25万円,おすすめ,小回りが利き、初めての車にも向いています。,assets/example-kei.png,TRUE
+DAIHATSU,ダイハツ ムーヴ,2015年,"79,000km",ブラック,相談可,30万円,ローン相談可,月々の支払いを抑えたい方にも相談しやすい候補です。,assets/example-kei.png,TRUE
+HONDA,ホンダ N-WGN,2016年,"72,000km",パール,相談可,40万円,状態確認中,装備と価格のバランスを見ながら検討できます。,assets/example-kei.png,TRUE
+DAIHATSU,ダイハツ タント,2017年,"68,000km",ライトブルー,相談可,50万円,スライドドア,乗り降りしやすく、街乗りや買い物にも使いやすい車両です。,assets/example-kei.png,TRUE

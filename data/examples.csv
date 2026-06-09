@@ -1,5 +1,7 @@
 name,year,mileage,price,image,budget,category,visible
-トヨタ アルファード,2021年,"28,000km",348万円,assets/example-minivan.png,high,family,TRUE
-トヨタ RAV4,2020年,"35,000km",265万円,assets/example-suv.png,mid,family,TRUE
-ダイハツ タント,2022年,"12,000km",100万円,assets/example-kei.png,low,family,TRUE
-レクサス IS300h,2019年,"42,000km",298万円,assets/example-sedan.png,mid,sedan,TRUE
+ダイハツ ミラ,2012年,"96,000km",15万円,assets/example-kei.png,low,kei,TRUE
+スズキ ワゴンR,2013年,"88,000km",20万円,assets/example-kei.png,low,kei,TRUE
+日産 モコ,2014年,"82,000km",25万円,assets/example-kei.png,mid,kei,TRUE
+ダイハツ ムーヴ,2015年,"79,000km",30万円,assets/example-kei.png,mid,kei,TRUE
+ホンダ N-WGN,2016年,"72,000km",40万円,assets/example-kei.png,high,kei,TRUE
+ダイハツ タント,2017年,"68,000km",50万円,assets/example-kei.png,high,kei,TRUE
