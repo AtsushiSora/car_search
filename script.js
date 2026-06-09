@@ -1,4 +1,4 @@
-const ownerEmail = "owner@example.com";
+const ownerEmail = "closet.full.of.love@icloud.com";
 const ownerPhoneDisplay = "03-1234-5678";
 const ownerPhoneHref = "0312345678";
 const businessHours = "9:00-18:00";
