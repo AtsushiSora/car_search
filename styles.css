@@ -1818,6 +1818,188 @@ pre {
   margin-top: 12px;
 }
 
+.home-compact {
+  background: #fff;
+}
+
+.compact-hero {
+  padding: clamp(26px, 5vw, 58px) 0 28px;
+  background: linear-gradient(180deg, #f4f9ff 0%, #fff 100%);
+}
+
+.compact-hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.98fr) minmax(320px, 0.72fr);
+  gap: clamp(18px, 4vw, 44px);
+  align-items: center;
+}
+
+.compact-hero-copy h1 {
+  max-width: 720px;
+  font-size: clamp(2rem, 4.2vw, 3.55rem);
+}
+
+.worry-list {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.worry-list li {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 14px;
+  color: #263247;
+  background: #fff;
+  border: 1px solid #dbe9f6;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 20px rgba(20, 66, 116, 0.06);
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.worry-list span {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 900;
+}
+
+.solution-copy {
+  margin: 16px 0 0;
+  color: var(--orange-dark);
+  font-size: 1.18rem;
+  font-weight: 900;
+}
+
+.compact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.area-note {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.compact-hero-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: 62% center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.compact-examples {
+  padding: 26px 0;
+  background: #fff;
+}
+
+.compact-heading {
+  margin-bottom: 14px;
+}
+
+.compact-heading h2 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(1.45rem, 3vw, 2.15rem);
+  line-height: 1.28;
+}
+
+.compact-heading p:not(.section-kicker) {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.price-example-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.price-example-card {
+  display: grid;
+  gap: 7px;
+  min-height: 150px;
+  padding: 18px 16px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 24px rgba(20, 66, 116, 0.08);
+}
+
+.price-example-card strong {
+  color: var(--orange);
+  font-size: clamp(1.55rem, 3vw, 2.2rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.price-example-card span {
+  color: var(--blue-dark);
+  font-weight: 900;
+}
+
+.price-example-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.compact-order-section {
+  padding: 28px 0 clamp(42px, 7vw, 76px);
+  background: linear-gradient(180deg, #f7fbff 0%, #fff 100%);
+}
+
+.compact-order-inner {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
+  gap: clamp(18px, 4vw, 38px);
+  align-items: start;
+}
+
+.compact-order-form {
+  padding: clamp(18px, 3vw, 26px);
+}
+
+.compact-order-form fieldset + fieldset {
+  margin-top: 20px;
+}
+
+.compact-order-form legend {
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.compact-order-form .form-grid {
+  gap: 12px;
+}
+
+.compact-order-form input,
+.compact-order-form select,
+.compact-order-form textarea {
+  min-height: 44px;
+  padding: 10px 12px;
+}
+
 @media (max-width: 1280px) {
   .desktop-nav,
   .header-actions {
@@ -1870,7 +2052,9 @@ pre {
   .admin-preview-grid,
   .admin-steps,
   .proposal-layout,
-  .contact-layout {
+  .contact-layout,
+  .compact-hero-inner,
+  .compact-order-inner {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1980,6 +2164,150 @@ pre {
   .contact-layout,
   .form-grid {
     grid-template-columns: 1fr;
+  }
+
+  .compact-hero {
+    padding: 14px 0 18px;
+  }
+
+  .compact-hero-inner,
+  .compact-order-inner {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .compact-hero-image {
+    display: none;
+  }
+
+  .compact-hero-copy h1 {
+    font-size: 1.72rem;
+    line-height: 1.22;
+  }
+
+  .worry-list {
+    gap: 7px;
+    margin-top: 12px;
+  }
+
+  .worry-list li {
+    grid-template-columns: 26px 1fr;
+    gap: 8px;
+    padding: 9px 10px;
+    font-size: 0.88rem;
+  }
+
+  .worry-list span {
+    width: 26px;
+    height: 26px;
+    font-size: 0.76rem;
+  }
+
+  .solution-copy {
+    margin-top: 10px;
+    font-size: 1rem;
+  }
+
+  .compact-actions {
+    display: grid;
+    grid-template-columns: 1fr 0.82fr;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .compact-actions .primary-link.large,
+  .compact-actions .line-link.large {
+    min-height: 46px;
+    padding-inline: 12px;
+    font-size: 0.92rem;
+  }
+
+  .area-note {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .compact-examples {
+    padding: 18px 0;
+  }
+
+  .compact-heading {
+    margin-bottom: 10px;
+  }
+
+  .compact-heading h2 {
+    font-size: 1.38rem;
+  }
+
+  .price-example-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .price-example-card {
+    min-height: 122px;
+    padding: 12px 10px;
+    gap: 5px;
+  }
+
+  .price-example-card strong {
+    font-size: 1.45rem;
+  }
+
+  .price-example-card span {
+    font-size: 0.86rem;
+  }
+
+  .price-example-card p {
+    font-size: 0.76rem;
+    line-height: 1.42;
+  }
+
+  .compact-order-section {
+    padding: 18px 0 44px;
+  }
+
+  .compact-order-form {
+    padding: 16px 14px;
+  }
+
+  .compact-order-form .method-options {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .compact-order-form .method-option span {
+    min-height: 42px;
+    padding: 8px 6px;
+    font-size: 0.78rem;
+  }
+
+  .compact-order-form .form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .compact-order-form label span {
+    font-size: 0.8rem;
+  }
+
+  .compact-order-form input,
+  .compact-order-form select,
+  .compact-order-form textarea {
+    min-height: 42px;
+    padding: 9px 10px;
+    font-size: 0.86rem;
+  }
+
+  .compact-order-form .full,
+  .compact-order-form .consent {
+    grid-column: 1 / -1;
+  }
+
+  .compact-order-form .submit-button {
+    min-height: 50px;
+    font-size: 1rem;
   }
 
   .method-options {
