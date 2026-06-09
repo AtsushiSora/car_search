@@ -1964,6 +1964,17 @@ pre {
   line-height: 1.5;
 }
 
+.sales-heading {
+  margin-top: 24px;
+}
+
+.sales-record-card .sales-spec {
+  color: #33435a;
+  font-size: 0.8rem;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
 .compact-order-section {
   padding: 28px 0 clamp(42px, 7vw, 76px);
   background: linear-gradient(180deg, #f7fbff 0%, #fff 100%);
@@ -2283,6 +2294,15 @@ pre {
   .price-example-card p {
     font-size: 0.7rem;
     line-height: 1.35;
+  }
+
+  .sales-heading {
+    margin-top: 18px;
+  }
+
+  .sales-record-card .sales-spec {
+    font-size: 0.68rem;
+    line-height: 1.25;
   }
 
   .compact-order-section {
