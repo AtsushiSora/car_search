@@ -1,7 +1,3 @@
 name,year,mileage,price,image,budget,category,visible
 ダイハツ ミラ,2012年,"96,000km",15万円,assets/example-kei.png,low,kei,TRUE
-スズキ ワゴンR,2013年,"88,000km",20万円,assets/example-kei.png,low,kei,TRUE
-日産 モコ,2014年,"82,000km",25万円,assets/example-kei.png,mid,kei,TRUE
 ダイハツ ムーヴ,2015年,"79,000km",30万円,assets/example-kei.png,mid,kei,TRUE
-ホンダ N-WGN,2016年,"72,000km",40万円,assets/example-kei.png,high,kei,TRUE
-ダイハツ タント,2017年,"68,000km",50万円,assets/example-kei.png,high,kei,TRUE

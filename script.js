@@ -430,7 +430,7 @@ async function loadStockVehicles() {
 
 function renderStockVehicles(vehicles) {
   if (!vehicles.length) {
-    stockGrid.innerHTML = '<p class="stock-empty">現在表示できる在庫はありません。</p>';
+    stockGrid.innerHTML = '<p class="stock-empty">売り切れのため、現在準備中です。</p>';
     return;
   }
 
