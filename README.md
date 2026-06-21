@@ -37,7 +37,7 @@
 - ご提案例データ: `data/examples.csv`
 - Googleスプレッドシート公開CSV: `script.js` の `stockDataUrl`
 - ご提案例のGoogleスプレッドシート公開CSV: `script.js` の `exampleDataUrl`
-- ヒーロー画像: `assets/hero-car-consultation.png`
+- ヒーロー画像: `assets/hero-car-consultation.webp`
 
 ## フォームについて
 

@@ -1206,6 +1206,29 @@ textarea:focus {
   margin-top: 16px;
 }
 
+.optional-fields {
+  margin-top: 14px;
+  padding: 14px;
+  background: #f7fbff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.optional-fields summary {
+  color: var(--blue-dark);
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.optional-fields .form-grid {
+  margin-top: 12px;
+}
+
+.optional-fields .full {
+  display: grid;
+  margin-top: 12px;
+}
+
 .consent {
   grid-template-columns: 20px 1fr;
   gap: 10px;
@@ -1377,7 +1400,7 @@ pre {
   color: #fff;
   background:
     linear-gradient(135deg, rgba(8, 76, 152, 0.96), rgba(15, 103, 189, 0.82)),
-    url("assets/hero-car-consultation.png") center / cover;
+    url("assets/hero-car-consultation.webp") center / cover;
 }
 
 .detail-hero .section-kicker {
@@ -1609,7 +1632,7 @@ pre {
   color: #fff;
   background:
     linear-gradient(135deg, rgba(8, 76, 152, 0.96), rgba(15, 103, 189, 0.88)),
-    url("assets/hero-car-consultation.png") center / cover;
+    url("assets/hero-car-consultation.webp") center / cover;
 }
 
 .admin-hero-inner {
@@ -2025,6 +2048,17 @@ pre {
   line-height: 1.5;
 }
 
+.local-support-card {
+  background: #fff;
+}
+
+.fine-note {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
 .sales-record-card .sales-spec {
   color: #33435a;
   font-size: 0.8rem;
@@ -2416,6 +2450,14 @@ pre {
     gap: 10px;
   }
 
+  .compact-order-form .optional-fields {
+    padding: 10px;
+  }
+
+  .compact-order-form .optional-fields summary {
+    font-size: 0.84rem;
+  }
+
   .compact-order-form label span {
     font-size: 0.8rem;
   }
@@ -2497,7 +2539,7 @@ pre {
     padding: 38px 0 42px;
     background:
       linear-gradient(90deg, rgba(8, 42, 76, 0.96), rgba(8, 42, 76, 0.84)),
-      url("assets/hero-car-consultation.png") 82% center / cover;
+      url("assets/hero-car-consultation.webp") 82% center / cover;
   }
 
   .home-page .site-footer strong,

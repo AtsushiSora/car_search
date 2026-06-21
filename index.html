@@ -8,7 +8,7 @@
       name="description"
       content="広島・山口を中心に、格安の軽自動車探しとローン審査が不安な方の相談に対応します。全国対応も可能ですが、陸送費・別途費用がかかる場合があります。"
     />
-    <link rel="stylesheet" href="styles.css?v=footerbg2" />
+    <link rel="stylesheet" href="styles.css?v=improve1" />
   </head>
   <body class="home-page">
     <header class="site-header">
@@ -72,7 +72,7 @@
             </div>
             <p class="area-note">広島・山口をメインに対応。全国対応は陸送費・登録費など別途費用がかかる場合があります。</p>
           </div>
-          <img class="compact-hero-image" src="assets/hero-car-consultation.png" alt="軽自動車の相談イメージ" />
+          <img class="compact-hero-image" src="assets/hero-car-consultation.webp" alt="軽自動車の相談イメージ" />
         </div>
       </section>
 
@@ -120,6 +120,12 @@
             <h3>格安で軽自動車をご紹介できる理由</h3>
             <p>お客様のご要望に合わせて、必要な車だけをオートオークションから仕入れます。多くの在庫を抱えないため、保管費・展示費・管理費を抑えやすく、その分ご予算に合う軽自動車をご提案しやすくなります。</p>
             <small>広島・山口を中心に対応します。全国対応の場合は、陸送費や別途費用がかかる場合があります。</small>
+          </article>
+
+          <article class="inventory-reason-card local-support-card">
+            <p class="section-kicker">AREA</p>
+            <h2>広島・山口で格安軽自動車を探したい方へ</h2>
+            <p>通勤用、初めての車、セカンドカーなど、できるだけ費用を抑えたい相談を中心に受け付けています。ローンが不安な場合も、月々の希望額から無理のない候補を一緒に整理します。</p>
           </article>
         </div>
       </section>
@@ -180,24 +186,29 @@
                   <span>予算</span>
                   <input name="budget" type="text" placeholder="例）15万円、30万円以内" required />
                 </label>
-                <label>
-                  <span>月々の希望額</span>
-                  <input name="monthlyPayment" type="text" placeholder="例）月々1万円以内" />
-                </label>
-                <label>
-                  <span>支払い方法</span>
-                  <select name="paymentMethod">
-                    <option value="">選択してください</option>
-                    <option>ローン</option>
-                    <option>現金一括</option>
-                    <option>未定</option>
-                  </select>
-                </label>
               </div>
-              <label class="full">
-                <span>その他の希望</span>
-                <textarea name="notes" rows="3" placeholder="例）ローンが不安、車検付き希望、通勤用で安い軽が必要"></textarea>
-              </label>
+              <details class="optional-fields">
+                <summary>ローンや細かい希望も入力する</summary>
+                <div class="form-grid">
+                  <label>
+                    <span>月々の希望額</span>
+                    <input name="monthlyPayment" type="text" placeholder="例）月々1万円以内" />
+                  </label>
+                  <label>
+                    <span>支払い方法</span>
+                    <select name="paymentMethod">
+                      <option value="">選択してください</option>
+                      <option>ローン</option>
+                      <option>現金一括</option>
+                      <option>未定</option>
+                    </select>
+                  </label>
+                </div>
+                <label class="full">
+                  <span>その他の希望</span>
+                  <textarea name="notes" rows="3" placeholder="例）ローンが不安、車検付き希望、通勤用で安い軽が必要"></textarea>
+                </label>
+              </details>
             </fieldset>
 
             <fieldset>
@@ -264,6 +275,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=stockready1"></script>
+    <script src="script.js?v=improve1"></script>
   </body>
 </html>
