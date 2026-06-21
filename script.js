@@ -181,7 +181,7 @@ form?.addEventListener("submit", async (event) => {
   const submitButton = form.querySelector(".submit-button");
   const originalButtonText = submitButton.textContent;
   submitButton.disabled = true;
-  submitButton.textContent = "送信中...";
+  submitButton.textContent = "内容確認中...";
 
   try {
     let sentToLine = false;
@@ -198,12 +198,12 @@ form?.addEventListener("submit", async (event) => {
     }
 
     if (sentToLine) {
-      resultMessage.textContent = "送信しました。相談内容をLINEへ通知しました。";
+      resultMessage.textContent = "相談内容を確認しました。内容を確認してご連絡します。";
     } else if (sentToForm) {
-      resultMessage.textContent = "送信しました。内容を確認して、候補車が見つかり次第ご連絡します。";
+      resultMessage.textContent = "相談内容を送信しました。内容を確認して、候補車が見つかり次第ご連絡します。";
     } else {
       resultMessage.textContent =
-        "LINE通知先が未設定のため、下記の内容で確認しました。内容コピー、メール下書き、またはLINEから送信できます。";
+        "下記の内容で確認しました。メール下書き、LINE、内容コピーのいずれかで続けて相談できます。";
     }
     openModal();
     if (sentToLine || sentToForm) {
@@ -212,7 +212,7 @@ form?.addEventListener("submit", async (event) => {
     }
   } catch {
     resultMessage.textContent =
-      "自動送信に失敗しました。下記の内容をメール下書き、またはLINEから送ってください。";
+      "送信処理でエラーが出ました。下記の内容は残っているので、メール下書き、LINE、内容コピーのいずれかで送れます。";
     openModal();
   } finally {
     submitButton.disabled = false;
@@ -642,10 +642,10 @@ function updateDynamicForm() {
   if (submitButton) {
     submitButton.textContent =
       contactMethod === "電話"
-        ? "電話相談を送信する"
+        ? "電話相談の内容を確認する"
         : contactMethod === "LINE"
-          ? "LINE相談を送信する"
-          : "メール相談を送信する";
+          ? "LINE相談の内容を確認する"
+          : "メール相談の内容を確認する";
   }
 
   if (liveSummaryList) {
