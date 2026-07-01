@@ -1,6 +1,6 @@
 const ownerEmail = "closet.full.of.love@icloud.com";
-const ownerPhoneDisplay = "03-1234-5678";
-const ownerPhoneHref = "0312345678";
+const ownerPhoneDisplay = "080-2912-8616";
+const ownerPhoneHref = "08029128616";
 const businessHours = "9:00-18:00";
 const lineUrl = "https://lin.ee/Xp9AUJy";
 const lineWebhookEndpoint = "";
@@ -20,7 +20,7 @@ const modalLineLink = document.querySelector("#modalLineLink");
 const copyButton = document.querySelector("#copyButton");
 const lineLinks = document.querySelectorAll(".js-line-link");
 const emailLinks = document.querySelectorAll(".js-email-link");
-const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
+const phoneLinks = document.querySelectorAll(".phone-link, .js-phone-link, a[href^='tel:']");
 const phoneTextNodes = document.querySelectorAll("[data-site-phone]");
 const businessHourNodes = document.querySelectorAll("[data-site-hours]");
 const filterButtons = document.querySelectorAll(".filter-button");
@@ -430,7 +430,7 @@ async function loadStockVehicles() {
 
 function renderStockVehicles(vehicles) {
   if (!vehicles.length) {
-    stockGrid.innerHTML = '<p class="stock-empty">売り切れのため、現在準備中です。</p>';
+    stockGrid.innerHTML = '<p class="stock-empty">在庫掲載は現在準備中です。</p>';
     return;
   }
 
