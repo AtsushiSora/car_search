@@ -1,0 +1,961 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>大型キャンペーン風レイアウト試作 | オーダーオート</title>
+    <meta
+      name="description"
+      content="サコダ車輌のような大型キャンペーン構成を参考にした、オーダーオート向けの試作ページです。"
+    />
+    <link rel="stylesheet" href="styles.css?v=permit1" />
+    <style>
+      .sakoda-sample {
+        --ss-blue: #004d9c;
+        --ss-deep: #06356d;
+        --ss-red: #e9332a;
+        --ss-yellow: #ffd736;
+        --ss-orange: #ff8a00;
+        --ss-green: #08b86f;
+        --ss-ink: #10243f;
+        --ss-muted: #5f7085;
+        --ss-line: #dce7f2;
+        --ss-bg: #f4f8fc;
+        color: var(--ss-ink);
+        background: #fff;
+      }
+
+      .ss-top-strip {
+        padding: 8px 16px;
+        color: #fff;
+        text-align: center;
+        background: var(--ss-red);
+        font-size: 0.86rem;
+        font-weight: 900;
+      }
+
+      .ss-hero {
+        position: relative;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 12% 20%, rgba(255, 215, 54, 0.95) 0 12%, transparent 13%),
+          linear-gradient(135deg, #fff7d7 0%, #f6fbff 44%, #e8f4ff 100%);
+      }
+
+      .ss-hero-inner {
+        display: grid;
+        grid-template-columns: minmax(0, 0.98fr) minmax(380px, 0.78fr);
+        gap: clamp(24px, 4vw, 54px);
+        align-items: center;
+        width: min(100% - 40px, 1180px);
+        min-height: 650px;
+        margin: 0 auto;
+        padding: clamp(34px, 5vw, 70px) 0;
+      }
+
+      .ss-campaign-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 14px;
+        padding: 9px 16px;
+        color: #fff;
+        background: var(--ss-red);
+        border-radius: 999px;
+        font-size: 0.9rem;
+        font-weight: 900;
+      }
+
+      .ss-hero h1 {
+        margin: 0;
+        color: var(--ss-deep);
+        font-size: clamp(2.3rem, 5.4vw, 5.1rem);
+        line-height: 1.02;
+        letter-spacing: 0;
+      }
+
+      .ss-hero h1 span {
+        display: inline-block;
+        margin-top: 6px;
+        color: var(--ss-red);
+      }
+
+      .ss-hero-lead {
+        max-width: 700px;
+        margin: 20px 0 0;
+        color: #233b58;
+        font-size: clamp(1rem, 1.5vw, 1.18rem);
+        font-weight: 900;
+      }
+
+      .ss-hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 28px;
+      }
+
+      .ss-main-cta,
+      .ss-line-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 58px;
+        padding: 0 28px;
+        border-radius: 6px;
+        color: #fff;
+        font-weight: 900;
+        box-shadow: 0 14px 28px rgba(16, 36, 63, 0.18);
+      }
+
+      .ss-main-cta {
+        background: linear-gradient(180deg, #ff9b16, var(--ss-orange));
+      }
+
+      .ss-line-cta {
+        background: linear-gradient(180deg, #18d77b, var(--ss-green));
+      }
+
+      .ss-hero-media {
+        position: relative;
+        min-height: 420px;
+      }
+
+      .ss-hero-media img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        object-position: center;
+        border: 8px solid #fff;
+        border-radius: 8px;
+        box-shadow: 0 24px 50px rgba(10, 57, 108, 0.2);
+      }
+
+      .ss-price-burst {
+        position: absolute;
+        left: -22px;
+        bottom: 24px;
+        display: grid;
+        place-items: center;
+        width: 166px;
+        height: 166px;
+        color: var(--ss-deep);
+        text-align: center;
+        background: var(--ss-yellow);
+        border: 6px solid #fff;
+        border-radius: 50%;
+        box-shadow: 0 18px 34px rgba(233, 51, 42, 0.22);
+        transform: rotate(-8deg);
+      }
+
+      .ss-price-burst strong {
+        display: block;
+        color: var(--ss-red);
+        font-size: 2.3rem;
+        line-height: 1;
+      }
+
+      .ss-price-burst span {
+        display: block;
+        font-size: 0.84rem;
+        font-weight: 900;
+      }
+
+      .ss-badges {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        width: min(100% - 40px, 1180px);
+        margin: -38px auto 0;
+        position: relative;
+        z-index: 2;
+      }
+
+      .ss-badge {
+        padding: 18px;
+        color: var(--ss-deep);
+        text-align: center;
+        background: #fff;
+        border: 2px solid #d9e8f7;
+        border-radius: 8px;
+        box-shadow: 0 14px 30px rgba(10, 57, 108, 0.12);
+      }
+
+      .ss-badge strong {
+        display: block;
+        font-size: 1.04rem;
+      }
+
+      .ss-badge span {
+        display: block;
+        margin-top: 3px;
+        color: var(--ss-muted);
+        font-size: 0.82rem;
+        font-weight: 800;
+      }
+
+      .ss-anchor {
+        position: sticky;
+        top: 82px;
+        z-index: 20;
+        background: #fff;
+        border-block: 1px solid var(--ss-line);
+      }
+
+      .ss-anchor-inner {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        width: min(100%, 1180px);
+        margin: 0 auto;
+      }
+
+      .ss-anchor a {
+        display: grid;
+        place-items: center;
+        min-height: 58px;
+        color: var(--ss-deep);
+        border-right: 1px solid var(--ss-line);
+        font-size: 0.9rem;
+        font-weight: 900;
+      }
+
+      .ss-anchor a:first-child {
+        border-left: 1px solid var(--ss-line);
+      }
+
+      .ss-section {
+        padding: clamp(52px, 7vw, 92px) 20px;
+      }
+
+      .ss-section:nth-of-type(even) {
+        background: var(--ss-bg);
+      }
+
+      .ss-inner {
+        width: min(100%, 1180px);
+        margin: 0 auto;
+      }
+
+      .ss-head {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 28px;
+      }
+
+      .ss-kicker {
+        margin: 0 0 8px;
+        color: var(--ss-red);
+        font-size: 0.8rem;
+        font-weight: 900;
+      }
+
+      .ss-head h2,
+      .ss-copy h2 {
+        margin: 0;
+        color: var(--ss-deep);
+        font-size: clamp(1.75rem, 3vw, 3rem);
+        line-height: 1.22;
+        letter-spacing: 0;
+      }
+
+      .ss-head p {
+        max-width: 500px;
+        margin: 0;
+        color: var(--ss-muted);
+        font-weight: 800;
+      }
+
+      .ss-feature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .ss-feature {
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid var(--ss-line);
+        border-radius: 8px;
+        box-shadow: 0 14px 34px rgba(10, 57, 108, 0.1);
+      }
+
+      .ss-feature img {
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+      }
+
+      .ss-feature div {
+        padding: 20px;
+      }
+
+      .ss-feature strong {
+        color: var(--ss-deep);
+        font-size: 1.12rem;
+      }
+
+      .ss-feature p {
+        margin: 8px 0 0;
+        color: var(--ss-muted);
+        font-size: 0.92rem;
+        font-weight: 700;
+      }
+
+      .ss-stock-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .ss-car-card {
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid var(--ss-line);
+        border-radius: 8px;
+        box-shadow: 0 16px 38px rgba(10, 57, 108, 0.12);
+      }
+
+      .ss-car-image {
+        display: grid;
+        place-items: center;
+        min-height: 170px;
+        color: var(--ss-deep);
+        background:
+          linear-gradient(135deg, rgba(0, 77, 156, 0.08), rgba(255, 216, 54, 0.24)),
+          #f7fbff;
+        font-weight: 900;
+      }
+
+      .ss-car-body {
+        padding: 18px;
+      }
+
+      .ss-car-body h3 {
+        margin: 0;
+        color: var(--ss-deep);
+        font-size: 1.1rem;
+      }
+
+      .ss-car-spec {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin-top: 12px;
+        color: var(--ss-muted);
+        font-size: 0.78rem;
+        font-weight: 800;
+      }
+
+      .ss-car-price {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: 14px;
+        padding-top: 14px;
+        border-top: 1px solid var(--ss-line);
+      }
+
+      .ss-car-price strong {
+        color: var(--ss-red);
+        font-size: 2rem;
+        line-height: 1;
+      }
+
+      .ss-car-price span {
+        color: var(--ss-muted);
+        font-size: 0.78rem;
+        font-weight: 800;
+      }
+
+      .ss-car-card a {
+        display: grid;
+        place-items: center;
+        min-height: 44px;
+        margin-top: 14px;
+        color: #fff;
+        background: var(--ss-orange);
+        border-radius: 6px;
+        font-weight: 900;
+      }
+
+      .ss-split {
+        display: grid;
+        grid-template-columns: minmax(0, 0.88fr) minmax(340px, 0.72fr);
+        gap: clamp(24px, 5vw, 58px);
+        align-items: center;
+      }
+
+      .ss-copy p {
+        margin: 16px 0 0;
+        color: var(--ss-muted);
+        font-weight: 800;
+      }
+
+      .ss-copy ul {
+        display: grid;
+        gap: 10px;
+        margin: 22px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .ss-copy li {
+        padding: 13px 15px;
+        background: #fff;
+        border-left: 5px solid var(--ss-yellow);
+        border-radius: 6px;
+        font-weight: 900;
+      }
+
+      .ss-mini-form {
+        padding: 24px;
+        background: #fff;
+        border: 1px solid var(--ss-line);
+        border-radius: 8px;
+        box-shadow: 0 18px 42px rgba(10, 57, 108, 0.14);
+      }
+
+      .ss-mini-form strong {
+        display: block;
+        color: var(--ss-deep);
+        font-size: 1.2rem;
+      }
+
+      .ss-mini-form p {
+        margin: 8px 0 18px;
+        color: var(--ss-muted);
+        font-weight: 800;
+      }
+
+      .ss-mini-form .ss-main-cta,
+      .ss-mini-form .ss-line-cta {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .ss-flow {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .ss-flow article {
+        padding: 20px;
+        background: #fff;
+        border: 1px solid var(--ss-line);
+        border-radius: 8px;
+      }
+
+      .ss-flow span {
+        display: inline-grid;
+        place-items: center;
+        width: 46px;
+        height: 32px;
+        color: #fff;
+        background: var(--ss-blue);
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-weight: 900;
+      }
+
+      .ss-flow h3 {
+        margin: 14px 0 8px;
+        color: var(--ss-deep);
+        font-size: 1rem;
+      }
+
+      .ss-flow p {
+        margin: 0;
+        color: var(--ss-muted);
+        font-size: 0.86rem;
+        font-weight: 700;
+      }
+
+      .ss-final {
+        color: #fff;
+        background:
+          linear-gradient(90deg, rgba(6, 53, 109, 0.94), rgba(6, 53, 109, 0.76)),
+          url("assets/generated-process/process-delivery-photo.png") center / cover;
+      }
+
+      .ss-final .ss-head h2,
+      .ss-final .ss-kicker,
+      .ss-final .ss-head p {
+        color: #fff;
+      }
+
+      @media (max-width: 1020px) {
+        .ss-hero-inner,
+        .ss-split {
+          grid-template-columns: 1fr;
+        }
+
+        .ss-hero-media {
+          min-height: auto;
+        }
+
+        .ss-badges,
+        .ss-feature-grid,
+        .ss-stock-grid,
+        .ss-flow {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 740px) {
+        .ss-top-strip {
+          padding: 6px 12px;
+          font-size: 0.72rem;
+        }
+
+        .sakoda-sample .site-header {
+          min-height: 58px;
+        }
+
+        .ss-hero-inner {
+          width: min(100% - 28px, 1180px);
+          min-height: auto;
+          padding: 24px 0 28px;
+          gap: 18px;
+        }
+
+        .ss-campaign-label {
+          margin-bottom: 10px;
+          padding: 7px 11px;
+          font-size: 0.72rem;
+        }
+
+        .ss-hero h1 {
+          font-size: 2.28rem;
+        }
+
+        .ss-hero-lead {
+          margin-top: 12px;
+          font-size: 0.88rem;
+          line-height: 1.55;
+        }
+
+        .ss-hero-actions {
+          display: grid;
+          grid-template-columns: 1fr 0.82fr;
+          gap: 8px;
+          margin-top: 16px;
+        }
+
+        .ss-main-cta,
+        .ss-line-cta {
+          min-height: 46px;
+          padding: 0 10px;
+          font-size: 0.82rem;
+        }
+
+        .ss-hero-media img {
+          height: 230px;
+          border-width: 5px;
+        }
+
+        .ss-price-burst {
+          left: 10px;
+          bottom: 12px;
+          width: 112px;
+          height: 112px;
+          border-width: 4px;
+        }
+
+        .ss-price-burst strong {
+          font-size: 1.55rem;
+        }
+
+        .ss-price-burst span {
+          font-size: 0.68rem;
+        }
+
+        .ss-badges {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 6px;
+          width: min(100% - 28px, 1180px);
+          margin-top: -8px;
+        }
+
+        .ss-badge {
+          padding: 9px 6px;
+        }
+
+        .ss-badge strong {
+          font-size: 0.74rem;
+          line-height: 1.3;
+        }
+
+        .ss-badge span {
+          display: none;
+        }
+
+        .ss-anchor {
+          position: static;
+          overflow-x: auto;
+        }
+
+        .ss-anchor-inner {
+          display: flex;
+          width: max-content;
+          min-width: 100%;
+        }
+
+        .ss-anchor a {
+          min-width: 108px;
+          min-height: 43px;
+          padding: 0 10px;
+          font-size: 0.74rem;
+          white-space: nowrap;
+        }
+
+        .ss-section {
+          padding: 38px 16px;
+        }
+
+        .ss-head {
+          display: block;
+          margin-bottom: 16px;
+        }
+
+        .ss-head h2,
+        .ss-copy h2 {
+          font-size: 1.38rem;
+        }
+
+        .ss-head p {
+          margin-top: 8px;
+          font-size: 0.82rem;
+          line-height: 1.55;
+        }
+
+        .ss-feature-grid,
+        .ss-flow {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+
+        .ss-feature {
+          display: grid;
+          grid-template-columns: 112px 1fr;
+          min-height: 112px;
+        }
+
+        .ss-feature img {
+          height: 100%;
+        }
+
+        .ss-feature div {
+          padding: 12px;
+        }
+
+        .ss-feature strong {
+          font-size: 0.92rem;
+        }
+
+        .ss-feature p {
+          font-size: 0.74rem;
+          line-height: 1.45;
+        }
+
+        .ss-stock-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 8px;
+        }
+
+        .ss-car-image {
+          min-height: 86px;
+          font-size: 0.78rem;
+        }
+
+        .ss-car-body {
+          padding: 10px;
+        }
+
+        .ss-car-body h3 {
+          font-size: 0.86rem;
+        }
+
+        .ss-car-spec {
+          grid-template-columns: 1fr;
+          gap: 3px;
+          margin-top: 7px;
+          font-size: 0.66rem;
+        }
+
+        .ss-car-price {
+          display: block;
+          margin-top: 8px;
+          padding-top: 8px;
+        }
+
+        .ss-car-price strong {
+          font-size: 1.34rem;
+        }
+
+        .ss-car-price span {
+          display: block;
+          margin-top: 2px;
+          font-size: 0.65rem;
+        }
+
+        .ss-car-card a {
+          min-height: 36px;
+          margin-top: 8px;
+          font-size: 0.72rem;
+        }
+
+        .ss-split {
+          gap: 16px;
+        }
+
+        .ss-copy p,
+        .ss-copy li,
+        .ss-flow p {
+          font-size: 0.82rem;
+          line-height: 1.5;
+        }
+
+        .ss-mini-form {
+          padding: 16px 14px;
+        }
+      }
+    </style>
+  </head>
+  <body class="sakoda-sample">
+    <div class="ss-top-strip">広島・山口中心 / 格安軽自動車・ローン不安の相談受付中</div>
+
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="オーダーオート トップへ">
+        <span class="brand-mark" aria-hidden="true"><img src="assets/brand-logo.png" alt="" /></span>
+        <span><strong>オーダーオート</strong><small>格安軽自動車・ローン相談</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="メインメニュー">
+        <a href="#feature">相談メリット</a>
+        <a href="#stock">価格目安</a>
+        <a href="#loan">ローン相談</a>
+        <a href="#flow">納車まで</a>
+        <a href="contact.html">相談フォーム</a>
+      </nav>
+      <div class="header-actions">
+        <a class="phone-link" href="tel:08029128616"><span aria-hidden="true">☎</span><span><strong>080-2912-8616</strong><small>9:00-18:00</small></span></a>
+        <a class="line-link js-line-link" href="#" target="_blank" rel="noopener">LINE相談</a>
+        <a class="primary-link" href="contact.html">無料相談</a>
+      </div>
+      <button class="menu-button" type="button" aria-label="メニューを開く" aria-controls="mobileNav" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="モバイルメニュー">
+      <a href="#feature">相談メリット</a>
+      <a href="#stock">価格目安</a>
+      <a href="#loan">ローン相談</a>
+      <a href="#flow">納車まで</a>
+      <a class="js-line-link" href="#" target="_blank" rel="noopener">LINE</a>
+      <a href="contact.html">相談フォーム</a>
+    </nav>
+
+    <main>
+      <section class="ss-hero">
+        <div class="ss-hero-inner">
+          <div>
+            <p class="ss-campaign-label">スマホでかんたん相談</p>
+            <h1>格安軽自動車を<br /><span>無理なく探す</span></h1>
+            <p class="ss-hero-lead">
+              予算を抑えたい方、ローン審査が不安な方へ。広島・山口を中心に、希望条件から必要な軽自動車を一緒に探します。
+            </p>
+            <div class="ss-hero-actions">
+              <a class="ss-main-cta" href="contact.html">無料で相談する</a>
+              <a class="ss-line-cta js-line-link" href="#" target="_blank" rel="noopener">LINE相談</a>
+            </div>
+          </div>
+          <div class="ss-hero-media">
+            <img src="assets/generated-process/process-stock-search-photo.png" alt="スマホで軽自動車を探しているイメージ" />
+            <div class="ss-price-burst" aria-label="価格帯目安">
+              <div><strong>15万</strong><span>円台から相談</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="ss-badges" aria-label="主な特徴">
+        <div class="ss-badge"><strong>相談無料</strong><span>条件整理だけでもOK</span></div>
+        <div class="ss-badge"><strong>ローン不安OK</strong><span>月々の希望額から確認</span></div>
+        <div class="ss-badge"><strong>しつこい営業なし</strong><span>無理な購入をすすめません</span></div>
+      </div>
+
+      <nav class="ss-anchor" aria-label="ページ内メニュー">
+        <div class="ss-anchor-inner">
+          <a href="#feature">相談メリット</a>
+          <a href="#stock">価格目安</a>
+          <a href="#reason">安く探せる理由</a>
+          <a href="#loan">ローン相談</a>
+          <a href="#contact">相談する</a>
+        </div>
+      </nav>
+
+      <section class="ss-section" id="feature">
+        <div class="ss-inner">
+          <div class="ss-head">
+            <div>
+              <p class="ss-kicker">MERIT</p>
+              <h2>大きく見せて、すぐ伝える構成</h2>
+            </div>
+            <p>サコダ車輌のようなキャンペーン型の見せ方を参考に、重要な相談理由をカードで大きく並べています。</p>
+          </div>
+          <div class="ss-feature-grid">
+            <article class="ss-feature">
+              <img src="assets/generated-process/process-inquiry-form-photo.png" alt="条件を入力して問い合わせるイメージ" />
+              <div><strong>条件入力がかんたん</strong><p>車種が決まっていなくても、予算と地域だけで相談できます。</p></div>
+            </article>
+            <article class="ss-feature">
+              <img src="assets/generated-process/process-loan-consult-photo.png" alt="ローン相談のイメージ" />
+              <div><strong>ローン相談に対応</strong><p>審査保証ではなく、無理のない候補条件を一緒に整理します。</p></div>
+            </article>
+            <article class="ss-feature">
+              <img src="assets/generated-process/process-delivery-photo.png" alt="納車のイメージ" />
+              <div><strong>納車まで相談</strong><p>広島・山口を中心に、候補探しから納車まで相談できます。</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="ss-section" id="stock">
+        <div class="ss-inner">
+          <div class="ss-head">
+            <div>
+              <p class="ss-kicker">PRICE / STOCK</p>
+              <h2>在庫が入ったらここに配置</h2>
+            </div>
+            <p>今は価格目安カードです。在庫が入ったら、車種・年式・距離・価格のカードに差し替えます。</p>
+          </div>
+          <div class="ss-stock-grid">
+            <article class="ss-car-card">
+              <div class="ss-car-image">車両画像</div>
+              <div class="ss-car-body">
+                <h3>軽自動車 / 低予算重視</h3>
+                <div class="ss-car-spec"><span>年式: 条件次第</span><span>距離: 条件次第</span><span>車検: 要確認</span><span>地域: 広島・山口</span></div>
+                <div class="ss-car-price"><strong>15万円台</strong><span>参考価格</span></div>
+                <a href="contact.html?budget=15%E4%B8%87%E5%86%86%E5%8F%B0">この価格で相談</a>
+              </div>
+            </article>
+            <article class="ss-car-card">
+              <div class="ss-car-image">車両画像</div>
+              <div class="ss-car-body">
+                <h3>軽自動車 / 通勤用</h3>
+                <div class="ss-car-spec"><span>年式: 条件次第</span><span>距離: 条件次第</span><span>車検: 要確認</span><span>支払い: ローン相談</span></div>
+                <div class="ss-car-price"><strong>30万円台</strong><span>参考価格</span></div>
+                <a href="contact.html?budget=30%E4%B8%87%E5%86%86%E5%8F%B0">この価格で相談</a>
+              </div>
+            </article>
+            <article class="ss-car-card">
+              <div class="ss-car-image">車両画像</div>
+              <div class="ss-car-body">
+                <h3>軽自動車 / 状態重視</h3>
+                <div class="ss-car-spec"><span>年式: 条件次第</span><span>距離: 条件次第</span><span>車検: 要確認</span><span>全国: 陸送費別途</span></div>
+                <div class="ss-car-price"><strong>50万円台</strong><span>参考価格</span></div>
+                <a href="contact.html?budget=50%E4%B8%87%E5%86%86%E5%8F%B0">この価格で相談</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="ss-section" id="reason">
+        <div class="ss-inner ss-split">
+          <div class="ss-copy">
+            <p class="ss-kicker">REASON</p>
+            <h2>格安で軽自動車を探しやすい理由</h2>
+            <p>
+              お客様のご要望に合わせて、必要な車だけをオートオークション等から探す形を中心にします。多くの在庫を持たないため、保管費・展示費・管理費を抑えやすくなります。
+            </p>
+            <ul>
+              <li>希望条件を先に確認してから車を探す</li>
+              <li>在庫コストを抑えたオーダー型の相談</li>
+              <li>広島・山口中心、全国対応は陸送費など別途案内</li>
+            </ul>
+          </div>
+          <div class="ss-mini-form">
+            <strong>まずは予算だけでもOK</strong>
+            <p>「15万円台」「30万円台」「ローンが不安」など、今の状況から相談できます。</p>
+            <a class="ss-main-cta" href="contact.html">相談フォームへ</a>
+            <a class="ss-line-cta js-line-link" href="#" target="_blank" rel="noopener">LINEで相談</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="ss-section" id="loan">
+        <div class="ss-inner ss-split">
+          <div class="ss-mini-form">
+            <strong>ローン審査が不安な方へ</strong>
+            <p>審査結果を保証する案内ではありません。月々の希望額や頭金をもとに、無理のない候補を整理します。</p>
+            <a class="ss-main-cta" href="contact.html?need=%E3%83%AD%E3%83%BC%E3%83%B3%E5%AF%A9%E6%9F%BB%E3%81%8C%E4%B8%8D%E5%AE%89">ローン相談をする</a>
+          </div>
+          <div class="ss-copy">
+            <p class="ss-kicker">LOAN SUPPORT</p>
+            <h2>問い合わせ前の不安を減らす</h2>
+            <p>「聞いたら断られそう」「高い車をすすめられそう」という不安を減らすため、低予算・ローン相談を前面に出した導線です。</p>
+            <ul>
+              <li>月々の希望額から逆算</li>
+              <li>支払総額と別途費用を確認</li>
+              <li>無理な購入をすすめない案内</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="ss-section" id="flow">
+        <div class="ss-inner">
+          <div class="ss-head">
+            <div>
+              <p class="ss-kicker">FLOW</p>
+              <h2>相談から納車まで</h2>
+            </div>
+            <p>大きな流れを4つに分けて、初めての方にもわかりやすく見せます。</p>
+          </div>
+          <div class="ss-flow">
+            <article><span>01</span><h3>条件入力</h3><p>予算・地域・ローン不安などを送ります。</p></article>
+            <article><span>02</span><h3>条件整理</h3><p>LINE・メール・電話で現実的な範囲を確認します。</p></article>
+            <article><span>03</span><h3>車両探し</h3><p>希望に合う軽自動車を探して情報提供します。</p></article>
+            <article><span>04</span><h3>納車</h3><p>費用や状態を確認したうえで納車まで進めます。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="ss-section ss-final" id="contact">
+        <div class="ss-inner">
+          <div class="ss-head">
+            <div>
+              <p class="ss-kicker">CONTACT</p>
+              <h2>気になる価格帯から相談できます</h2>
+            </div>
+            <p>車が必要だけど予算を抑えたい方、ローンが不安な方は、まずは条件だけ送ってください。</p>
+          </div>
+          <div class="ss-hero-actions">
+            <a class="ss-main-cta" href="contact.html">無料で相談する</a>
+            <a class="ss-line-cta js-line-link" href="#" target="_blank" rel="noopener">LINE相談</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="section-inner footer-inner">
+        <div><strong>オーダーオート</strong><p>あなたのカーライフを、心をこめてサポートします。</p></div>
+        <div class="footer-links">
+          <a href="index.html">現TOP</a>
+          <a href="top-campaign.html">試作TOP</a>
+          <a href="corporate-sample.html">企業風試作</a>
+          <a href="privacy.html">プライバシーポリシー</a>
+          <a class="js-line-link" href="#" target="_blank" rel="noopener">LINE</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js?v=permit1"></script>
+  </body>
+</html>
