@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>大型キャンペーン風レイアウト試作 | オーダーオート</title>
+    <title>広島・山口の格安軽自動車・ローン相談 | オーダーオート</title>
     <meta
       name="description"
-      content="サコダ車輌のような大型キャンペーン構成を参考にした、オーダーオート向けの試作ページです。"
+      content="広島・山口で格安軽自動車を探したい方、ローン審査が不安な方へ。予算に合わせた軽自動車探しをスマホから相談できます。"
     />
     <link rel="stylesheet" href="styles.css?v=permit1" />
     <style>
@@ -192,6 +192,19 @@
         color: var(--ss-muted);
         font-size: 0.82rem;
         font-weight: 800;
+      }
+
+      .ss-notice {
+        width: min(100% - 40px, 1180px);
+        margin: 18px auto 0;
+        padding: 14px 16px;
+        color: #20344f;
+        background: #fff;
+        border: 1px solid #cfe2f4;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 800;
+        box-shadow: 0 10px 26px rgba(10, 57, 108, 0.08);
       }
 
       .ss-anchor {
@@ -474,6 +487,70 @@
         font-weight: 700;
       }
 
+      .ss-info-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .ss-info-card,
+      .ss-faq-card {
+        padding: 22px;
+        background: #fff;
+        border: 1px solid var(--ss-line);
+        border-radius: 8px;
+        box-shadow: 0 12px 30px rgba(10, 57, 108, 0.08);
+      }
+
+      .ss-info-card strong,
+      .ss-faq-card strong {
+        display: block;
+        color: var(--ss-deep);
+        font-size: 1.08rem;
+      }
+
+      .ss-info-card p,
+      .ss-faq-card p {
+        margin: 8px 0 0;
+        color: var(--ss-muted);
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      .ss-check-list {
+        display: grid;
+        gap: 8px;
+        margin: 16px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .ss-check-list li {
+        position: relative;
+        padding-left: 24px;
+        color: var(--ss-muted);
+        font-size: 0.9rem;
+        font-weight: 800;
+      }
+
+      .ss-check-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.58em;
+        width: 10px;
+        height: 10px;
+        background: var(--ss-yellow);
+        border: 2px solid var(--ss-blue);
+        border-radius: 50%;
+      }
+
+      .ss-faq-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
       .ss-final {
         color: #fff;
         background:
@@ -500,7 +577,9 @@
         .ss-badges,
         .ss-feature-grid,
         .ss-stock-grid,
-        .ss-flow {
+        .ss-flow,
+        .ss-info-grid,
+        .ss-faq-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
@@ -593,6 +672,14 @@
           display: none;
         }
 
+        .ss-notice {
+          width: min(100% - 28px, 1180px);
+          margin-top: 10px;
+          padding: 10px 12px;
+          font-size: 0.72rem;
+          line-height: 1.5;
+        }
+
         .ss-anchor {
           position: static;
           overflow-x: auto;
@@ -633,7 +720,9 @@
         }
 
         .ss-feature-grid,
-        .ss-flow {
+        .ss-flow,
+        .ss-info-grid,
+        .ss-faq-grid {
           grid-template-columns: 1fr;
           gap: 10px;
         }
@@ -714,7 +803,10 @@
 
         .ss-copy p,
         .ss-copy li,
-        .ss-flow p {
+        .ss-flow p,
+        .ss-info-card p,
+        .ss-faq-card p,
+        .ss-check-list li {
           font-size: 0.82rem;
           line-height: 1.5;
         }
@@ -734,10 +826,11 @@
         <span><strong>オーダーオート</strong><small>格安軽自動車・ローン相談</small></span>
       </a>
       <nav class="desktop-nav" aria-label="メインメニュー">
-        <a href="#feature">相談メリット</a>
+        <a href="#feature">できること</a>
         <a href="#stock">価格目安</a>
+        <a href="#cost">費用の見方</a>
         <a href="#loan">ローン相談</a>
-        <a href="#flow">納車まで</a>
+        <a href="#flow">流れ</a>
         <a href="contact.html">相談フォーム</a>
       </nav>
       <div class="header-actions">
@@ -751,10 +844,11 @@
     </header>
 
     <nav class="mobile-nav" id="mobileNav" aria-label="モバイルメニュー">
-      <a href="#feature">相談メリット</a>
+      <a href="#feature">できること</a>
       <a href="#stock">価格目安</a>
+      <a href="#cost">費用の見方</a>
       <a href="#loan">ローン相談</a>
-      <a href="#flow">納車まで</a>
+      <a href="#flow">流れ</a>
       <a class="js-line-link" href="#" target="_blank" rel="noopener">LINE</a>
       <a href="contact.html">相談フォーム</a>
     </nav>
@@ -766,7 +860,7 @@
             <p class="ss-campaign-label">スマホでかんたん相談</p>
             <h1>格安軽自動車を<br /><span>無理なく探す</span></h1>
             <p class="ss-hero-lead">
-              予算を抑えたい方、ローン審査が不安な方へ。広島・山口を中心に、希望条件から必要な軽自動車を一緒に探します。
+              通勤・送迎・生活用に「まず安く乗れる軽が必要」な方へ。車両価格だけでなく、車検・登録・陸送費まで含めて、無理のない候補を一緒に整理します。
             </p>
             <div class="ss-hero-actions">
               <a class="ss-main-cta" href="contact.html">無料で相談する</a>
@@ -783,18 +877,20 @@
       </section>
 
       <div class="ss-badges" aria-label="主な特徴">
-        <div class="ss-badge"><strong>相談無料</strong><span>条件整理だけでもOK</span></div>
+        <div class="ss-badge"><strong>総額重視</strong><span>車両価格だけで判断しません</span></div>
         <div class="ss-badge"><strong>ローン不安OK</strong><span>月々の希望額から確認</span></div>
-        <div class="ss-badge"><strong>しつこい営業なし</strong><span>無理な購入をすすめません</span></div>
+        <div class="ss-badge"><strong>在庫なしでも相談</strong><span>条件に合わせて探します</span></div>
       </div>
+
+      <p class="ss-notice">現在は希望条件の確認と相談受付を中心に対応しています。中古車の売買契約・買取・販売は、必要な許可・準備が整ってからご案内します。</p>
 
       <nav class="ss-anchor" aria-label="ページ内メニュー">
         <div class="ss-anchor-inner">
-          <a href="#feature">相談メリット</a>
+          <a href="#feature">できること</a>
           <a href="#stock">価格目安</a>
+          <a href="#cost">費用の見方</a>
           <a href="#reason">安く探せる理由</a>
           <a href="#loan">ローン相談</a>
-          <a href="#contact">相談する</a>
         </div>
       </nav>
 
@@ -803,22 +899,22 @@
           <div class="ss-head">
             <div>
               <p class="ss-kicker">MERIT</p>
-              <h2>大きく見せて、すぐ伝える構成</h2>
+              <h2>オーダーオートでできること</h2>
             </div>
-            <p>サコダ車輌のようなキャンペーン型の見せ方を参考に、重要な相談理由をカードで大きく並べています。</p>
+            <p>「安い車を探したいけど、何を見ればいいかわからない」方に向けて、条件整理から候補提案まで対応します。</p>
           </div>
           <div class="ss-feature-grid">
             <article class="ss-feature">
               <img src="assets/generated-process/process-inquiry-form-photo.png" alt="条件を入力して問い合わせるイメージ" />
-              <div><strong>条件入力がかんたん</strong><p>車種が決まっていなくても、予算と地域だけで相談できます。</p></div>
+              <div><strong>予算から車を探す</strong><p>車種が決まっていなくても大丈夫です。使用目的・予算・地域から候補条件を決めます。</p></div>
             </article>
             <article class="ss-feature">
               <img src="assets/generated-process/process-loan-consult-photo.png" alt="ローン相談のイメージ" />
-              <div><strong>ローン相談に対応</strong><p>審査保証ではなく、無理のない候補条件を一緒に整理します。</p></div>
+              <div><strong>ローンの不安も相談</strong><p>月々の希望額・頭金・支払総額を確認し、無理のない価格帯を整理します。</p></div>
             </article>
             <article class="ss-feature">
               <img src="assets/generated-process/process-delivery-photo.png" alt="納車のイメージ" />
-              <div><strong>納車まで相談</strong><p>広島・山口を中心に、候補探しから納車まで相談できます。</p></div>
+              <div><strong>納車まで案内</strong><p>広島・山口を中心に、車両確認・費用確認・納車までの流れをわかりやすく案内します。</p></div>
             </article>
           </div>
         </div>
@@ -829,16 +925,16 @@
           <div class="ss-head">
             <div>
               <p class="ss-kicker">PRICE / STOCK</p>
-              <h2>在庫が入ったらここに配置</h2>
+              <h2>価格帯別の相談イメージ</h2>
             </div>
-            <p>今は価格目安カードです。在庫が入ったら、車種・年式・距離・価格のカードに差し替えます。</p>
+            <p>現在は在庫掲載準備中です。実在庫が入ったら、このカードを車種・年式・距離・価格の表示に差し替えます。</p>
           </div>
           <div class="ss-stock-grid">
             <article class="ss-car-card">
               <div class="ss-car-image">車両画像</div>
               <div class="ss-car-body">
-                <h3>軽自動車 / 低予算重視</h3>
-                <div class="ss-car-spec"><span>年式: 条件次第</span><span>距離: 条件次第</span><span>車検: 要確認</span><span>地域: 広島・山口</span></div>
+                <h3>とにかく費用を抑えたい</h3>
+                <div class="ss-car-spec"><span>用途: 近距離・通勤</span><span>優先: 価格</span><span>状態: 個別確認</span><span>地域: 広島・山口</span></div>
                 <div class="ss-car-price"><strong>15万円台</strong><span>参考価格</span></div>
                 <a href="contact.html?budget=15%E4%B8%87%E5%86%86%E5%8F%B0">この価格で相談</a>
               </div>
@@ -846,8 +942,8 @@
             <article class="ss-car-card">
               <div class="ss-car-image">車両画像</div>
               <div class="ss-car-body">
-                <h3>軽自動車 / 通勤用</h3>
-                <div class="ss-car-spec"><span>年式: 条件次第</span><span>距離: 条件次第</span><span>車検: 要確認</span><span>支払い: ローン相談</span></div>
+                <h3>通勤・生活用で探したい</h3>
+                <div class="ss-car-spec"><span>用途: 毎日の移動</span><span>優先: 実用性</span><span>車検: 要確認</span><span>支払い: ローン相談</span></div>
                 <div class="ss-car-price"><strong>30万円台</strong><span>参考価格</span></div>
                 <a href="contact.html?budget=30%E4%B8%87%E5%86%86%E5%8F%B0">この価格で相談</a>
               </div>
@@ -855,11 +951,40 @@
             <article class="ss-car-card">
               <div class="ss-car-image">車両画像</div>
               <div class="ss-car-body">
-                <h3>軽自動車 / 状態重視</h3>
-                <div class="ss-car-spec"><span>年式: 条件次第</span><span>距離: 条件次第</span><span>車検: 要確認</span><span>全国: 陸送費別途</span></div>
+                <h3>安さと状態を両方見たい</h3>
+                <div class="ss-car-spec"><span>用途: 長めに乗りたい</span><span>優先: 状態</span><span>装備: 条件相談</span><span>全国: 陸送費別途</span></div>
                 <div class="ss-car-price"><strong>50万円台</strong><span>参考価格</span></div>
                 <a href="contact.html?budget=50%E4%B8%87%E5%86%86%E5%8F%B0">この価格で相談</a>
               </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="ss-section" id="cost">
+        <div class="ss-inner">
+          <div class="ss-head">
+            <div>
+              <p class="ss-kicker">TOTAL COST</p>
+              <h2>安く買うために見るべき費用</h2>
+            </div>
+            <p>格安車は車両価格だけで判断すると、後から費用が増えることがあります。最初に確認する項目を明確にします。</p>
+          </div>
+          <div class="ss-info-grid">
+            <article class="ss-info-card">
+              <strong>車両価格</strong>
+              <p>本体価格だけでなく、状態・走行距離・車検残りを見て判断します。</p>
+              <ul class="ss-check-list"><li>修復歴の有無</li><li>内装・外装の状態</li><li>消耗品の確認</li></ul>
+            </article>
+            <article class="ss-info-card">
+              <strong>登録・納車費用</strong>
+              <p>名義変更、登録、納車までに必要な費用を事前に確認します。</p>
+              <ul class="ss-check-list"><li>登録費用</li><li>車庫証明が必要な場合</li><li>納車場所の確認</li></ul>
+            </article>
+            <article class="ss-info-card">
+              <strong>遠方費用</strong>
+              <p>広島・山口以外も相談可能ですが、陸送費などが別途かかる場合があります。</p>
+              <ul class="ss-check-list"><li>陸送費</li><li>遠方登録費用</li><li>引き渡し方法</li></ul>
             </article>
           </div>
         </div>
@@ -871,12 +996,12 @@
             <p class="ss-kicker">REASON</p>
             <h2>格安で軽自動車を探しやすい理由</h2>
             <p>
-              お客様のご要望に合わせて、必要な車だけをオートオークション等から探す形を中心にします。多くの在庫を持たないため、保管費・展示費・管理費を抑えやすくなります。
+              ご希望条件に合わせて必要な車だけを探すオーダー型の相談です。展示在庫を多く持つ運営ではないため、保管費・展示費・管理費を抑えやすく、低予算の相談に合わせやすくなります。
             </p>
             <ul>
-              <li>希望条件を先に確認してから車を探す</li>
-              <li>在庫コストを抑えたオーダー型の相談</li>
-              <li>広島・山口中心、全国対応は陸送費など別途案内</li>
+              <li>希望条件を先に聞いて、無駄な候補を減らす</li>
+              <li>在庫コストを抑えたオーダー型で探す</li>
+              <li>安さだけでなく、支払総額と状態を確認する</li>
             </ul>
           </div>
           <div class="ss-mini-form">
@@ -898,7 +1023,7 @@
           <div class="ss-copy">
             <p class="ss-kicker">LOAN SUPPORT</p>
             <h2>問い合わせ前の不安を減らす</h2>
-            <p>「聞いたら断られそう」「高い車をすすめられそう」という不安を減らすため、低予算・ローン相談を前面に出した導線です。</p>
+            <p>「審査に通るかわからない」「高い車をすすめられそう」という不安がある方でも、まずは月々の希望額から相談できます。</p>
             <ul>
               <li>月々の希望額から逆算</li>
               <li>支払総額と別途費用を確認</li>
@@ -915,13 +1040,48 @@
               <p class="ss-kicker">FLOW</p>
               <h2>相談から納車まで</h2>
             </div>
-            <p>大きな流れを4つに分けて、初めての方にもわかりやすく見せます。</p>
+            <p>ネットで相談してから納車までの流れを、初めての方にもわかりやすく整理しています。</p>
           </div>
           <div class="ss-flow">
-            <article><span>01</span><h3>条件入力</h3><p>予算・地域・ローン不安などを送ります。</p></article>
-            <article><span>02</span><h3>条件整理</h3><p>LINE・メール・電話で現実的な範囲を確認します。</p></article>
-            <article><span>03</span><h3>車両探し</h3><p>希望に合う軽自動車を探して情報提供します。</p></article>
-            <article><span>04</span><h3>納車</h3><p>費用や状態を確認したうえで納車まで進めます。</p></article>
+            <article><span>01</span><h3>条件を送る</h3><p>予算、地域、ローンの不安、使用目的をフォームやLINEで送ります。</p></article>
+            <article><span>02</span><h3>条件を整理</h3><p>優先順位を確認し、現実的に探せる価格帯を一緒に決めます。</p></article>
+            <article><span>03</span><h3>候補を提案</h3><p>候補車の価格、年式、距離、状態、別途費用をまとめて案内します。</p></article>
+            <article><span>04</span><h3>確認・納車</h3><p>内容に納得してから手続きへ進み、納車方法を調整します。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="ss-section" id="area">
+        <div class="ss-inner">
+          <div class="ss-head">
+            <div>
+              <p class="ss-kicker">AREA</p>
+              <h2>広島・山口を中心に対応</h2>
+            </div>
+            <p>地元で相談しやすい範囲を中心にしながら、遠方の方にも費用条件を明確にして案内します。</p>
+          </div>
+          <div class="ss-info-grid">
+            <article class="ss-info-card"><strong>広島県</strong><p>広島市佐伯区を拠点に、近隣エリアの相談に対応します。</p></article>
+            <article class="ss-info-card"><strong>山口県</strong><p>山口方面の方も、LINE・メール・電話で条件確認から始められます。</p></article>
+            <article class="ss-info-card"><strong>全国対応</strong><p>遠方の場合は、陸送費・登録費など別途費用がかかる場合があります。</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="ss-section" id="faq">
+        <div class="ss-inner">
+          <div class="ss-head">
+            <div>
+              <p class="ss-kicker">FAQ</p>
+              <h2>よくある質問</h2>
+            </div>
+            <p>問い合わせ前の不安を減らすため、最初に聞かれやすい内容をまとめています。</p>
+          </div>
+          <div class="ss-faq-grid">
+            <article class="ss-faq-card"><strong>車種が決まっていなくても相談できますか？</strong><p>できます。使用目的、予算、地域、支払い方法から候補条件を整理します。</p></article>
+            <article class="ss-faq-card"><strong>ローン審査が不安でも大丈夫ですか？</strong><p>審査結果の保証はできませんが、月々の希望額や頭金から無理のない候補を一緒に考えます。</p></article>
+            <article class="ss-faq-card"><strong>今すぐ買わなくても相談できますか？</strong><p>できます。購入時期が未定でも、予算感や必要な費用の確認だけでも大丈夫です。</p></article>
+            <article class="ss-faq-card"><strong>表示価格だけで買えますか？</strong><p>車両価格以外に、登録費・車検・整備・陸送費などがかかる場合があります。総額で確認します。</p></article>
           </div>
         </div>
       </section>
