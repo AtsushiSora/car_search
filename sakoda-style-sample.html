@@ -551,6 +551,121 @@
         gap: 16px;
       }
 
+      .ss-choice-grid,
+      .ss-voice-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .ss-choice-card {
+        display: grid;
+        align-content: space-between;
+        min-height: 250px;
+        padding: 24px;
+        color: var(--ss-ink);
+        background: #fff;
+        border: 2px solid #d9e8f7;
+        border-radius: 8px;
+        box-shadow: 0 14px 34px rgba(10, 57, 108, 0.1);
+      }
+
+      .ss-choice-card span {
+        display: inline-flex;
+        width: max-content;
+        padding: 5px 10px;
+        color: #fff;
+        background: var(--ss-red);
+        border-radius: 999px;
+        font-size: 0.74rem;
+        font-weight: 900;
+      }
+
+      .ss-choice-card strong {
+        display: block;
+        margin-top: 14px;
+        color: var(--ss-deep);
+        font-size: 1.35rem;
+        line-height: 1.25;
+      }
+
+      .ss-choice-card p {
+        margin: 10px 0 18px;
+        color: var(--ss-muted);
+        font-size: 0.92rem;
+        font-weight: 800;
+      }
+
+      .ss-choice-card em {
+        display: block;
+        margin-top: auto;
+        padding: 12px;
+        color: #fff;
+        text-align: center;
+        background: var(--ss-orange);
+        border-radius: 6px;
+        font-style: normal;
+        font-weight: 900;
+      }
+
+      .ss-line-strip {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 18px;
+        align-items: center;
+        margin-top: 24px;
+        padding: 20px 22px;
+        color: #123a21;
+        background: linear-gradient(135deg, #eafff2, #fff);
+        border: 1px solid #bff0d2;
+        border-radius: 8px;
+      }
+
+      .ss-line-strip strong {
+        display: block;
+        color: #103f24;
+        font-size: 1.1rem;
+      }
+
+      .ss-line-strip p {
+        margin: 4px 0 0;
+        color: #436051;
+        font-size: 0.9rem;
+        font-weight: 800;
+      }
+
+      .ss-voice-card {
+        padding: 22px;
+        background: #fff;
+        border: 1px solid var(--ss-line);
+        border-radius: 8px;
+        box-shadow: 0 12px 30px rgba(10, 57, 108, 0.08);
+      }
+
+      .ss-voice-card span {
+        display: inline-flex;
+        padding: 4px 9px;
+        color: var(--ss-deep);
+        background: #fff3bf;
+        border-radius: 999px;
+        font-size: 0.74rem;
+        font-weight: 900;
+      }
+
+      .ss-voice-card strong {
+        display: block;
+        margin-top: 12px;
+        color: var(--ss-deep);
+        font-size: 1.06rem;
+      }
+
+      .ss-voice-card p {
+        margin: 8px 0 0;
+        color: var(--ss-muted);
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
       .ss-final {
         color: #fff;
         background:
@@ -579,7 +694,9 @@
         .ss-stock-grid,
         .ss-flow,
         .ss-info-grid,
-        .ss-faq-grid {
+        .ss-faq-grid,
+        .ss-choice-grid,
+        .ss-voice-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
@@ -722,9 +839,42 @@
         .ss-feature-grid,
         .ss-flow,
         .ss-info-grid,
-        .ss-faq-grid {
+        .ss-faq-grid,
+        .ss-choice-grid,
+        .ss-voice-grid {
           grid-template-columns: 1fr;
           gap: 10px;
+        }
+
+        .ss-choice-card {
+          min-height: auto;
+          padding: 16px 14px;
+        }
+
+        .ss-choice-card strong {
+          font-size: 1.05rem;
+        }
+
+        .ss-choice-card p {
+          margin-bottom: 12px;
+          font-size: 0.78rem;
+          line-height: 1.45;
+        }
+
+        .ss-choice-card em {
+          padding: 10px;
+          font-size: 0.82rem;
+        }
+
+        .ss-line-strip {
+          grid-template-columns: 1fr;
+          gap: 10px;
+          margin-top: 16px;
+          padding: 14px;
+        }
+
+        .ss-line-strip .ss-line-cta {
+          width: 100%;
         }
 
         .ss-feature {
@@ -806,6 +956,7 @@
         .ss-flow p,
         .ss-info-card p,
         .ss-faq-card p,
+        .ss-voice-card p,
         .ss-check-list li {
           font-size: 0.82rem;
           line-height: 1.5;
@@ -894,6 +1045,35 @@
         </div>
       </nav>
 
+      <section class="ss-section" id="start">
+        <div class="ss-inner">
+          <div class="ss-head">
+            <div>
+              <p class="ss-kicker">START</p>
+              <h2>近い相談内容を選んでください</h2>
+            </div>
+            <p>ボタンを押すと、相談フォームに内容を入れた状態で進めます。迷う場合は一番近いものを選んでください。</p>
+          </div>
+          <div class="ss-choice-grid">
+            <a class="ss-choice-card" href="contact.html?need=%E6%A0%BC%E5%AE%89%E3%81%AE%E8%BB%BD%E8%87%AA%E5%8B%95%E8%BB%8A%E3%82%92%E6%8E%A2%E3%81%97%E3%81%9F%E3%81%84&budget=%E7%B7%8F%E9%A1%8D30%E4%B8%87%E5%86%86%E4%BB%A5%E5%86%85&car=%E8%BB%BD%E8%87%AA%E5%8B%95%E8%BB%8A&method=%E3%83%A1%E3%83%BC%E3%83%AB">
+              <span>低予算重視</span>
+              <div><strong>15万〜30万円で軽を探したい</strong><p>通勤・買い物・生活用に、まず購入費用を抑えたい方向けです。</p></div>
+              <em>この条件で相談</em>
+            </a>
+            <a class="ss-choice-card" href="contact.html?need=%E6%A0%BC%E5%AE%89%E3%81%AE%E8%BB%BD%E8%87%AA%E5%8B%95%E8%BB%8A%E3%82%92%E6%8E%A2%E3%81%97%E3%81%9F%E3%81%84&need=%E3%83%AD%E3%83%BC%E3%83%B3%E5%AF%A9%E6%9F%BB%E3%81%8C%E4%B8%8D%E5%AE%89&need=%E6%9C%88%E3%80%85%E3%81%AE%E6%94%AF%E6%89%95%E3%81%84%E3%82%92%E6%8A%91%E3%81%88%E3%81%9F%E3%81%84&budget=%E7%B7%8F%E9%A1%8D50%E4%B8%87%E5%86%86%E4%BB%A5%E5%86%85&paymentMethod=%E3%83%AD%E3%83%BC%E3%83%B3&monthlyPayment=%E6%9C%88%E3%80%851%E4%B8%87%E5%86%86%E5%8F%B0%E3%81%8B%E3%82%89%E7%9B%B8%E8%AB%87&car=%E8%BB%BD%E8%87%AA%E5%8B%95%E8%BB%8A&method=LINE">
+              <span>ローン不安</span>
+              <div><strong>ローンが不安なので先に相談したい</strong><p>審査保証ではなく、月々の希望額から無理のない候補条件を整理します。</p></div>
+              <em>ローン相談へ</em>
+            </a>
+            <a class="ss-choice-card" href="contact.html?need=%E6%A0%BC%E5%AE%89%E3%81%AE%E8%BB%BD%E8%87%AA%E5%8B%95%E8%BB%8A%E3%82%92%E6%8E%A2%E3%81%97%E3%81%9F%E3%81%84&notes=%E8%BB%8A%E4%B8%A1%E4%BE%A1%E6%A0%BC%E3%81%A0%E3%81%91%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%8F%E3%80%81%E7%99%BB%E9%8C%B2%E8%B2%BB%E3%83%BB%E8%BB%8A%E6%A4%9C%E3%83%BB%E9%99%B8%E9%80%81%E8%B2%BB%E3%81%AA%E3%81%A9%E5%88%A5%E9%80%94%E8%B2%BB%E7%94%A8%E3%82%82%E5%90%AB%E3%82%81%E3%81%A6%E7%9B%B8%E8%AB%87%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99%E3%80%82&car=%E8%BB%BD%E8%87%AA%E5%8B%95%E8%BB%8A&method=%E3%83%A1%E3%83%BC%E3%83%AB">
+              <span>総額確認</span>
+              <div><strong>車両価格以外の費用も聞きたい</strong><p>金額を自動計算せず、登録費・車検・陸送費など確認項目を整理します。</p></div>
+              <em>費用の相談へ</em>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section class="ss-section" id="feature">
         <div class="ss-inner">
           <div class="ss-head">
@@ -916,6 +1096,10 @@
               <img src="assets/generated-process/process-delivery-photo.png" alt="納車のイメージ" />
               <div><strong>納車まで案内</strong><p>広島・山口を中心に、車両確認・費用確認・納車までの流れをわかりやすく案内します。</p></div>
             </article>
+          </div>
+          <div class="ss-line-strip">
+            <div><strong>写真や条件はLINEでも送れます</strong><p>気になる車、予算、支払いの不安を短く送るだけでも大丈夫です。</p></div>
+            <a class="ss-line-cta js-line-link" href="#" target="_blank" rel="noopener">LINEで相談</a>
           </div>
         </div>
       </section>
@@ -957,6 +1141,10 @@
                 <a href="contact.html?budget=50%E4%B8%87%E5%86%86%E5%8F%B0">この価格で相談</a>
               </div>
             </article>
+          </div>
+          <div class="ss-line-strip">
+            <div><strong>今は在庫がなくても、条件から探せます</strong><p>在庫が入ったら掲載します。掲載前でも、予算・用途・地域に合わせて候補条件の相談ができます。</p></div>
+            <a class="ss-main-cta" href="contact.html?need=%E6%A0%BC%E5%AE%89%E3%81%AE%E8%BB%BD%E8%87%AA%E5%8B%95%E8%BB%8A%E3%82%92%E6%8E%A2%E3%81%97%E3%81%9F%E3%81%84&car=%E8%BB%BD%E8%87%AA%E5%8B%95%E8%BB%8A">条件から相談</a>
           </div>
         </div>
       </section>
@@ -1029,6 +1217,35 @@
               <li>支払総額と別途費用を確認</li>
               <li>無理な購入をすすめない案内</li>
             </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="ss-section" id="voice">
+        <div class="ss-inner">
+          <div class="ss-head">
+            <div>
+              <p class="ss-kicker">VOICE</p>
+              <h2>相談イメージ</h2>
+            </div>
+            <p>実際の販売実績ではなく、よくある相談内容をもとにしたイメージです。お客様の声として使う場合は、実績ができてから差し替えます。</p>
+          </div>
+          <div class="ss-voice-grid">
+            <article class="ss-voice-card">
+              <span>通勤用</span>
+              <strong>できるだけ安く乗れる軽を探したい</strong>
+              <p>予算を先に伝えられたので、無理な価格帯の車を見なくてよく、相談しやすかったというケースです。</p>
+            </article>
+            <article class="ss-voice-card">
+              <span>ローン不安</span>
+              <strong>問い合わせる前に支払いの不安を整理</strong>
+              <p>月々の希望額、頭金、購入時期を整理してから車探しに進むことで、検討しやすくなります。</p>
+            </article>
+            <article class="ss-voice-card">
+              <span>忙しい方</span>
+              <strong>店舗に行く前にLINEで条件確認</strong>
+              <p>写真や希望条件をスマホでやり取りし、来店前に候補条件を絞る相談イメージです。</p>
+            </article>
           </div>
         </div>
       </section>
@@ -1116,6 +1333,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=permit1"></script>
+    <script src="script.js?v=prefill1"></script>
   </body>
 </html>

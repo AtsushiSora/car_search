@@ -483,6 +483,12 @@ function applyUrlPrefill() {
   const needs = params.getAll("need");
   const inquiryType = params.get("type");
   const area = params.get("area");
+  const budget = params.get("budget");
+  const paymentMethod = params.get("paymentMethod");
+  const monthlyPayment = params.get("monthlyPayment");
+  const downPayment = params.get("downPayment");
+  const loanConcern = params.get("loanConcern");
+  const notes = params.get("notes");
 
   if (carName) {
     const carModel = form.querySelector('[name="carModel"]');
@@ -518,6 +524,25 @@ function applyUrlPrefill() {
       areaField.value = area === "その他" ? "その他（全国対応・陸送費別途）" : area;
     }
   }
+
+  const textPrefills = {
+    budget,
+    paymentMethod,
+    monthlyPayment,
+    downPayment,
+    loanConcern,
+    notes,
+  };
+
+  Object.entries(textPrefills).forEach(([name, value]) => {
+    if (!value) {
+      return;
+    }
+    const field = form.querySelector(`[name="${name}"]`);
+    if (field) {
+      field.value = value;
+    }
+  });
 
   needs.forEach((need) => {
     const needField = [...form.querySelectorAll('[name="supportNeeds"]')].find((field) => field.value === need);
