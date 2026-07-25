@@ -1,57 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://order-auto.netlify.app/</loc>
+    <loc>https://atsushisora.github.io/car_search/</loc>
     <lastmod>2026-06-08</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://order-auto.netlify.app/flow.html</loc>
+    <loc>https://atsushisora.github.io/car_search/flow.html</loc>
     <lastmod>2026-06-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://order-auto.netlify.app/examples.html</loc>
+    <loc>https://atsushisora.github.io/car_search/examples.html</loc>
     <lastmod>2026-06-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://order-auto.netlify.app/stock.html</loc>
+    <loc>https://atsushisora.github.io/car_search/stock.html</loc>
     <lastmod>2026-06-08</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://order-auto.netlify.app/service.html</loc>
+    <loc>https://atsushisora.github.io/car_search/service.html</loc>
     <lastmod>2026-06-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://order-auto.netlify.app/consultation.html</loc>
+    <loc>https://atsushisora.github.io/car_search/hiroshima.html</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://atsushisora.github.io/car_search/yamaguchi.html</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://atsushisora.github.io/car_search/loan.html</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://atsushisora.github.io/car_search/trust.html</loc>
+    <lastmod>2026-07-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://atsushisora.github.io/car_search/consultation.html</loc>
     <lastmod>2026-06-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://order-auto.netlify.app/payment.html</loc>
+    <loc>https://atsushisora.github.io/car_search/payment.html</loc>
     <lastmod>2026-06-08</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://order-auto.netlify.app/faq.html</loc>
+    <loc>https://atsushisora.github.io/car_search/faq.html</loc>
     <lastmod>2026-06-08</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://order-auto.netlify.app/about.html</loc>
+    <loc>https://atsushisora.github.io/car_search/about.html</loc>
     <lastmod>2026-06-08</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://order-auto.netlify.app/contact.html</loc>
+    <loc>https://atsushisora.github.io/car_search/contact.html</loc>
     <lastmod>2026-06-08</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://order-auto.netlify.app/privacy.html</loc>
+    <loc>https://atsushisora.github.io/car_search/privacy.html</loc>
     <lastmod>2026-06-08</lastmod>
     <priority>0.3</priority>
   </url>

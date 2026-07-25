@@ -35,6 +35,7 @@ const exampleFillButtons = document.querySelectorAll(".js-fill-example");
 const loanSections = document.querySelectorAll("[data-loan-section]");
 const exampleAssist = document.querySelector(".example-assist");
 const stockGrid = document.querySelector("#stockGrid");
+const campaignExampleFallback = document.querySelector("#campaignExampleFallback");
 
 const methodGuides = {
   電話: "電話で条件を確認します。電話番号を入力していただくと折り返しがスムーズです。",
@@ -293,14 +294,7 @@ function getFormEndpoint() {
     return formEndpoint;
   }
 
-  if (!form?.dataset.netlify) {
-    return "";
-  }
-
-  const host = window.location.hostname;
-  const isLocalPreview = !host || host === "localhost" || host === "127.0.0.1";
-  const isGitHubPages = host.endsWith("github.io");
-  return isLocalPreview || isGitHubPages ? "" : "/";
+  return "";
 }
 
 async function sendLineWebhook(payload) {
@@ -430,8 +424,18 @@ async function loadStockVehicles() {
 
 function renderStockVehicles(vehicles) {
   if (!vehicles.length) {
+    if (campaignExampleFallback) {
+      stockGrid.innerHTML = "";
+      campaignExampleFallback.hidden = false;
+      return;
+    }
+
     stockGrid.innerHTML = '<p class="stock-empty">在庫掲載は現在準備中です。</p>';
     return;
+  }
+
+  if (campaignExampleFallback) {
+    campaignExampleFallback.hidden = true;
   }
 
   stockGrid.innerHTML = vehicles.map(createStockCard).join("");

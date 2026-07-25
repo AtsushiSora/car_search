@@ -148,8 +148,7 @@
             <p>未定の項目は空欄でも大丈夫です。まずは予算と連絡先だけでも送れます。</p>
           </div>
 
-          <form class="order-form compact-order-form" id="orderForm" name="car-search-order" method="post" action="/thanks" data-netlify="true" netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="car-search-order" />
+          <form class="order-form compact-order-form" id="orderForm" name="car-search-order" method="post" action="thanks.html">
             <input type="hidden" name="subject" value="格安軽・ローン相談フォーム" />
             <input type="hidden" name="message" value="" />
             <input type="hidden" name="submittedAt" value="" />
@@ -158,9 +157,6 @@
             <input type="hidden" name="carModel" value="軽自動車" />
             <input type="hidden" name="supportNeeds" value="格安の軽自動車を探したい" />
             <input type="hidden" name="supportNeeds" value="ローン審査が不安" />
-            <p class="bot-field" aria-hidden="true">
-              <label>入力しないでください <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
-            </p>
             <fieldset>
               <legend>希望の相談方法</legend>
               <div class="method-options">

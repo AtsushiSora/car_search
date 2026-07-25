@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>格安軽自動車・ローン不安相談受付中 | オーダーオート</title>
+    <meta name="description" content="広島・山口で格安軽自動車を探したい方、ローン審査が不安な方へ。価格帯別の目安と相談フォームを見やすくまとめた試作TOPページです。" />
+    <link rel="stylesheet" href="styles.css?v=campaign1" />
+  </head>
+  <body class="campaign-page">
+    <header class="site-header campaign-header">
+      <a class="brand" href="index.html" aria-label="オーダーオート トップへ">
+        <span class="brand-mark" aria-hidden="true"><img src="assets/brand-logo.png" alt="" /></span>
+        <span><strong>オーダーオート</strong><small>格安軽自動車・ローン相談</small></span>
+      </a>
+      <nav class="desktop-nav" aria-label="メインメニュー">
+        <a href="#benefits">相談メリット</a>
+        <a href="#stockArea">在庫・価格目安</a>
+        <a href="#loan">ローン相談</a>
+        <a href="#area">対応エリア</a>
+        <a href="#contact">相談フォーム</a>
+      </nav>
+      <div class="header-actions">
+        <a class="phone-link" href="tel:08029128616"><span aria-hidden="true">☎</span><span><strong>080-2912-8616</strong><small>9:00-18:00</small></span></a>
+        <a class="line-link js-line-link" href="#" target="_blank" rel="noopener">LINE相談</a>
+      </div>
+      <button class="menu-button" type="button" aria-label="メニューを開く" aria-controls="mobileNav" aria-expanded="false"><span></span><span></span><span></span></button>
+    </header>
+
+    <nav class="mobile-nav" id="mobileNav" aria-label="モバイルメニュー">
+      <a href="#benefits">相談メリット</a>
+      <a href="#stockArea">在庫・価格目安</a>
+      <a href="#loan">ローン相談</a>
+      <a href="#area">対応エリア</a>
+      <a class="js-line-link" href="#" target="_blank" rel="noopener">LINE</a>
+      <a href="#contact">相談フォーム</a>
+    </nav>
+
+    <main>
+      <section class="campaign-hero">
+        <img src="assets/top-campaign-hero.png" alt="軽自動車を訪問先で相談しているイメージ" />
+        <div class="campaign-hero-shade"></div>
+        <div class="section-inner campaign-hero-content">
+          <p class="campaign-label">広島・山口中心 / スマホで相談OK</p>
+          <h1>格安軽自動車・ローン不安相談受付中</h1>
+          <p>通勤用、初めての車、セカンドカーに。予算を抑えたい方も、ローン審査が不安な方も、まずは条件整理から相談できます。</p>
+          <div class="campaign-actions">
+            <a class="primary-link large" href="#contact">無料で相談する</a>
+            <a class="line-link large js-line-link" href="#" target="_blank" rel="noopener">LINEで相談</a>
+          </div>
+          <div class="campaign-badges" aria-label="主な特徴">
+            <span>相談無料</span>
+            <span>しつこい営業なし</span>
+            <span>ローン不安OK</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="campaign-anchor-bar" aria-label="ページ内メニュー">
+        <div class="section-inner">
+          <a href="#benefits">限定案内</a>
+          <a href="#stockArea">在庫・価格目安</a>
+          <a href="#reason">安く探せる理由</a>
+          <a href="#contact">相談フォーム</a>
+        </div>
+      </section>
+
+      <section class="section campaign-benefits" id="benefits">
+        <div class="section-inner">
+          <div class="campaign-section-head">
+            <p class="section-kicker">BENEFITS</p>
+            <h2>相談しやすい3つの理由</h2>
+          </div>
+          <div class="campaign-benefit-grid">
+            <article>
+              <span>01</span>
+              <h3>低予算から相談</h3>
+              <p>15万円台・30万円台など、まずは予算に合わせて現実的な条件を整理します。</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>ローン不安もOK</h3>
+              <p>審査結果を保証するものではありませんが、月々の希望額や頭金から無理のない範囲を考えます。</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>来店前にスマホ相談</h3>
+              <p>忙しい方でも、LINE・メール・電話で先に条件を送れます。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section campaign-stock-zone" id="stockArea">
+        <div class="section-inner">
+          <div class="campaign-section-head row">
+            <div>
+              <p class="section-kicker">STOCK / PRICE</p>
+              <h2>現在ご案内できる在庫車両</h2>
+              <p>在庫が入ったら、ここにスプレッドシートの在庫情報を表示します。在庫がない時は価格帯別の提案例を表示します。</p>
+            </div>
+            <a class="text-link" href="admin.html">管理ページを見る</a>
+          </div>
+
+          <div class="stock-grid campaign-stock-grid" id="stockGrid" aria-live="polite"></div>
+
+          <div class="campaign-price-fallback" id="campaignExampleFallback">
+            <div class="campaign-mini-heading">
+              <strong>現在は提案例を表示中</strong>
+              <span>実在庫ではなく、予算の目安です。</span>
+            </div>
+            <div class="campaign-price-grid">
+              <article>
+                <strong>15万円</strong>
+                <span>とにかく安く必要な方向け</span>
+                <p>年式・距離・外装状態より、購入費用を最優先したい場合の目安です。</p>
+              </article>
+              <article>
+                <strong>30万円</strong>
+                <span>通勤用・初めての車に</span>
+                <p>安さと実用性のバランスを見ながら、車検や整備も含めて考えます。</p>
+              </article>
+              <article>
+                <strong>50万円</strong>
+                <span>状態も少し重視したい方向け</span>
+                <p>予算を少し広げて、年式・走行距離・装備の選択肢を増やします。</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section campaign-split" id="loan">
+        <div class="section-inner campaign-split-inner">
+          <div>
+            <p class="section-kicker">LOAN SUPPORT</p>
+            <h2>ローンが不安でも、まずは相談できます</h2>
+            <p>「通るかわからない」「月々を抑えたい」「頭金が少ない」など、問い合わせをためらう理由から相談できます。</p>
+            <ul>
+              <li>月々の希望額から予算を整理</li>
+              <li>頭金あり・なしの考え方を確認</li>
+              <li>支払総額と別途費用を見ながら検討</li>
+            </ul>
+          </div>
+          <aside class="campaign-note-box">
+            <strong>審査保証ではありません</strong>
+            <p>審査結果を断定する案内はしません。無理のない候補条件を整理するための相談です。</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section campaign-reason" id="reason">
+        <div class="section-inner campaign-split-inner">
+          <aside class="campaign-number-panel">
+            <strong>ORDER STYLE</strong>
+            <span>必要な車だけを探す</span>
+          </aside>
+          <div>
+            <p class="section-kicker">REASON</p>
+            <h2>格安で軽自動車をご紹介しやすい理由</h2>
+            <p>お客様のご要望に合わせて、必要な車だけをオートオークション等から探す形を中心にします。多くの在庫を抱えないため、保管費・展示費・管理費を抑えやすく、その分ご予算に合う軽自動車をご提案しやすくなります。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section campaign-area" id="area">
+        <div class="section-inner">
+          <div class="campaign-section-head">
+            <p class="section-kicker">AREA</p>
+            <h2>広島・山口を中心に対応</h2>
+            <p>全国対応も可能ですが、遠方の場合は陸送費・登録費など別途費用がかかる場合があります。</p>
+          </div>
+          <div class="campaign-area-grid">
+            <a href="hiroshima.html">広島の相談</a>
+            <a href="yamaguchi.html">山口の相談</a>
+            <a href="loan.html">ローン相談</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section campaign-contact" id="contact">
+        <div class="section-inner campaign-contact-inner">
+          <div class="campaign-contact-copy">
+            <p class="section-kicker">CONTACT</p>
+            <h2>まずは予算と連絡先だけでも送れます</h2>
+            <p>未定の項目は空欄で大丈夫です。条件を確認して、メール・LINE・電話で折り返します。</p>
+          </div>
+          <form class="order-form compact-order-form campaign-form" id="orderForm" name="car-search-order" method="post" action="thanks.html">
+            <input type="hidden" name="subject" value="試作TOPからの格安軽・ローン相談" />
+            <input type="hidden" name="message" value="" />
+            <input type="hidden" name="submittedAt" value="" />
+            <input type="hidden" name="sourcePage" value="" />
+            <input type="hidden" name="inquiryType" value="格安軽・ローン相談" />
+            <input type="hidden" name="carModel" value="軽自動車" />
+            <input type="hidden" name="supportNeeds" value="格安の軽自動車を探したい" />
+            <input type="hidden" name="supportNeeds" value="ローン審査が不安" />
+
+            <fieldset>
+              <legend>希望の相談方法</legend>
+              <div class="method-options">
+                <label class="method-option"><input type="radio" name="contactMethod" value="電話" /><span>電話</span></label>
+                <label class="method-option"><input type="radio" name="contactMethod" value="メール" checked /><span>メール</span></label>
+                <label class="method-option"><input type="radio" name="contactMethod" value="LINE" /><span>LINE</span></label>
+              </div>
+              <p class="method-guide" id="methodGuide">メールで候補車の写真・状態・費用感をまとめてご連絡します。</p>
+            </fieldset>
+
+            <fieldset>
+              <legend>希望条件</legend>
+              <div class="form-grid">
+                <label><span>対応地域</span><select name="area" required><option value="">選択してください</option><option>広島県</option><option>山口県</option><option>その他（全国対応・陸送費別途）</option></select></label>
+                <label><span>予算</span><input name="budget" type="text" placeholder="例）30万円以内" required /></label>
+                <label><span>月々の希望額</span><input name="monthlyPayment" type="text" placeholder="例）月々1万円以内" /></label>
+                <label><span>お名前</span><input name="customerName" type="text" placeholder="例）山田 太郎" required /></label>
+                <label><span>メールアドレス</span><input name="email" type="email" placeholder="例）sample@example.com" required /></label>
+                <label><span>電話番号</span><input name="phone" type="tel" placeholder="例）090-1234-5678" /></label>
+              </div>
+              <label class="full"><span>その他の希望</span><textarea name="notes" rows="3" placeholder="例）ローンが不安、車検付き希望、通勤用で安い軽が必要"></textarea></label>
+            </fieldset>
+
+            <label class="consent">
+              <input type="checkbox" name="consent" required />
+              <span><a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>を確認し、入力内容の確認連絡を受け取ることに同意します</span>
+            </label>
+
+            <button class="submit-button" type="submit">無料相談の内容を確認する</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <div class="modal" id="resultModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="resultTitle">
+      <div class="modal-panel">
+        <button class="modal-close" type="button" aria-label="閉じる">×</button>
+        <h2 id="resultTitle">相談内容を確認しました</h2>
+        <p id="resultMessage">下記の内容で確認しました。</p>
+        <pre id="summaryText"></pre>
+        <div class="modal-actions">
+          <a class="secondary-link" href="tel:08029128616">電話する</a>
+          <a class="primary-link" id="mailtoLink" href="#">メール下書きを作成</a>
+          <a class="line-link" id="modalLineLink" href="#" target="_blank" rel="noopener">LINEで追加相談</a>
+          <button class="secondary-button" id="copyButton" type="button">内容をコピー</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="section-inner footer-inner">
+        <div><strong>オーダーオート</strong><p>あなたのカーライフを、心をこめてサポートします。</p></div>
+        <div class="footer-links"><a href="index.html">現TOP</a><a href="admin.html">管理ページ</a><a href="privacy.html">プライバシーポリシー</a><a class="js-line-link" href="#" target="_blank" rel="noopener">LINE</a><a href="tel:08029128616">電話で相談する</a></div>
+      </div>
+    </footer>
+
+    <script src="script.js?v=campaign1"></script>
+  </body>
+</html>

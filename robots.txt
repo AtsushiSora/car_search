@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin.html
 Disallow: /thanks.html
 
-Sitemap: https://order-auto.netlify.app/sitemap.xml
+Sitemap: https://atsushisora.github.io/car_search/sitemap.xml
