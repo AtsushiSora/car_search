@@ -33,7 +33,7 @@ python3 -m http.server 8080
 - `privacy.html`: プライバシーポリシー
 - `thanks.html`: フォーム送信完了ページ
 - `404.html`: ページが見つからない場合の案内ページ
-- `admin.html`: CSVデータ確認用ページ
+- `local-admin.html`: ローカル専用のCSVデータ確認・在庫作成ページ（公開対象外）
 
 ## 変更しやすい場所
 
@@ -42,9 +42,9 @@ python3 -m http.server 8080
 - 電話リンク: `script.js` の `ownerPhoneHref`
 - 受付時間: `script.js` の `businessHours`
 - LINE友だち追加URL: `script.js` の `lineUrl`
-- 在庫データ: `data/stock.csv`
+- 在庫データ: Googleスプレッドシート公開CSV、または予備の `data/stock.csv`
 - ご提案例データ: `data/examples.csv`
-- Googleスプレッドシート公開CSV: `script.js` の `stockDataUrl` / `exampleDataUrl`
+- Googleスプレッドシート公開CSV: `site-config.js` の `stockCsvUrl` / `exampleCsvUrl`
 - ヒーロー画像: `assets/hero-car-consultation.webp`
 
 ## フォームについて
@@ -63,11 +63,22 @@ LINEのチャネルアクセストークンなどの秘密情報は、`script.js
 
 ## 在庫・ご提案例の管理
 
-在庫車両は `data/stock.csv` から表示します。
+在庫車両はGoogleスプレッドシートの公開CSVから表示できます。`site-config.js` の `stockCsvUrl` に、公開CSV URLを入れてください。
 
-ご提案例は `data/examples.csv` から表示します。
+`stockCsvUrl` が空の場合は、予備データとして `data/stock.csv` から表示します。
 
-管理用のExcelテンプレートは `outputs/car-data-management.xlsx` です。Googleスプレッドシートで使う場合は、このExcelをGoogleドライブへアップロードして、各シートをCSV形式でウェブ公開します。
+ご提案例もスプレッドシート管理にする場合は、`site-config.js` の `exampleCsvUrl` に公開CSV URLを入れてください。空の場合は `data/examples.csv` から表示します。
+
+管理用のExcelテンプレートは `outputs/car-data-management.xlsx` です。Googleスプレッドシートで使う場合は、このExcelをGoogleドライブへアップロードして、各シートをCSV形式でウェブ公開します。`local-admin.html` はローカル専用で、公開サイトには含めません。
+
+スプレッドシート公開CSVの設定例:
+
+```js
+window.orderAutoConfig = {
+  stockCsvUrl: "https://docs.google.com/spreadsheets/d/e/公開ID/pub?gid=0&single=true&output=csv",
+  exampleCsvUrl: "",
+};
+```
 
 在庫CSVの列:
 

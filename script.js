@@ -5,8 +5,9 @@ const businessHours = "9:00-18:00";
 const lineUrl = "https://lin.ee/Xp9AUJy";
 const lineWebhookEndpoint = "";
 const formEndpoint = "";
-const stockDataUrl = "data/stock.csv";
-const exampleDataUrl = "data/examples.csv";
+const dataSourceConfig = window.orderAutoConfig || {};
+const stockDataUrl = dataSourceConfig.stockCsvUrl || "data/stock.csv";
+const exampleDataUrl = dataSourceConfig.exampleCsvUrl || "data/examples.csv";
 
 const menuButton = document.querySelector(".menu-button");
 const mobileNav = document.querySelector("#mobileNav");
@@ -345,7 +346,7 @@ async function loadExampleVehicles() {
   }
 
   try {
-    const response = await fetch(`${exampleDataUrl}?v=${Date.now()}`);
+    const response = await fetch(createCacheBustedUrl(exampleDataUrl));
     if (!response.ok) {
       throw new Error("Example data fetch failed");
     }
@@ -406,7 +407,7 @@ async function loadStockVehicles() {
   }
 
   try {
-    const response = await fetch(`${stockDataUrl}?v=${Date.now()}`);
+    const response = await fetch(createCacheBustedUrl(stockDataUrl));
     if (!response.ok) {
       throw new Error("Stock data fetch failed");
     }
@@ -667,6 +668,11 @@ function parseCsv(csvText) {
   return rows.map((cells) =>
     Object.fromEntries(headers.map((header, index) => [header, String(cells[index] || "").trim()])),
   );
+}
+
+function createCacheBustedUrl(url) {
+  const separator = url.includes("?") ? "&" : "?";
+  return `${url}${separator}v=${Date.now()}`;
 }
 
 function updateDynamicForm() {
