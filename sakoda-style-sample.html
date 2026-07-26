@@ -331,6 +331,8 @@
       }
 
       .ss-car-image {
+        position: relative;
+        overflow: hidden;
         display: grid;
         place-items: center;
         min-height: 170px;
@@ -338,6 +340,24 @@
         background:
           linear-gradient(135deg, rgba(0, 77, 156, 0.08), rgba(255, 216, 54, 0.24)),
           #f7fbff;
+        font-weight: 900;
+      }
+
+      .ss-car-image img {
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+      }
+
+      .ss-car-image span {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        padding: 5px 10px;
+        color: #fff;
+        background: var(--ss-red);
+        border-radius: 999px;
+        font-size: 0.74rem;
         font-weight: 900;
       }
 
@@ -381,6 +401,14 @@
         color: var(--ss-muted);
         font-size: 0.78rem;
         font-weight: 800;
+      }
+
+      .ss-car-note {
+        margin: 10px 0 0;
+        color: var(--ss-muted);
+        font-size: 0.84rem;
+        font-weight: 700;
+        line-height: 1.55;
       }
 
       .ss-car-card a {
@@ -910,6 +938,17 @@
           font-size: 0.78rem;
         }
 
+        .ss-car-image img {
+          height: 96px;
+        }
+
+        .ss-car-image span {
+          top: 6px;
+          left: 6px;
+          padding: 3px 7px;
+          font-size: 0.62rem;
+        }
+
         .ss-car-body {
           padding: 10px;
         }
@@ -939,6 +978,10 @@
           display: block;
           margin-top: 2px;
           font-size: 0.65rem;
+        }
+
+        .ss-car-note {
+          display: none;
         }
 
         .ss-car-card a {
@@ -1030,10 +1073,10 @@
       <div class="ss-badges" aria-label="主な特徴">
         <div class="ss-badge"><strong>総額重視</strong><span>車両価格だけで判断しません</span></div>
         <div class="ss-badge"><strong>ローン不安OK</strong><span>月々の希望額から確認</span></div>
-        <div class="ss-badge"><strong>在庫なしでも相談</strong><span>条件に合わせて探します</span></div>
+        <div class="ss-badge"><strong>在庫を掲載</strong><span>気になる車から相談できます</span></div>
       </div>
 
-      <p class="ss-notice">現在は希望条件の確認と相談受付を中心に対応しています。中古車の売買契約・買取・販売は、必要な許可・準備が整ってからご案内します。</p>
+      <p class="ss-notice">掲載車両は在庫状況により変動します。商談中・売約済みの場合もあるため、気になる車両は事前にお問い合わせください。</p>
 
       <nav class="ss-anchor" aria-label="ページ内メニュー">
         <div class="ss-anchor-inner">
@@ -1109,41 +1152,13 @@
           <div class="ss-head">
             <div>
               <p class="ss-kicker">PRICE / STOCK</p>
-              <h2>価格帯別の相談イメージ</h2>
+              <h2>在庫車両</h2>
             </div>
-            <p>現在は在庫掲載準備中です。実在庫が入ったら、このカードを車種・年式・距離・価格の表示に差し替えます。</p>
+            <p>現在掲載中の軽自動車です。写真・車両状態・総額の目安はお問い合わせ時に確認してご案内します。</p>
           </div>
-          <div class="ss-stock-grid">
-            <article class="ss-car-card">
-              <div class="ss-car-image">車両画像</div>
-              <div class="ss-car-body">
-                <h3>とにかく費用を抑えたい</h3>
-                <div class="ss-car-spec"><span>用途: 近距離・通勤</span><span>優先: 価格</span><span>状態: 個別確認</span><span>地域: 広島・山口</span></div>
-                <div class="ss-car-price"><strong>15万円台</strong><span>参考価格</span></div>
-                <a href="contact.html?budget=15%E4%B8%87%E5%86%86%E5%8F%B0">この価格で相談</a>
-              </div>
-            </article>
-            <article class="ss-car-card">
-              <div class="ss-car-image">車両画像</div>
-              <div class="ss-car-body">
-                <h3>通勤・生活用で探したい</h3>
-                <div class="ss-car-spec"><span>用途: 毎日の移動</span><span>優先: 実用性</span><span>車検: 要確認</span><span>支払い: ローン相談</span></div>
-                <div class="ss-car-price"><strong>30万円台</strong><span>参考価格</span></div>
-                <a href="contact.html?budget=30%E4%B8%87%E5%86%86%E5%8F%B0">この価格で相談</a>
-              </div>
-            </article>
-            <article class="ss-car-card">
-              <div class="ss-car-image">車両画像</div>
-              <div class="ss-car-body">
-                <h3>安さと状態を両方見たい</h3>
-                <div class="ss-car-spec"><span>用途: 長めに乗りたい</span><span>優先: 状態</span><span>装備: 条件相談</span><span>全国: 陸送費別途</span></div>
-                <div class="ss-car-price"><strong>50万円台</strong><span>参考価格</span></div>
-                <a href="contact.html?budget=50%E4%B8%87%E5%86%86%E5%8F%B0">この価格で相談</a>
-              </div>
-            </article>
-          </div>
+          <div class="ss-stock-grid" id="stockGrid" aria-live="polite"></div>
           <div class="ss-line-strip">
-            <div><strong>今は在庫がなくても、条件から探せます</strong><p>在庫が入ったら掲載します。掲載前でも、予算・用途・地域に合わせて候補条件の相談ができます。</p></div>
+            <div><strong>在庫にない条件でも探せます</strong><p>掲載中の車両が合わない場合も、予算・用途・地域に合わせて別条件の相談ができます。</p></div>
             <a class="ss-main-cta" href="contact.html?need=%E6%A0%BC%E5%AE%89%E3%81%AE%E8%BB%BD%E8%87%AA%E5%8B%95%E8%BB%8A%E3%82%92%E6%8E%A2%E3%81%97%E3%81%9F%E3%81%84&car=%E8%BB%BD%E8%87%AA%E5%8B%95%E8%BB%8A">条件から相談</a>
           </div>
         </div>
@@ -1333,6 +1348,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=prefill1"></script>
+    <script src="script.js?v=stock1"></script>
   </body>
 </html>

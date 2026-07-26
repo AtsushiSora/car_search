@@ -430,7 +430,7 @@ function renderStockVehicles(vehicles) {
       return;
     }
 
-    stockGrid.innerHTML = '<p class="stock-empty">在庫掲載は現在準備中です。</p>';
+    stockGrid.innerHTML = '<p class="stock-empty">現在掲載中の在庫はありません。条件に合う車探しは相談できます。</p>';
     return;
   }
 
@@ -438,7 +438,8 @@ function renderStockVehicles(vehicles) {
     campaignExampleFallback.hidden = true;
   }
 
-  stockGrid.innerHTML = vehicles.map(createStockCard).join("");
+  const cardFactory = stockGrid.classList.contains("ss-stock-grid") ? createShowcaseStockCard : createStockCard;
+  stockGrid.innerHTML = vehicles.map(cardFactory).join("");
 }
 
 function createStockCard(vehicle) {
@@ -467,6 +468,36 @@ function createStockCard(vehicle) {
         <p class="stock-price">${escapeHtml(vehicle.price || "応相談")}<span>総額目安</span></p>
         <p class="stock-note">${escapeHtml(note)}</p>
         <a class="primary-link stock-consult-link" href="${consultHref}" data-car-name="${escapeHtml(name)}">この車を相談する</a>
+      </div>
+    </article>
+  `;
+}
+
+function createShowcaseStockCard(vehicle) {
+  const maker = vehicle.maker || "";
+  const name = vehicle.name || "車両名未設定";
+  const image = vehicle.image || "";
+  const label = vehicle.label || "掲載中";
+  const note = vehicle.note || "詳細はお問い合わせください。";
+  const consultHref = `contact.html?car=${encodeURIComponent(name)}&budget=${encodeURIComponent(vehicle.price || "")}`;
+  const imageMarkup = image
+    ? `<img src="${escapeHtml(image)}" alt="${escapeHtml(name)}の在庫車両" loading="lazy" />`
+    : "車両画像";
+
+  return `
+    <article class="ss-car-card">
+      <div class="ss-car-image">${imageMarkup}<span>${escapeHtml(label)}</span></div>
+      <div class="ss-car-body">
+        <h3>${escapeHtml([maker, name].filter(Boolean).join(" "))}</h3>
+        <div class="ss-car-spec">
+          <span>年式: ${escapeHtml(vehicle.year || "未定")}</span>
+          <span>距離: ${escapeHtml(vehicle.mileage || "未定")}</span>
+          <span>色: ${escapeHtml(vehicle.color || "未定")}</span>
+          <span>車検: ${escapeHtml(vehicle.inspection || "要確認")}</span>
+        </div>
+        <div class="ss-car-price"><strong>${escapeHtml(vehicle.price || "応相談")}</strong><span>車両価格目安</span></div>
+        <p class="ss-car-note">${escapeHtml(note)}</p>
+        <a href="${consultHref}">この在庫を相談</a>
       </div>
     </article>
   `;
