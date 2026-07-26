@@ -33,7 +33,6 @@ python3 -m http.server 8080
 - `privacy.html`: プライバシーポリシー
 - `thanks.html`: フォーム送信完了ページ
 - `404.html`: ページが見つからない場合の案内ページ
-- `local-admin.html`: ローカル専用のCSVデータ確認・在庫作成ページ（公開対象外）
 
 ## 変更しやすい場所
 
@@ -69,7 +68,7 @@ LINEのチャネルアクセストークンなどの秘密情報は、`script.js
 
 ご提案例もスプレッドシート管理にする場合は、`site-config.js` の `exampleCsvUrl` に公開CSV URLを入れてください。空の場合は `data/examples.csv` から表示します。
 
-管理用のExcelテンプレートは `outputs/car-data-management.xlsx` です。Googleスプレッドシートで使う場合は、このExcelをGoogleドライブへアップロードして、各シートをCSV形式でウェブ公開します。`local-admin.html` はローカル専用で、公開サイトには含めません。
+管理用のExcelテンプレートは `outputs/car-data-management.xlsx` です。Googleスプレッドシートで使う場合は、このExcelをGoogleドライブへアップロードして、各シートをCSV形式でウェブ公開します。
 
 スプレッドシート公開CSVの設定例:
 
