@@ -56,6 +56,56 @@
         </div>
       </section>
 
+      <section class="section admin-builder-section" aria-labelledby="stockBuilderTitle">
+        <div class="section-inner">
+          <div class="section-heading row">
+            <div>
+              <p class="section-kicker">EASY STOCK INPUT</p>
+              <h2 id="stockBuilderTitle">在庫掲載かんたん作成</h2>
+            </div>
+            <div class="admin-builder-actions">
+              <button class="secondary-link" type="button" id="loadCurrentStockButton">現在の在庫を読み込む</button>
+              <label class="secondary-link admin-file-button" for="stockCsvImport">CSVを読み込む</label>
+              <input id="stockCsvImport" type="file" accept=".csv,text/csv" />
+            </div>
+          </div>
+          <div class="admin-builder-card" id="stockBuilder">
+            <p class="admin-helper-text">
+              車両情報を入力すると、サイト表示用のCSVを自動で作れます。作成したCSVはGoogleスプレッドシートへ貼り付けるか、<code>data/stock.csv</code> の更新に使えます。
+            </p>
+            <div class="admin-builder-table-wrap">
+              <table class="admin-builder-table">
+                <thead>
+                  <tr>
+                    <th>メーカー</th>
+                    <th>車名</th>
+                    <th>年式</th>
+                    <th>距離</th>
+                    <th>色</th>
+                    <th>車検</th>
+                    <th>価格</th>
+                    <th>表示</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="stockBuilderBody"></tbody>
+              </table>
+            </div>
+            <div class="admin-builder-buttons">
+              <button class="primary-link" type="button" id="addStockRowButton">1台追加</button>
+              <button class="secondary-link" type="button" id="clearStockRowsButton">入力を空にする</button>
+              <button class="secondary-link" type="button" id="copyStockCsvButton">CSVをコピー</button>
+              <button class="secondary-link" type="button" id="downloadStockCsvButton">CSVをダウンロード</button>
+            </div>
+            <div class="admin-csv-output">
+              <label for="stockCsvOutput">作成されたCSV</label>
+              <textarea id="stockCsvOutput" rows="8" readonly></textarea>
+              <p id="stockBuilderMessage" class="admin-helper-text" aria-live="polite"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="section admin-preview-section">
         <div class="section-inner">
           <div class="section-heading row">

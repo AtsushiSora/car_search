@@ -2211,6 +2211,163 @@ pre {
   margin-top: 12px;
 }
 
+.admin-builder-section {
+  padding-top: 0;
+}
+
+.admin-builder-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.admin-builder-actions .secondary-link,
+.admin-builder-buttons .primary-link,
+.admin-builder-buttons .secondary-link {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.admin-file-button {
+  cursor: pointer;
+}
+
+#stockCsvImport {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.admin-builder-card {
+  padding: clamp(18px, 3vw, 28px);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: 0 14px 36px rgba(20, 66, 116, 0.1);
+}
+
+.admin-helper-text {
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.admin-helper-text code {
+  color: var(--blue-dark);
+  font-weight: 900;
+}
+
+.admin-builder-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.admin-builder-table {
+  width: 100%;
+  min-width: 1120px;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.admin-builder-table th,
+.admin-builder-table td {
+  padding: 10px;
+  border-bottom: 1px solid #e9f1f8;
+  vertical-align: top;
+}
+
+.admin-builder-table th {
+  color: var(--blue-dark);
+  background: #f2f8ff;
+  text-align: left;
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
+.admin-builder-table input,
+.admin-builder-table select,
+.admin-csv-output textarea {
+  width: 100%;
+  border: 1px solid #d5e3f0;
+  border-radius: 8px;
+  color: #26364a;
+  background: #fff;
+  font: inherit;
+  font-weight: 700;
+}
+
+.admin-builder-table input,
+.admin-builder-table select {
+  min-height: 42px;
+  padding: 9px 10px;
+}
+
+.admin-builder-table input:focus,
+.admin-builder-table select:focus,
+.admin-csv-output textarea:focus {
+  border-color: var(--blue);
+  outline: 3px solid rgba(15, 103, 189, 0.16);
+}
+
+.admin-builder-extra {
+  background: #f8fbff;
+}
+
+.admin-builder-extra label {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 10px;
+  color: var(--blue-dark);
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
+.admin-builder-extra label:last-child {
+  margin-bottom: 0;
+}
+
+.admin-row-remove {
+  min-height: 42px;
+  padding: 8px 12px;
+  color: #b61f19;
+  background: #fff3f2;
+  border: 1px solid #ffd1cd;
+  border-radius: 8px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.admin-builder-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.admin-csv-output {
+  display: grid;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.admin-csv-output label {
+  color: var(--blue-dark);
+  font-weight: 900;
+}
+
+.admin-csv-output textarea {
+  min-height: 180px;
+  padding: 14px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+
 .home-compact {
   background: #fff;
 }
