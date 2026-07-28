@@ -2,6 +2,7 @@ const ownerEmail = "closet.full.of.love@icloud.com";
 const ownerPhoneDisplay = "080-2912-8616";
 const ownerPhoneHref = "08029128616";
 const businessHours = "9:00-18:00";
+const usedDealerPermit = "古物商許可: 広島県公安委員会 第731292600035号";
 const lineUrl = "https://lin.ee/Xp9AUJy";
 const lineWebhookEndpoint = "";
 const formEndpoint = "";
@@ -24,6 +25,7 @@ const emailLinks = document.querySelectorAll(".js-email-link");
 const phoneLinks = document.querySelectorAll(".phone-link, .js-phone-link, a[href^='tel:']");
 const phoneTextNodes = document.querySelectorAll("[data-site-phone]");
 const businessHourNodes = document.querySelectorAll("[data-site-hours]");
+const footerBrandBlocks = document.querySelectorAll(".site-footer .footer-inner > div:first-child");
 const filterButtons = document.querySelectorAll(".filter-button");
 const exampleResultCount = document.querySelector("#exampleResultCount");
 const exampleGrid = document.querySelector("#exampleGrid");
@@ -101,6 +103,15 @@ phoneTextNodes.forEach((node) => {
 
 businessHourNodes.forEach((node) => {
   node.textContent = businessHours;
+});
+
+footerBrandBlocks.forEach((block) => {
+  if (block.querySelector(".footer-permit")) return;
+
+  const permit = document.createElement("p");
+  permit.className = "footer-permit";
+  permit.textContent = usedDealerPermit;
+  block.appendChild(permit);
 });
 
 if (modalLineLink) {

@@ -97,7 +97,7 @@ name,year,mileage,price,image,budget,category,visible
 
 ## 公開前チェック
 
-- 古物商許可取得後に、公安委員会名・許可番号・許可を受けた氏名を追加
+- 古物商許可情報: 広島県公安委員会 第731292600035号を掲載済み
 - `script.js` のメール、電話、LINEを最終確認
 - `privacy.html` と `about.html` の運営情報を最終確認
 - `data/stock.csv` と `data/examples.csv` の内容を最終調整

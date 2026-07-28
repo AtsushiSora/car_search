@@ -1379,6 +1379,13 @@ pre {
   color: #b8d0e9;
 }
 
+.footer-inner .footer-permit {
+  margin-top: 8px;
+  color: #d8e8f8;
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
 .footer-inner a {
   font-weight: 800;
 }
