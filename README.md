@@ -82,7 +82,7 @@ window.orderAutoConfig = {
 在庫CSVの列:
 
 ```csv
-number,maker,name,year,mileage,color,inspection,price,label,note,image,visible
+number,maker,name,grade,year,mileage,color,inspection,price,label,note,image,visible
 ```
 
 `number` は管理用のナンバーです。サイト上には表示しませんが、スプレッドシートで在庫を整理しやすくするため左端に置きます。

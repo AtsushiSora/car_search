@@ -446,20 +446,21 @@ function renderStockVehicles(vehicles) {
 function createStockCard(vehicle) {
   const maker = vehicle.maker || "";
   const name = vehicle.name || "車両名未設定";
+  const displayName = [name, vehicle.grade].filter(Boolean).join(" ");
   const image = vehicle.image || "assets/example-suv.png";
   const label = vehicle.label || "在庫あり";
   const note = vehicle.note || "詳細はお問い合わせください。";
-  const consultHref = form ? "#contact" : `contact.html?car=${encodeURIComponent(name)}`;
+  const consultHref = form ? "#contact" : `contact.html?car=${encodeURIComponent(displayName)}`;
 
   return `
     <article class="stock-card">
       <div class="stock-photo-wrap">
-        <img class="stock-photo" src="${escapeHtml(image)}" alt="${escapeHtml(name)}の在庫車両" loading="lazy" />
+        <img class="stock-photo" src="${escapeHtml(image)}" alt="${escapeHtml(displayName)}の在庫車両" loading="lazy" />
         <span class="stock-badge">${escapeHtml(label)}</span>
       </div>
       <div class="stock-body">
         <p class="stock-maker">${escapeHtml(maker)}</p>
-        <h3>${escapeHtml(name)}</h3>
+        <h3>${escapeHtml(displayName)}</h3>
         <dl>
           ${createStockSpec("年式", vehicle.year)}
           ${createStockSpec("走行距離", vehicle.mileage)}
@@ -468,7 +469,7 @@ function createStockCard(vehicle) {
         </dl>
         <p class="stock-price">${escapeHtml(vehicle.price || "応相談")}<span>総額目安</span></p>
         <p class="stock-note">${escapeHtml(note)}</p>
-        <a class="primary-link stock-consult-link" href="${consultHref}" data-car-name="${escapeHtml(name)}">この車を相談する</a>
+        <a class="primary-link stock-consult-link" href="${consultHref}" data-car-name="${escapeHtml(displayName)}">この車を相談する</a>
       </div>
     </article>
   `;
@@ -477,19 +478,20 @@ function createStockCard(vehicle) {
 function createShowcaseStockCard(vehicle) {
   const maker = vehicle.maker || "";
   const name = vehicle.name || "車両名未設定";
+  const displayName = [name, vehicle.grade].filter(Boolean).join(" ");
   const image = vehicle.image || "";
   const label = vehicle.label || "掲載中";
   const note = vehicle.note || "詳細はお問い合わせください。";
-  const consultHref = `contact.html?car=${encodeURIComponent(name)}&budget=${encodeURIComponent(vehicle.price || "")}`;
+  const consultHref = `contact.html?car=${encodeURIComponent(displayName)}&budget=${encodeURIComponent(vehicle.price || "")}`;
   const imageMarkup = image
-    ? `<img src="${escapeHtml(image)}" alt="${escapeHtml(name)}の在庫車両" loading="lazy" />`
+    ? `<img src="${escapeHtml(image)}" alt="${escapeHtml(displayName)}の在庫車両" loading="lazy" />`
     : "車両画像";
 
   return `
     <article class="ss-car-card">
       <div class="ss-car-image">${imageMarkup}<span>${escapeHtml(label)}</span></div>
       <div class="ss-car-body">
-        <h3>${escapeHtml([maker, name].filter(Boolean).join(" "))}</h3>
+        <h3>${escapeHtml([maker, displayName].filter(Boolean).join(" "))}</h3>
         <div class="ss-car-spec">
           <span>年式: ${escapeHtml(vehicle.year || "未定")}</span>
           <span>距離: ${escapeHtml(vehicle.mileage || "未定")}</span>

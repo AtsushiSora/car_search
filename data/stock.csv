@@ -1,7 +1,7 @@
-number,maker,name,year,mileage,color,inspection,price,label,note,image,visible
-1,ダイハツ,ミライース L,2015年,8.9万km,ホワイト,車検整備付,29.8万円,掲載中,通勤や買い物用に費用を抑えたい方向けの軽自動車です。,assets/example-kei.png,TRUE
-2,スズキ,アルト F,2014年,7.6万km,シルバー,令和8年3月,24.8万円,掲載中,低予算でまず乗れる軽自動車を探している方向けです。,assets/example-kei.png,TRUE
-3,ホンダ,N-WGN G,2016年,9.4万km,ブラック,車検整備付,39.8万円,掲載中,通勤用として使いやすいサイズと装備の軽自動車です。,assets/example-kei.png,TRUE
-4,ダイハツ,タント X,2013年,10.8万km,ライトブルー,令和7年12月,34.8万円,掲載中,室内が広く送迎や買い物にも使いやすい軽自動車です。,assets/example-kei.png,TRUE
-5,スズキ,ワゴンR FX,2015年,8.2万km,ホワイト,車検整備付,36.8万円,掲載中,維持費を抑えながら日常使いしやすい軽自動車です。,assets/example-kei.png,TRUE
-6,日産,デイズ J,2017年,9.1万km,ブラウン,令和8年1月,42.8万円,掲載中,年式と価格のバランスを見たい方向けの軽自動車です。,assets/example-kei.png,TRUE
+number,maker,name,grade,year,mileage,color,inspection,price,label,note,image,visible
+1,ダイハツ,ミライース,L,2015年,8.9万km,ホワイト,車検整備付,29.8万円,掲載中,通勤や買い物用に費用を抑えたい方向けの軽自動車です。,assets/example-kei.png,TRUE
+2,スズキ,アルト,F,2014年,7.6万km,シルバー,令和8年3月,24.8万円,掲載中,低予算でまず乗れる軽自動車を探している方向けです。,assets/example-kei.png,TRUE
+3,ホンダ,N-WGN,G,2016年,9.4万km,ブラック,車検整備付,39.8万円,掲載中,通勤用として使いやすいサイズと装備の軽自動車です。,assets/example-kei.png,TRUE
+4,ダイハツ,タント,X,2013年,10.8万km,ライトブルー,令和7年12月,34.8万円,掲載中,室内が広く送迎や買い物にも使いやすい軽自動車です。,assets/example-kei.png,TRUE
+5,スズキ,ワゴンR,FX,2015年,8.2万km,ホワイト,車検整備付,36.8万円,掲載中,維持費を抑えながら日常使いしやすい軽自動車です。,assets/example-kei.png,TRUE
+6,日産,デイズ,J,2017年,9.1万km,ブラウン,令和8年1月,42.8万円,掲載中,年式と価格のバランスを見たい方向けの軽自動車です。,assets/example-kei.png,TRUE
