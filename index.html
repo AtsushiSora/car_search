@@ -656,6 +656,36 @@
         font-weight: 800;
       }
 
+      .ss-detail-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .ss-detail-links a,
+      .ss-mini-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0 15px;
+        color: var(--ss-deep);
+        background: #fff;
+        border: 1px solid var(--ss-line);
+        border-radius: 999px;
+        font-size: 0.86rem;
+        font-weight: 900;
+        box-shadow: 0 8px 20px rgba(10, 57, 108, 0.08);
+      }
+
+      .ss-detail-links a::after,
+      .ss-mini-link::after {
+        content: ">";
+        margin-left: 8px;
+        color: var(--ss-orange);
+      }
+
       .ss-voice-card {
         padding: 22px;
         background: #fff;
@@ -885,6 +915,18 @@
 
         .ss-line-strip .ss-line-cta {
           width: 100%;
+        }
+
+        .ss-detail-links {
+          gap: 8px;
+          margin-top: 12px;
+        }
+
+        .ss-detail-links a,
+        .ss-mini-link {
+          min-height: 38px;
+          padding: 0 12px;
+          font-size: 0.76rem;
         }
 
         .ss-feature {
@@ -1133,6 +1175,11 @@
             <div><strong>写真や条件はLINEでも送れます</strong><p>気になる車、予算、支払いの不安を短く送るだけでも大丈夫です。</p></div>
             <a class="ss-line-cta js-line-link" href="#" target="_blank" rel="noopener">LINEで相談</a>
           </div>
+          <div class="ss-detail-links" aria-label="できることの詳細ページ">
+            <a href="service.html">対応内容を詳しく見る</a>
+            <a href="flow.html">相談から納車までの流れ</a>
+            <a href="consultation.html">相談方法を見る</a>
+          </div>
         </div>
       </section>
 
@@ -1152,6 +1199,7 @@
             <strong>ローン相談はこちら</strong>
             <p>「審査が不安」「月々を抑えたい」など、今の状況に近い内容でフォームへ進めます。</p>
             <a class="ss-main-cta" href="contact.html?need=%E3%83%AD%E3%83%BC%E3%83%B3%E5%AF%A9%E6%9F%BB%E3%81%8C%E4%B8%8D%E5%AE%89&paymentMethod=%E3%83%AD%E3%83%BC%E3%83%B3">ローン相談をする</a>
+            <a class="ss-mini-link" href="loan.html">ローン相談を詳しく見る</a>
           </div>
         </div>
       </section>
@@ -1169,6 +1217,10 @@
           <div class="ss-line-strip">
             <div><strong>在庫がない条件でも探せます</strong><p>希望の価格、車種、走行距離、色、ローン条件に合う車が掲載在庫にない場合も、条件を伺って候補を探します。</p></div>
             <a class="ss-main-cta" href="contact.html?need=%E6%A0%BC%E5%AE%89%E3%81%AE%E8%BB%BD%E8%87%AA%E5%8B%95%E8%BB%8A%E3%82%92%E6%8E%A2%E3%81%97%E3%81%9F%E3%81%84&car=%E8%BB%BD%E8%87%AA%E5%8B%95%E8%BB%8A">条件から相談</a>
+          </div>
+          <div class="ss-detail-links" aria-label="在庫と提案の詳細ページ">
+            <a href="stock.html">在庫ページを見る</a>
+            <a href="examples.html">ご提案例を見る</a>
           </div>
         </div>
       </section>
@@ -1192,6 +1244,7 @@
             <p>「15万円台」「30万円台」「ローンが不安」など、今の状況から相談できます。</p>
             <a class="ss-main-cta" href="contact.html">相談フォームへ</a>
             <a class="ss-line-cta js-line-link" href="#" target="_blank" rel="noopener">LINEで相談</a>
+            <a class="ss-mini-link" href="trust.html">安く探せる理由を詳しく見る</a>
           </div>
         </div>
       </section>
@@ -1240,6 +1293,10 @@
             <article><span>03</span><h3>候補を提案</h3><p>候補車の価格、年式、距離、状態、別途費用をまとめて案内します。</p></article>
             <article><span>04</span><h3>確認・納車</h3><p>内容に納得してから手続きへ進み、納車方法を調整します。</p></article>
           </div>
+          <div class="ss-detail-links" aria-label="サービスの流れの詳細ページ">
+            <a href="flow.html">詳しい流れを見る</a>
+            <a href="payment.html">支払い方法を見る</a>
+          </div>
         </div>
       </section>
 
@@ -1256,6 +1313,10 @@
             <article class="ss-info-card"><strong>広島県</strong><p>広島市佐伯区を拠点に、近隣エリアの相談に対応します。</p></article>
             <article class="ss-info-card"><strong>山口県</strong><p>山口方面の方も、LINE・メール・電話で条件確認から始められます。</p></article>
             <article class="ss-info-card"><strong>全国対応</strong><p>遠方の場合は、陸送費・登録費など別途費用がかかる場合があります。</p></article>
+          </div>
+          <div class="ss-detail-links" aria-label="対応地域の詳細ページ">
+            <a href="hiroshima.html">広島の相談ページ</a>
+            <a href="yamaguchi.html">山口の相談ページ</a>
           </div>
         </div>
       </section>
@@ -1274,6 +1335,9 @@
             <article class="ss-faq-card"><strong>ローン審査が不安でも大丈夫ですか？</strong><p>審査結果の保証はできませんが、月々の希望額や頭金から無理のない候補を一緒に考えます。</p></article>
             <article class="ss-faq-card"><strong>今すぐ買わなくても相談できますか？</strong><p>できます。購入時期が未定でも、予算感や必要な費用の確認だけでも大丈夫です。</p></article>
             <article class="ss-faq-card"><strong>表示価格だけで買えますか？</strong><p>車両価格以外に、登録費・車検・整備・陸送費などがかかる場合があります。総額で確認します。</p></article>
+          </div>
+          <div class="ss-detail-links" aria-label="よくある質問の詳細ページ">
+            <a href="faq.html">よくある質問をもっと見る</a>
           </div>
         </div>
       </section>
