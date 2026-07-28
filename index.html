@@ -321,6 +321,34 @@
         font-weight: 700;
       }
 
+      .ss-feature-points {
+        display: grid;
+        gap: 6px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .ss-feature-points li {
+        position: relative;
+        padding-left: 18px;
+        color: #40536c;
+        font-size: 0.78rem;
+        font-weight: 900;
+      }
+
+      .ss-feature-points li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.58em;
+        width: 8px;
+        height: 8px;
+        background: var(--ss-yellow);
+        border: 2px solid var(--ss-blue);
+        border-radius: 50%;
+      }
+
       .ss-feature-consult {
         display: grid;
         gap: 5px;
@@ -516,6 +544,46 @@
       .ss-mini-form .ss-line-cta {
         width: 100%;
         margin-top: 10px;
+      }
+
+      .ss-support-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .ss-support-card {
+        padding: 16px;
+        background: #fff;
+        border: 1px solid var(--ss-line);
+        border-radius: 8px;
+        box-shadow: 0 10px 24px rgba(10, 57, 108, 0.08);
+      }
+
+      .ss-support-card span {
+        display: inline-flex;
+        margin-bottom: 8px;
+        padding: 4px 9px;
+        color: #fff;
+        background: var(--ss-blue);
+        border-radius: 999px;
+        font-size: 0.68rem;
+        font-weight: 900;
+      }
+
+      .ss-support-card strong {
+        display: block;
+        color: var(--ss-deep);
+        font-size: 0.98rem;
+      }
+
+      .ss-support-card p {
+        margin: 7px 0 0;
+        color: var(--ss-muted);
+        font-size: 0.82rem;
+        font-weight: 750;
+        line-height: 1.55;
       }
 
       .ss-loan-section .ss-mini-form {
@@ -957,6 +1025,10 @@
           line-height: 1.45;
         }
 
+        .ss-feature-points li {
+          font-size: 0.74rem;
+        }
+
         .ss-feature-consult {
           padding: 10px 12px;
         }
@@ -1056,6 +1128,20 @@
           font-size: 0.82rem;
           line-height: 1.5;
         }
+
+        .ss-support-grid {
+          grid-template-columns: 1fr;
+          gap: 8px;
+          margin-top: 12px;
+        }
+
+        .ss-support-card {
+          padding: 13px 14px;
+        }
+
+        .ss-support-card p {
+          font-size: 0.78rem;
+        }
       }
     </style>
   </head>
@@ -1148,6 +1234,10 @@
               <div class="ss-feature-body">
                 <strong>予算から車を探す</strong>
                 <p>車種が決まっていなくても大丈夫です。使用目的・予算・地域から候補条件を整理します。</p>
+                <ul class="ss-feature-points">
+                  <li>通勤・買い物・送迎など使い方から整理</li>
+                  <li>15万〜30万円台など低予算の優先順位を確認</li>
+                </ul>
                 <div class="ss-feature-consult"><span>おすすめの相談</span><em>15万〜30万円で軽自動車を探したい方</em></div>
                 <a class="ss-feature-link" href="contact.html?need=%E6%A0%BC%E5%AE%89%E3%81%AE%E8%BB%BD%E8%87%AA%E5%8B%95%E8%BB%8A%E3%82%92%E6%8E%A2%E3%81%97%E3%81%9F%E3%81%84&budget=%E7%B7%8F%E9%A1%8D30%E4%B8%87%E5%86%86%E4%BB%A5%E5%86%85&car=%E8%BB%BD%E8%87%AA%E5%8B%95%E8%BB%8A&method=%E3%83%A1%E3%83%BC%E3%83%AB">この条件で相談する</a>
               </div>
@@ -1157,6 +1247,10 @@
               <div class="ss-feature-body">
                 <strong>ローンの不安も相談</strong>
                 <p>月々の希望額・頭金・支払総額を確認し、無理のない価格帯を整理します。</p>
+                <ul class="ss-feature-points">
+                  <li>審査結果の保証ではなく、事前整理として相談</li>
+                  <li>月々の希望額から車両価格の目安を確認</li>
+                </ul>
                 <div class="ss-feature-consult"><span>おすすめの相談</span><em>ローンが不安なので先に相談したい方</em></div>
                 <a class="ss-feature-link" href="contact.html?need=%E6%A0%BC%E5%AE%89%E3%81%AE%E8%BB%BD%E8%87%AA%E5%8B%95%E8%BB%8A%E3%82%92%E6%8E%A2%E3%81%97%E3%81%9F%E3%81%84&need=%E3%83%AD%E3%83%BC%E3%83%B3%E5%AF%A9%E6%9F%BB%E3%81%8C%E4%B8%8D%E5%AE%89&need=%E6%9C%88%E3%80%85%E3%81%AE%E6%94%AF%E6%89%95%E3%81%84%E3%82%92%E6%8A%91%E3%81%88%E3%81%9F%E3%81%84&budget=%E7%B7%8F%E9%A1%8D50%E4%B8%87%E5%86%86%E4%BB%A5%E5%86%85&paymentMethod=%E3%83%AD%E3%83%BC%E3%83%B3&monthlyPayment=%E6%9C%88%E3%80%851%E4%B8%87%E5%86%86%E5%8F%B0%E3%81%8B%E3%82%89%E7%9B%B8%E8%AB%87&car=%E8%BB%BD%E8%87%AA%E5%8B%95%E8%BB%8A&method=LINE">ローン相談へ進む</a>
               </div>
@@ -1166,6 +1260,10 @@
               <div class="ss-feature-body">
                 <strong>費用確認から納車まで案内</strong>
                 <p>広島・山口を中心に、登録費・車検・陸送費なども確認しながら納車まで案内します。</p>
+                <ul class="ss-feature-points">
+                  <li>車両価格以外の費用も事前に確認</li>
+                  <li>遠方対応は陸送費・登録費の有無を整理</li>
+                </ul>
                 <div class="ss-feature-consult"><span>おすすめの相談</span><em>車両価格以外の費用も聞きたい方</em></div>
                 <a class="ss-feature-link" href="contact.html?need=%E6%A0%BC%E5%AE%89%E3%81%AE%E8%BB%BD%E8%87%AA%E5%8B%95%E8%BB%8A%E3%82%92%E6%8E%A2%E3%81%97%E3%81%9F%E3%81%84&notes=%E8%BB%8A%E4%B8%A1%E4%BE%A1%E6%A0%BC%E3%81%A0%E3%81%91%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%8F%E3%80%81%E7%99%BB%E9%8C%B2%E8%B2%BB%E3%83%BB%E8%BB%8A%E6%A4%9C%E3%83%BB%E9%99%B8%E9%80%81%E8%B2%BB%E3%81%AA%E3%81%A9%E5%88%A5%E9%80%94%E8%B2%BB%E7%94%A8%E3%82%82%E5%90%AB%E3%82%81%E3%81%A6%E7%9B%B8%E8%AB%87%E3%81%97%E3%81%9F%E3%81%84%E3%81%A7%E3%81%99%E3%80%82&car=%E8%BB%BD%E8%87%AA%E5%8B%95%E8%BB%8A&method=%E3%83%A1%E3%83%BC%E3%83%AB">費用を相談する</a>
               </div>
@@ -1194,6 +1292,11 @@
               <li>頭金・支払総額・別途費用を確認</li>
               <li>不安な状態で高い車をすすめない案内</li>
             </ul>
+            <div class="ss-support-grid">
+              <article class="ss-support-card"><span>01</span><strong>月々の希望</strong><p>無理なく払える金額から、候補車の価格帯を絞ります。</p></article>
+              <article class="ss-support-card"><span>02</span><strong>頭金の有無</strong><p>頭金あり・なしで、検討しやすい支払い条件を整理します。</p></article>
+              <article class="ss-support-card"><span>03</span><strong>購入時期</strong><p>急ぎか、数か月先かで探し方や候補の見方が変わります。</p></article>
+            </div>
           </div>
           <div class="ss-mini-form">
             <strong>ローン相談はこちら</strong>
@@ -1214,6 +1317,11 @@
             <p>掲載中の在庫を見ながら、希望に合う車がない場合は条件から探す相談もできます。</p>
           </div>
           <div class="ss-stock-grid" id="stockGrid" aria-live="polite"></div>
+          <div class="ss-support-grid">
+            <article class="ss-support-card"><span>CHECK</span><strong>車検・整備</strong><p>安い車ほど、購入後すぐ必要になる費用がないか確認します。</p></article>
+            <article class="ss-support-card"><span>CHECK</span><strong>距離・状態</strong><p>走行距離だけでなく、外装・内装・修復歴も見て判断します。</p></article>
+            <article class="ss-support-card"><span>CHECK</span><strong>総額目安</strong><p>登録費・陸送費など、別途費用がある場合は事前に整理します。</p></article>
+          </div>
           <div class="ss-line-strip">
             <div><strong>在庫がない条件でも探せます</strong><p>希望の価格、車種、走行距離、色、ローン条件に合う車が掲載在庫にない場合も、条件を伺って候補を探します。</p></div>
             <a class="ss-main-cta" href="contact.html?need=%E6%A0%BC%E5%AE%89%E3%81%AE%E8%BB%BD%E8%87%AA%E5%8B%95%E8%BB%8A%E3%82%92%E6%8E%A2%E3%81%97%E3%81%9F%E3%81%84&car=%E8%BB%BD%E8%87%AA%E5%8B%95%E8%BB%8A">条件から相談</a>
@@ -1238,6 +1346,11 @@
               <li>在庫コストを抑えたオーダー型で探す</li>
               <li>安さだけでなく、支払総額と状態を確認する</li>
             </ul>
+            <div class="ss-support-grid">
+              <article class="ss-support-card"><span>POINT</span><strong>必要な車だけ探す</strong><p>展示在庫ありきではなく、予算と用途に合う候補を中心に見ます。</p></article>
+              <article class="ss-support-card"><span>POINT</span><strong>低予算の優先順位</strong><p>年式・距離・車検・外装状態のどれを優先するか決めます。</p></article>
+              <article class="ss-support-card"><span>POINT</span><strong>無理な提案を避ける</strong><p>予算を超える車を前提にせず、支払い負担を先に確認します。</p></article>
+            </div>
           </div>
           <div class="ss-mini-form">
             <strong>まずは予算だけでもOK</strong>
@@ -1293,6 +1406,10 @@
             <article><span>03</span><h3>候補を提案</h3><p>候補車の価格、年式、距離、状態、別途費用をまとめて案内します。</p></article>
             <article><span>04</span><h3>確認・納車</h3><p>内容に納得してから手続きへ進み、納車方法を調整します。</p></article>
           </div>
+          <div class="ss-line-strip">
+            <div><strong>途中で条件変更しても大丈夫です</strong><p>候補を見てから「もう少し安く」「車検付きを優先」など、条件を調整できます。</p></div>
+            <a class="ss-main-cta" href="flow.html">流れを詳しく見る</a>
+          </div>
           <div class="ss-detail-links" aria-label="サービスの流れの詳細ページ">
             <a href="flow.html">詳しい流れを見る</a>
             <a href="payment.html">支払い方法を見る</a>
@@ -1313,6 +1430,11 @@
             <article class="ss-info-card"><strong>広島県</strong><p>広島市佐伯区を拠点に、近隣エリアの相談に対応します。</p></article>
             <article class="ss-info-card"><strong>山口県</strong><p>山口方面の方も、LINE・メール・電話で条件確認から始められます。</p></article>
             <article class="ss-info-card"><strong>全国対応</strong><p>遠方の場合は、陸送費・登録費など別途費用がかかる場合があります。</p></article>
+          </div>
+          <div class="ss-support-grid">
+            <article class="ss-support-card"><span>LOCAL</span><strong>近隣は相談しやすい</strong><p>広島・山口はやり取りや納車条件を整理しやすい地域です。</p></article>
+            <article class="ss-support-card"><span>REMOTE</span><strong>遠方も事前確認</strong><p>全国対応の場合は、追加費用を含めて検討しやすくします。</p></article>
+            <article class="ss-support-card"><span>LINE</span><strong>来店前に相談</strong><p>写真やURLを送りながら、先に条件を詰められます。</p></article>
           </div>
           <div class="ss-detail-links" aria-label="対応地域の詳細ページ">
             <a href="hiroshima.html">広島の相談ページ</a>
@@ -1335,6 +1457,8 @@
             <article class="ss-faq-card"><strong>ローン審査が不安でも大丈夫ですか？</strong><p>審査結果の保証はできませんが、月々の希望額や頭金から無理のない候補を一緒に考えます。</p></article>
             <article class="ss-faq-card"><strong>今すぐ買わなくても相談できますか？</strong><p>できます。購入時期が未定でも、予算感や必要な費用の確認だけでも大丈夫です。</p></article>
             <article class="ss-faq-card"><strong>表示価格だけで買えますか？</strong><p>車両価格以外に、登録費・車検・整備・陸送費などがかかる場合があります。総額で確認します。</p></article>
+            <article class="ss-faq-card"><strong>LINEだけで相談できますか？</strong><p>できます。写真、URL、希望条件をLINEで送って、必要に応じて電話やメールに切り替えられます。</p></article>
+            <article class="ss-faq-card"><strong>古物商許可はありますか？</strong><p>広島県公安委員会の古物商許可 第731292600035号を取得済みです。</p></article>
           </div>
           <div class="ss-detail-links" aria-label="よくある質問の詳細ページ">
             <a href="faq.html">よくある質問をもっと見る</a>
